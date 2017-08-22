@@ -73,7 +73,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5241474000692746108L;
+            private static final long serialVersionUID = 5361781507632064637L;
             {
                     put( "plan_id", planId );
             }});
@@ -82,7 +82,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5100890595035234214L;
+            private static final long serialVersionUID = 4974325684214400205L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -193,7 +193,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4991549753017283882L;
+            private static final long serialVersionUID = 5161085823124924909L;
             {
                     put( "plan_id", planId );
                     put( "plan_item_id", planItemId );
@@ -203,7 +203,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5295896546729275067L;
+            private static final long serialVersionUID = 4911704501587565304L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -274,112 +274,6 @@ public class PlansController extends BaseController {
     }
 
     /**
-     * Get all subscriptions from a plan
-     * @param    planId    Required parameter: Plan id
-     * @return    Returns the DynamicResponse response from the API call 
-     */
-    public DynamicResponse getPlanSubscriptions(
-                final String planId
-    ) throws Throwable {
-        APICallBackCatcher<DynamicResponse> callback = new APICallBackCatcher<DynamicResponse>();
-        getPlanSubscriptionsAsync(planId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Get all subscriptions from a plan
-     * @param    planId    Required parameter: Plan id
-     * @return    Returns the void response from the API call 
-     */
-    public void getPlanSubscriptionsAsync(
-                final String planId,
-                final APICallBack<DynamicResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/plans/{plan_id}/subscriptions");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5119664185451423895L;
-            {
-                    put( "plan_id", planId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4739437069736958007L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            DynamicResponse _result = new DynamicResponse(_response);
-
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Gets a plan
      * @param    planId    Required parameter: Plan id
      * @return    Returns the GetPlanResponse response from the API call 
@@ -412,7 +306,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4809865760658537075L;
+            private static final long serialVersionUID = 5385517767666843001L;
             {
                     put( "plan_id", planId );
             }});
@@ -421,7 +315,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5554201534066018993L;
+            private static final long serialVersionUID = 4644271542457539927L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -493,16 +387,16 @@ public class PlansController extends BaseController {
 
     /**
      * Adds a new item to a plan
-     * @param    body    Required parameter: Request for creating a plan item
      * @param    planId    Required parameter: Plan id
+     * @param    request    Required parameter: Request for creating a plan item
      * @return    Returns the GetPlanItemResponse response from the API call 
      */
     public GetPlanItemResponse createPlanItem(
-                final CreatePlanItemRequest body,
-                final String planId
+                final String planId,
+                final CreatePlanItemRequest request
     ) throws Throwable {
         APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
-        createPlanItemAsync(body, planId, callback);
+        createPlanItemAsync(planId, request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
@@ -510,13 +404,13 @@ public class PlansController extends BaseController {
 
     /**
      * Adds a new item to a plan
-     * @param    body    Required parameter: Request for creating a plan item
      * @param    planId    Required parameter: Plan id
+     * @param    request    Required parameter: Request for creating a plan item
      * @return    Returns the void response from the API call 
      */
     public void createPlanItemAsync(
-                final CreatePlanItemRequest body,
                 final String planId,
+                final CreatePlanItemRequest request,
                 final APICallBack<GetPlanItemResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
@@ -528,7 +422,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5134414090447540000L;
+            private static final long serialVersionUID = 5352108886258185540L;
             {
                     put( "plan_id", planId );
             }});
@@ -537,7 +431,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5307919131891273882L;
+            private static final long serialVersionUID = 5396558686623472600L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -545,7 +439,7 @@ public class PlansController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(body),
+        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -609,16 +503,16 @@ public class PlansController extends BaseController {
 
     /**
      * Updates a plan
-     * @param    body    Required parameter: Request for updating a plan
      * @param    planId    Required parameter: Plan id
+     * @param    request    Required parameter: Request for updating a plan
      * @return    Returns the GetPlanResponse response from the API call 
      */
     public GetPlanResponse updatePlan(
-                final UpdatePlanRequest body,
-                final String planId
+                final String planId,
+                final UpdatePlanRequest request
     ) throws Throwable {
         APICallBackCatcher<GetPlanResponse> callback = new APICallBackCatcher<GetPlanResponse>();
-        updatePlanAsync(body, planId, callback);
+        updatePlanAsync(planId, request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
@@ -626,13 +520,13 @@ public class PlansController extends BaseController {
 
     /**
      * Updates a plan
-     * @param    body    Required parameter: Request for updating a plan
      * @param    planId    Required parameter: Plan id
+     * @param    request    Required parameter: Request for updating a plan
      * @return    Returns the void response from the API call 
      */
     public void updatePlanAsync(
-                final UpdatePlanRequest body,
                 final String planId,
+                final UpdatePlanRequest request,
                 final APICallBack<GetPlanResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
@@ -644,7 +538,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5418182677103862685L;
+            private static final long serialVersionUID = 4683164824052826336L;
             {
                     put( "plan_id", planId );
             }});
@@ -653,7 +547,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5547511757329939676L;
+            private static final long serialVersionUID = 5639550658530377619L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -661,7 +555,7 @@ public class PlansController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(body),
+        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(request),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -758,7 +652,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4793791408867871343L;
+            private static final long serialVersionUID = 5758022705390716037L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -859,7 +753,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5120152812562186846L;
+            private static final long serialVersionUID = 5468505004290042398L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -962,7 +856,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5298989095634496669L;
+            private static final long serialVersionUID = 5639198581723184246L;
             {
                     put( "plan_id", planId );
             }});
@@ -971,7 +865,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4985903703737257774L;
+            private static final long serialVersionUID = 5081125043793239687L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1078,7 +972,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4617669282601684844L;
+            private static final long serialVersionUID = 5381240469580928997L;
             {
                     put( "plan_id", planId );
                     put( "plan_item_id", planItemId );
@@ -1088,7 +982,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5487526914690884134L;
+            private static final long serialVersionUID = 5177213355060627187L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1195,7 +1089,7 @@ public class PlansController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5643364091910857561L;
+            private static final long serialVersionUID = 5751553034500950011L;
             {
                     put( "plan_id", planId );
                     put( "plan_item_id", planItemId );
@@ -1205,7 +1099,7 @@ public class PlansController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5081876630882431252L;
+            private static final long serialVersionUID = 4691430007924377800L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );

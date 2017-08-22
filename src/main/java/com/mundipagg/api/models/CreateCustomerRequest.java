@@ -11,14 +11,15 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCustomerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4718363772408299053L;
+    private static final long serialVersionUID = 5536817144080368945L;
     private String name;
     private String email;
-    private String phone;
     private String document;
-    private String personType;
+    private String type;
     private CreateAddressRequest address;
     private LinkedHashMap<String, String> metadata;
+    private CreatePhonesRequest phones;
+    private String code;
     /** GETTER
      * Name
      */
@@ -52,22 +53,6 @@ public class CreateCustomerRequest
     }
  
     /** GETTER
-     * Phone number. Only numbers, no special characters.
-     */
-    @JsonGetter("phone")
-    public String getPhone ( ) { 
-        return this.phone;
-    }
-    
-    /** SETTER
-     * Phone number. Only numbers, no special characters.
-     */
-    @JsonSetter("phone")
-    public void setPhone (String value) { 
-        this.phone = value;
-    }
- 
-    /** GETTER
      * Document number. Only numbers, no special characters.
      */
     @JsonGetter("document")
@@ -84,19 +69,19 @@ public class CreateCustomerRequest
     }
  
     /** GETTER
-     * Person type. Can be either 'person' or 'company'
+     * Person type. Can be either 'individual' or 'company'
      */
-    @JsonGetter("person_type")
-    public String getPersonType ( ) { 
-        return this.personType;
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
     }
     
     /** SETTER
-     * Person type. Can be either 'person' or 'company'
+     * Person type. Can be either 'individual' or 'company'
      */
-    @JsonSetter("person_type")
-    public void setPersonType (String value) { 
-        this.personType = value;
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
     /** GETTER
@@ -129,6 +114,38 @@ public class CreateCustomerRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("phones")
+    public CreatePhonesRequest getPhones ( ) { 
+        return this.phones;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("phones")
+    public void setPhones (CreatePhonesRequest value) { 
+        this.phones = value;
+    }
+ 
+    /** GETTER
+     * Customer code
+     */
+    @JsonGetter("code")
+    public String getCode ( ) { 
+        return this.code;
+    }
+    
+    /** SETTER
+     * Customer code
+     */
+    @JsonSetter("code")
+    public void setCode (String value) { 
+        this.code = value;
     }
  
 }

@@ -9,9 +9,9 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class GetCreditCardResponse 
+public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5748713085619301275L;
+    private static final long serialVersionUID = 5642758340020266189L;
     private String id;
     private String lastFourDigits;
     private String brand;
@@ -24,6 +24,8 @@ public class GetCreditCardResponse
     private GetBillingAddressResponse billingAddress;
     private GetCustomerResponse customer;
     private LinkedHashMap<String, String> metadata;
+    private String type;
+    private String holderDocument;
     private Date deletedAt;
     /** GETTER
      * TODO: Write general description for this method
@@ -215,6 +217,38 @@ public class GetCreditCardResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Card type
+     */
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
+    }
+    
+    /** SETTER
+     * Card type
+     */
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
+    }
+ 
+    /** GETTER
+     * Document number for the card's holder
+     */
+    @JsonGetter("holder_document")
+    public String getHolderDocument ( ) { 
+        return this.holderDocument;
+    }
+    
+    /** SETTER
+     * Document number for the card's holder
+     */
+    @JsonSetter("holder_document")
+    public void setHolderDocument (String value) { 
+        this.holderDocument = value;
     }
  
     /** GETTER

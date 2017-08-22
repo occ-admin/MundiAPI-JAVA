@@ -58,6 +58,14 @@ public class MundiAPIClient {
     }
 
     /**
+     * Singleton access to Tokens controller
+     * @return	Returns the TokensController instance 
+     */
+    public TokensController getTokens() {
+        return TokensController.getInstance();
+    }
+
+    /**
      * Get the shared http client currently being used for API calls
      * @return The http client instance currently being used
      */
@@ -76,8 +84,8 @@ public class MundiAPIClient {
     /**
      * Default constructor 
      */     
-    public MundiAPIClient() {	
-	}
+    public MundiAPIClient() {
+    }
 
     /**
      * Client initialization constructor 

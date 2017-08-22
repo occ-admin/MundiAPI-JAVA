@@ -49,6 +49,30 @@ public class CreatePaymentRequestBuilder {
         createPaymentRequest.setCurrency(currency);
         return this;
     }
+
+    /**
+     * Settings for voucher payment
+     */
+    public CreatePaymentRequestBuilder voucher(CreateVoucherPaymentRequest voucher) {
+        createPaymentRequest.setVoucher(voucher);
+        return this;
+    }
+
+    /**
+     * Settings for bank transfer payment
+     */
+    public CreatePaymentRequestBuilder bankTransfer(CreateBankTransferPaymentRequest bankTransfer) {
+        createPaymentRequest.setBankTransfer(bankTransfer);
+        return this;
+    }
+
+    /**
+     * Gateway affiliation code
+     */
+    public CreatePaymentRequestBuilder gatewayAffiliationId(String gatewayAffiliationId) {
+        createPaymentRequest.setGatewayAffiliationId(gatewayAffiliationId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

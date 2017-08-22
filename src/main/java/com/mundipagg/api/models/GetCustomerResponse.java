@@ -11,19 +11,19 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCustomerResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4644938549960137192L;
+    private static final long serialVersionUID = 5372196353118456598L;
     private String id;
     private String name;
     private String email;
     private boolean delinquent;
     private Date createdAt;
     private Date updatedAt;
-    private String phone;
     private String document;
-    private String personType;
+    private String type;
     private String fbAccessToken;
     private GetAddressResponse address;
     private LinkedHashMap<String, String> metadata;
+    private GetPhonesResponse phones;
     private Long fbId;
     /** GETTER
      * TODO: Write general description for this method
@@ -124,22 +124,6 @@ public class GetCustomerResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("phone")
-    public String getPhone ( ) { 
-        return this.phone;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("phone")
-    public void setPhone (String value) { 
-        this.phone = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
     @JsonGetter("document")
     public String getDocument ( ) { 
         return this.document;
@@ -156,17 +140,17 @@ public class GetCustomerResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("person_type")
-    public String getPersonType ( ) { 
-        return this.personType;
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("person_type")
-    public void setPersonType (String value) { 
-        this.personType = value;
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
     /** GETTER
@@ -215,6 +199,22 @@ public class GetCustomerResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("phones")
+    public GetPhonesResponse getPhones ( ) { 
+        return this.phones;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("phones")
+    public void setPhones (GetPhonesResponse value) { 
+        this.phones = value;
     }
  
     /** GETTER

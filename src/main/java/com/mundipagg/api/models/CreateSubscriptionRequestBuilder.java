@@ -18,128 +18,203 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest = new CreateSubscriptionRequest();
     }
 
-    public CreateSubscriptionRequestBuilder planId(String planId) {
-        createSubscriptionRequest.setPlanId(planId);
-        return this;
-    }
-
+    /**
+     * Customer
+     */
     public CreateSubscriptionRequestBuilder customer(CreateCustomerRequest customer) {
         createSubscriptionRequest.setCustomer(customer);
         return this;
     }
 
-    public CreateSubscriptionRequestBuilder creditCard(CreateCreditCardRequest creditCard) {
-        createSubscriptionRequest.setCreditCard(creditCard);
+    /**
+     * Card
+     */
+    public CreateSubscriptionRequestBuilder card(CreateCardRequest card) {
+        createSubscriptionRequest.setCard(card);
         return this;
     }
 
+    /**
+     * Subscription code
+     */
     public CreateSubscriptionRequestBuilder code(String code) {
         createSubscriptionRequest.setCode(code);
         return this;
     }
 
-    public CreateSubscriptionRequestBuilder customerId(String customerId) {
-        createSubscriptionRequest.setCustomerId(customerId);
-        return this;
-    }
-
-    public CreateSubscriptionRequestBuilder creditCardId(String creditCardId) {
-        createSubscriptionRequest.setCreditCardId(creditCardId);
-        return this;
-    }
-
-    public CreateSubscriptionRequestBuilder creditCardGatewayId(String creditCardGatewayId) {
-        createSubscriptionRequest.setCreditCardGatewayId(creditCardGatewayId);
-        return this;
-    }
-
+    /**
+     * Payment method
+     */
     public CreateSubscriptionRequestBuilder paymentMethod(String paymentMethod) {
         createSubscriptionRequest.setPaymentMethod(paymentMethod);
         return this;
     }
 
+    /**
+     * Billing type
+     */
     public CreateSubscriptionRequestBuilder billingType(String billingType) {
         createSubscriptionRequest.setBillingType(billingType);
         return this;
     }
 
+    /**
+     * Statement descriptor for credit card subscriptions
+     */
     public CreateSubscriptionRequestBuilder statementDescriptor(String statementDescriptor) {
         createSubscriptionRequest.setStatementDescriptor(statementDescriptor);
         return this;
     }
 
+    /**
+     * Subscription description
+     */
     public CreateSubscriptionRequestBuilder description(String description) {
         createSubscriptionRequest.setDescription(description);
         return this;
     }
 
+    /**
+     * Currency
+     */
     public CreateSubscriptionRequestBuilder currency(String currency) {
         createSubscriptionRequest.setCurrency(currency);
         return this;
     }
 
+    /**
+     * Interval
+     */
     public CreateSubscriptionRequestBuilder interval(String interval) {
         createSubscriptionRequest.setInterval(interval);
         return this;
     }
 
+    /**
+     * Interval count
+     */
     public CreateSubscriptionRequestBuilder intervalCount(int intervalCount) {
         createSubscriptionRequest.setIntervalCount(intervalCount);
         return this;
     }
 
+    /**
+     * Subscription pricing scheme
+     */
     public CreateSubscriptionRequestBuilder pricingScheme(CreatePricingSchemeRequest pricingScheme) {
         createSubscriptionRequest.setPricingScheme(pricingScheme);
         return this;
     }
 
+    /**
+     * Subscription items
+     */
     public CreateSubscriptionRequestBuilder items(List<CreateSubscriptionItemRequest> items) {
         createSubscriptionRequest.setItems(items);
         return this;
     }
 
+    /**
+     * Shipping
+     */
     public CreateSubscriptionRequestBuilder shipping(CreateShippingRequest shipping) {
         createSubscriptionRequest.setShipping(shipping);
         return this;
     }
 
+    /**
+     * Discounts
+     */
     public CreateSubscriptionRequestBuilder discounts(List<CreateDiscountRequest> discounts) {
         createSubscriptionRequest.setDiscounts(discounts);
         return this;
     }
 
+    /**
+     * Metadata
+     */
     public CreateSubscriptionRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
         createSubscriptionRequest.setMetadata(metadata);
         return this;
     }
 
+    /**
+     * Setup data
+     */
     public CreateSubscriptionRequestBuilder setup(CreateSetupRequest setup) {
         createSubscriptionRequest.setSetup(setup);
         return this;
     }
 
+    /**
+     * Plan id
+     */
+    public CreateSubscriptionRequestBuilder planId(String planId) {
+        createSubscriptionRequest.setPlanId(planId);
+        return this;
+    }
+
+    /**
+     * Customer id
+     */
+    public CreateSubscriptionRequestBuilder customerId(String customerId) {
+        createSubscriptionRequest.setCustomerId(customerId);
+        return this;
+    }
+
+    /**
+     * Card id
+     */
+    public CreateSubscriptionRequestBuilder cardId(String cardId) {
+        createSubscriptionRequest.setCardId(cardId);
+        return this;
+    }
+
+    /**
+     * Billing day
+     */
     public CreateSubscriptionRequestBuilder billingDay(Integer billingDay) {
         createSubscriptionRequest.setBillingDay(billingDay);
         return this;
     }
 
+    /**
+     * Number of installments
+     */
     public CreateSubscriptionRequestBuilder installments(Integer installments) {
         createSubscriptionRequest.setInstallments(installments);
         return this;
     }
 
+    /**
+     * Subscription start date
+     */
     public CreateSubscriptionRequestBuilder startAt(Date startAt) {
         createSubscriptionRequest.setStartAt(startAt);
         return this;
     }
 
+    /**
+     * Subscription minimum price
+     */
     public CreateSubscriptionRequestBuilder minimumPrice(Integer minimumPrice) {
         createSubscriptionRequest.setMinimumPrice(minimumPrice);
         return this;
     }
 
+    /**
+     * Number of cycles
+     */
     public CreateSubscriptionRequestBuilder cycles(Integer cycles) {
         createSubscriptionRequest.setCycles(cycles);
+        return this;
+    }
+
+    /**
+     * Card token
+     */
+    public CreateSubscriptionRequestBuilder cardToken(String cardToken) {
+        createSubscriptionRequest.setCardToken(cardToken);
         return this;
     }
     /**

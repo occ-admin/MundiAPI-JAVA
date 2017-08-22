@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateDiscountRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5345512131181047158L;
+    private static final long serialVersionUID = 4961155203130714690L;
     private double value;
     private String discountType;
     private String itemId;

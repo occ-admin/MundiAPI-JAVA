@@ -48,6 +48,11 @@ public class GetBoletoTransactionResponseBuilder
         getBoletoTransactionResponse.setInstructions(instructions);
         return this;
     }
+
+    public GetBoletoTransactionResponseBuilder billingAddress(GetBillingAddressResponse billingAddress) {
+        getBoletoTransactionResponse.setBillingAddress(billingAddress);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

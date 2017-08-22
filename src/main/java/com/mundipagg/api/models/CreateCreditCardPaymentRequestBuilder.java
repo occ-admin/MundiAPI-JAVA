@@ -37,8 +37,8 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * Credit card data
      */
-    public CreateCreditCardPaymentRequestBuilder creditCardInfo(CreateCreditCardRequest creditCardInfo) {
-        createCreditCardPaymentRequest.setCreditCardInfo(creditCardInfo);
+    public CreateCreditCardPaymentRequestBuilder card(CreateCardRequest card) {
+        createCreditCardPaymentRequest.setCard(card);
         return this;
     }
 
@@ -61,8 +61,13 @@ public class CreateCreditCardPaymentRequestBuilder {
     /**
      * The credit card id
      */
-    public CreateCreditCardPaymentRequestBuilder creditCardId(String creditCardId) {
-        createCreditCardPaymentRequest.setCreditCardId(creditCardId);
+    public CreateCreditCardPaymentRequestBuilder cardId(String cardId) {
+        createCreditCardPaymentRequest.setCardId(cardId);
+        return this;
+    }
+
+    public CreateCreditCardPaymentRequestBuilder cardToken(String cardToken) {
+        createCreditCardPaymentRequest.setCardToken(cardToken);
         return this;
     }
 

@@ -11,11 +11,10 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSubscriptionPaymentMethodRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5624867442817107911L;
+    private static final long serialVersionUID = 5547949257843749902L;
     private String paymentMethod;
-    private String creditCardId;
-    private String creditCardGatewayId;
-    private CreateCreditCardRequest creditCard;
+    private String cardId;
+    private CreateCardRequest card;
     /** GETTER
      * The new payment method
      */
@@ -33,51 +32,35 @@ public class UpdateSubscriptionPaymentMethodRequest
     }
  
     /** GETTER
-     * Credit card's id
+     * Card id
      */
-    @JsonGetter("credit_card_id")
-    public String getCreditCardId ( ) { 
-        return this.creditCardId;
+    @JsonGetter("card_id")
+    public String getCardId ( ) { 
+        return this.cardId;
     }
     
     /** SETTER
-     * Credit card's id
+     * Card id
      */
-    @JsonSetter("credit_card_id")
-    public void setCreditCardId (String value) { 
-        this.creditCardId = value;
+    @JsonSetter("card_id")
+    public void setCardId (String value) { 
+        this.cardId = value;
     }
  
     /** GETTER
-     * Credit card's gateway id
+     * Card data
      */
-    @JsonGetter("credit_card_gateway_id")
-    public String getCreditCardGatewayId ( ) { 
-        return this.creditCardGatewayId;
+    @JsonGetter("card")
+    public CreateCardRequest getCard ( ) { 
+        return this.card;
     }
     
     /** SETTER
-     * Credit card's gateway id
+     * Card data
      */
-    @JsonSetter("credit_card_gateway_id")
-    public void setCreditCardGatewayId (String value) { 
-        this.creditCardGatewayId = value;
-    }
- 
-    /** GETTER
-     * Credit card data
-     */
-    @JsonGetter("credit_card")
-    public CreateCreditCardRequest getCreditCard ( ) { 
-        return this.creditCard;
-    }
-    
-    /** SETTER
-     * Credit card data
-     */
-    @JsonSetter("credit_card")
-    public void setCreditCard (CreateCreditCardRequest value) { 
-        this.creditCard = value;
+    @JsonSetter("card")
+    public void setCard (CreateCardRequest value) { 
+        this.card = value;
     }
  
 }

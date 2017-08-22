@@ -49,6 +49,14 @@ public class UpdateChargePaymentMethodRequestBuilder {
         updateChargePaymentMethodRequest.setBoleto(boleto);
         return this;
     }
+
+    /**
+     * Voucher data
+     */
+    public UpdateChargePaymentMethodRequestBuilder voucher(CreateVoucherPaymentRequest voucher) {
+        updateChargePaymentMethodRequest.setVoucher(voucher);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

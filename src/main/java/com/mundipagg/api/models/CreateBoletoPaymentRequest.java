@@ -11,10 +11,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5011545914350719992L;
+    private static final long serialVersionUID = 5444868736862248234L;
     private int retries;
     private String bank;
     private String instructions;
+    private Date dueAt;
+    private CreateAddressRequest billingAddress;
+    private String billingAddressId;
     /** GETTER
      * Number of retries
      */
@@ -61,6 +64,54 @@ public class CreateBoletoPaymentRequest
     @JsonSetter("instructions")
     public void setInstructions (String value) { 
         this.instructions = value;
+    }
+ 
+    /** GETTER
+     * Boleto due date
+     */
+    @JsonGetter("due_at")
+    public Date getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * Boleto due date
+     */
+    @JsonSetter("due_at")
+    public void setDueAt (Date value) { 
+        this.dueAt = value;
+    }
+ 
+    /** GETTER
+     * Card's billing address
+     */
+    @JsonGetter("billing_address")
+    public CreateAddressRequest getBillingAddress ( ) { 
+        return this.billingAddress;
+    }
+    
+    /** SETTER
+     * Card's billing address
+     */
+    @JsonSetter("billing_address")
+    public void setBillingAddress (CreateAddressRequest value) { 
+        this.billingAddress = value;
+    }
+ 
+    /** GETTER
+     * The address id for the billing address
+     */
+    @JsonGetter("billing_address_id")
+    public String getBillingAddressId ( ) { 
+        return this.billingAddressId;
+    }
+    
+    /** SETTER
+     * The address id for the billing address
+     */
+    @JsonSetter("billing_address_id")
+    public void setBillingAddressId (String value) { 
+        this.billingAddressId = value;
     }
  
 }

@@ -19,14 +19,6 @@ public class GetTransactionResponseBuilder {
     }
 
     /**
-     * Transaction type
-     */
-    public GetTransactionResponseBuilder transactionType(String transactionType) {
-        getTransactionResponse.setTransactionType(transactionType);
-        return this;
-    }
-
-    /**
      * Gateway transaction id
      */
     public GetTransactionResponseBuilder gatewayId(String gatewayId) {
@@ -95,6 +87,11 @@ public class GetTransactionResponseBuilder {
      */
     public GetTransactionResponseBuilder nextAttempt(Date nextAttempt) {
         getTransactionResponse.setNextAttempt(nextAttempt);
+        return this;
+    }
+
+    public GetTransactionResponseBuilder transactionType(String transactionType) {
+        getTransactionResponse.setTransactionType(transactionType);
         return this;
     }
     /**

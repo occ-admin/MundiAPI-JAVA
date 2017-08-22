@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4712858360120478328L;
+    private static final long serialVersionUID = 4867971332819484516L;
     private int installments = 1;
     private String statementDescriptor;
-    private CreateCreditCardRequest creditCardInfo;
+    private CreateCardRequest card;
     private int retries;
     private boolean updateSubscriptionCard;
-    private String creditCardId;
+    private String cardId;
+    private String cardToken;
     private Boolean capture = true;
     /** GETTER
      * Number of installments
@@ -54,17 +55,17 @@ public class CreateCreditCardPaymentRequest
     /** GETTER
      * Credit card data
      */
-    @JsonGetter("credit_card_info")
-    public CreateCreditCardRequest getCreditCardInfo ( ) { 
-        return this.creditCardInfo;
+    @JsonGetter("card")
+    public CreateCardRequest getCard ( ) { 
+        return this.card;
     }
     
     /** SETTER
      * Credit card data
      */
-    @JsonSetter("credit_card_info")
-    public void setCreditCardInfo (CreateCreditCardRequest value) { 
-        this.creditCardInfo = value;
+    @JsonSetter("card")
+    public void setCard (CreateCardRequest value) { 
+        this.card = value;
     }
  
     /** GETTER
@@ -102,17 +103,33 @@ public class CreateCreditCardPaymentRequest
     /** GETTER
      * The credit card id
      */
-    @JsonGetter("credit_card_id")
-    public String getCreditCardId ( ) { 
-        return this.creditCardId;
+    @JsonGetter("card_id")
+    public String getCardId ( ) { 
+        return this.cardId;
     }
     
     /** SETTER
      * The credit card id
      */
-    @JsonSetter("credit_card_id")
-    public void setCreditCardId (String value) { 
-        this.creditCardId = value;
+    @JsonSetter("card_id")
+    public void setCardId (String value) { 
+        this.cardId = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("card_token")
+    public String getCardToken ( ) { 
+        return this.cardToken;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("card_token")
+    public void setCardToken (String value) { 
+        this.cardToken = value;
     }
  
     /** GETTER

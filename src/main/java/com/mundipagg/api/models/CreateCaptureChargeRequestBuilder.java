@@ -19,6 +19,14 @@ public class CreateCaptureChargeRequestBuilder {
     }
 
     /**
+     * Code for the charge. Sending this field will update the code send on the charge and order creation.
+     */
+    public CreateCaptureChargeRequestBuilder code(String code) {
+        createCaptureChargeRequest.setCode(code);
+        return this;
+    }
+
+    /**
      * The amount that will be captured
      */
     public CreateCaptureChargeRequestBuilder amount(Integer amount) {

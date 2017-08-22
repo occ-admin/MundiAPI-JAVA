@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5628997173557892381L;
+    private static final long serialVersionUID = 4991035884241377166L;
     private String url;
     private String barCode;
     private String nossoNumero;
     private String bank;
     private String documentNumber;
     private String instructions;
+    private GetBillingAddressResponse billingAddress;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -112,6 +113,22 @@ public class GetBoletoTransactionResponse
     @JsonSetter("instructions")
     public void setInstructions (String value) { 
         this.instructions = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("billing_address")
+    public GetBillingAddressResponse getBillingAddress ( ) { 
+        return this.billingAddress;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("billing_address")
+    public void setBillingAddress (GetBillingAddressResponse value) { 
+        this.billingAddress = value;
     }
  
 }

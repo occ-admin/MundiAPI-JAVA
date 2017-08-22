@@ -11,18 +11,18 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCreditCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5426706956636966427L;
+    private static final long serialVersionUID = 4949845748595213749L;
     private String statementDescriptor;
-    private String acquirer;
+    private String acquirerName;
     private String acquirerAffiliationCode;
     private String acquirerTid;
     private String acquirerNsu;
     private String acquirerAuthCode;
     private String operationType;
-    private GetCreditCardResponse creditCard;
+    private GetCardResponse card;
     private Integer installments;
     /** GETTER
-     * TODO: Write general description for this method
+     * Text that will appear on the credit card's statement
      */
     @JsonGetter("statement_descriptor")
     public String getStatementDescriptor ( ) { 
@@ -30,7 +30,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Text that will appear on the credit card's statement
      */
     @JsonSetter("statement_descriptor")
     public void setStatementDescriptor (String value) { 
@@ -38,23 +38,23 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Acquirer name
      */
-    @JsonGetter("acquirer")
-    public String getAcquirer ( ) { 
-        return this.acquirer;
+    @JsonGetter("acquirer_name")
+    public String getAcquirerName ( ) { 
+        return this.acquirerName;
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Acquirer name
      */
-    @JsonSetter("acquirer")
-    public void setAcquirer (String value) { 
-        this.acquirer = value;
+    @JsonSetter("acquirer_name")
+    public void setAcquirerName (String value) { 
+        this.acquirerName = value;
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Aquirer affiliation code
      */
     @JsonGetter("acquirer_affiliation_code")
     public String getAcquirerAffiliationCode ( ) { 
@@ -62,7 +62,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Aquirer affiliation code
      */
     @JsonSetter("acquirer_affiliation_code")
     public void setAcquirerAffiliationCode (String value) { 
@@ -70,7 +70,7 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Acquirer TID
      */
     @JsonGetter("acquirer_tid")
     public String getAcquirerTid ( ) { 
@@ -78,7 +78,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Acquirer TID
      */
     @JsonSetter("acquirer_tid")
     public void setAcquirerTid (String value) { 
@@ -86,7 +86,7 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Acquirer NSU
      */
     @JsonGetter("acquirer_nsu")
     public String getAcquirerNsu ( ) { 
@@ -94,7 +94,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Acquirer NSU
      */
     @JsonSetter("acquirer_nsu")
     public void setAcquirerNsu (String value) { 
@@ -102,7 +102,7 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Acquirer authorization code
      */
     @JsonGetter("acquirer_auth_code")
     public String getAcquirerAuthCode ( ) { 
@@ -110,7 +110,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Acquirer authorization code
      */
     @JsonSetter("acquirer_auth_code")
     public void setAcquirerAuthCode (String value) { 
@@ -118,7 +118,7 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Operation type
      */
     @JsonGetter("operation_type")
     public String getOperationType ( ) { 
@@ -126,7 +126,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Operation type
      */
     @JsonSetter("operation_type")
     public void setOperationType (String value) { 
@@ -134,23 +134,23 @@ public class GetCreditCardTransactionResponse
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Card data
      */
-    @JsonGetter("credit_card")
-    public GetCreditCardResponse getCreditCard ( ) { 
-        return this.creditCard;
+    @JsonGetter("card")
+    public GetCardResponse getCard ( ) { 
+        return this.card;
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Card data
      */
-    @JsonSetter("credit_card")
-    public void setCreditCard (GetCreditCardResponse value) { 
-        this.creditCard = value;
+    @JsonSetter("card")
+    public void setCard (GetCardResponse value) { 
+        this.card = value;
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Number of installments
      */
     @JsonGetter("installments")
     public Integer getInstallments ( ) { 
@@ -158,7 +158,7 @@ public class GetCreditCardTransactionResponse
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Number of installments
      */
     @JsonSetter("installments")
     public void setInstallments (Integer value) { 

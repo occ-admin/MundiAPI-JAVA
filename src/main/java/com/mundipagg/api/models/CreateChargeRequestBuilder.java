@@ -35,14 +35,6 @@ public class CreateChargeRequestBuilder {
     }
 
     /**
-     * The charge due date
-     */
-    public CreateChargeRequestBuilder dueAt(Date dueAt) {
-        createChargeRequest.setDueAt(dueAt);
-        return this;
-    }
-
-    /**
      * The customer's id
      */
     public CreateChargeRequestBuilder customerId(String customerId) {
@@ -71,6 +63,14 @@ public class CreateChargeRequestBuilder {
      */
     public CreateChargeRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
         createChargeRequest.setMetadata(metadata);
+        return this;
+    }
+
+    /**
+     * The charge due date
+     */
+    public CreateChargeRequestBuilder dueAt(Date dueAt) {
+        createChargeRequest.setDueAt(dueAt);
         return this;
     }
     /**

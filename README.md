@@ -1,5 +1,7 @@
 # Getting started
 
+Mundipagg API
+
 ## How to Build
 
 The generated code uses a few Maven dependencies e.g., Jackson, UniRest,
@@ -9,62 +11,62 @@ you will need internet access for a successful build.
 
 * In order to open the client library in Eclipse click on ``` File -> Import ```.
 
-![Importing SDK into Eclipse - Step 1](https://apidocs.io/illustration/java?step=import0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Importing SDK into Eclipse - Step 1](https://apidocs.io/illustration/java?step=import0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 * In the import dialog, select ``` Existing Java Project ``` and click ``` Next ```.
 
-![Importing SDK into Eclipse - Step 2](https://apidocs.io/illustration/java?step=import1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Importing SDK into Eclipse - Step 2](https://apidocs.io/illustration/java?step=import1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 * Browse to locate the folder containing the source code. Select the detected location of the project and click ``` Finish ```.
 
-![Importing SDK into Eclipse - Step 3](https://apidocs.io/illustration/java?step=import2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Importing SDK into Eclipse - Step 3](https://apidocs.io/illustration/java?step=import2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 * Upon successful import, the project will be automatically built by Eclipse after automatically resolving the dependencies.
 
-![Importing SDK into Eclipse - Step 4](https://apidocs.io/illustration/java?step=import3&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Importing SDK into Eclipse - Step 4](https://apidocs.io/illustration/java?step=import3&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 ## How to Use
 
-The following section explains how to use the MundiAPILib library in a new console project.
+The following section explains how to use the MundiAPI library in a new console project.
 
 ### 1. Starting a new project
 
 For starting a new project, click the menu command ``` File > New > Project ```.
 
-![Add a new project in Eclipse](https://apidocs.io/illustration/java?step=createNewProject0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Add a new project in Eclipse](https://apidocs.io/illustration/java?step=createNewProject0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 Next, choose ``` Maven > Maven Project ```and click ``` Next ```.
 
-![Create a new Maven Project - Step 1](https://apidocs.io/illustration/java?step=createNewProject1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Create a new Maven Project - Step 1](https://apidocs.io/illustration/java?step=createNewProject1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 Here, make sure to use the current workspace by choosing ``` Use default Workspace location ```, as shown in the picture below and click ``` Next ```.
 
-![Create a new Maven Project - Step 2](https://apidocs.io/illustration/java?step=createNewProject2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Create a new Maven Project - Step 2](https://apidocs.io/illustration/java?step=createNewProject2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 Following this, select the *quick start* project type to create a simple project with an existing class and a ``` main ``` method. To do this, choose ``` maven-archetype-quickstart ``` item from the list and click ``` Next ```.
 
-![Create a new Maven Project - Step 3](https://apidocs.io/illustration/java?step=createNewProject3&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Create a new Maven Project - Step 3](https://apidocs.io/illustration/java?step=createNewProject3&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 In the last step, provide a ``` Group Id ``` and ``` Artifact Id ``` as shown in the picture below and click ``` Finish ```.
 
-![Create a new Maven Project - Step 4](https://apidocs.io/illustration/java?step=createNewProject4&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Create a new Maven Project - Step 4](https://apidocs.io/illustration/java?step=createNewProject4&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 ### 2. Add reference of the library project
 
 The created Maven project manages its dependencies using its ``` pom.xml ``` file. In order to add a dependency on the *MundiAPILib* client library, double click on the ``` pom.xml ``` file in the ``` Package Explorer ```. Opening the ``` pom.xml ``` file will render a graphical view on the cavas. Here, switch to the ``` Dependencies ``` tab and click the ``` Add ``` button as shown in the picture below.
 
-![Adding dependency to the client library - Step 1](https://apidocs.io/illustration/java?step=testProject0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Adding dependency to the client library - Step 1](https://apidocs.io/illustration/java?step=testProject0&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
-Clicking the ``` Add ``` button will open a dialog where you need to specify MundiAPILib in ``` Group Id ``` and MundiAPILib in the ``` Artifact Id ``` fields. Once added click ``` OK ```. Save the ``` pom.xml ``` file.
+Clicking the ``` Add ``` button will open a dialog where you need to specify MundiAPI in ``` Group Id ``` and MundiAPILib in the ``` Artifact Id ``` fields. Once added click ``` OK ```. Save the ``` pom.xml ``` file.
 
-![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject1&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 ### 3. Write sample code
 
 Once the ``` SimpleConsoleApp ``` is created, a file named ``` App.java ``` will be visible in the *Package Explorer* with a ``` main ``` method. This is the entry point for the execution of the created project.
 Here, you can add code to initialize the client library and instantiate a *Controller* class. Sample code to initialize the client library and using controller methods is given in the subsequent sections.
 
-![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPILib&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
+![Adding dependency to the client library - Step 2](https://apidocs.io/illustration/java?step=testProject2&workspaceFolder=MundiAPI-Java&workspaceName=MundiAPI&projectName=MundiAPILib&rootNamespace=com.mundipagg.api)
 
 ## How to Test
 
@@ -91,26 +93,17 @@ In order to setup authentication and initialization of the API client, you need 
 API client can be initialized as following.
 
 ```java
-// Initializing Object Mapper for Serialization and Deserialization purposes
-public static ObjectMapper mapper = new ObjectMapper()
-{
-	private static final long serialVersionUID = -174113593500315394L;
-	{
-		configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		setSerializationInclusion(JsonInclude.Include.NON_NULL);
-	}
-};
-
 // Configuration parameters and credentials
 String basicAuthUserName = "basicAuthUserName"; // The username to use with basic authentication
 String basicAuthPassword = "basicAuthPassword"; // The password to use with basic authentication
 
-MundiAPILibClient client = new MundiAPILibClient(basicAuthUserName, basicAuthPassword);
+MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword);
 ```
 
-## Class Reference
 
-### <a name="list_of_controllers"></a>List of Controllers
+# Class Reference
+
+## <a name="list_of_controllers"></a>List of Controllers
 
 * [ChargesController](#charges_controller)
 * [CustomersController](#customers_controller)
@@ -118,10 +111,11 @@ MundiAPILibClient client = new MundiAPILibClient(basicAuthUserName, basicAuthPas
 * [PlansController](#plans_controller)
 * [InvoicesController](#invoices_controller)
 * [OrdersController](#orders_controller)
+* [TokensController](#tokens_controller)
 
-### <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.ChargesController") ChargesController
+## <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.ChargesController") ChargesController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` ChargesController ``` class can be accessed from the API Client.
 
@@ -129,7 +123,7 @@ The singleton instance of the ``` ChargesController ``` class can be accessed fr
 ChargesController charges = client.getCharges();
 ```
 
-#### <a name="get_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.getChargeAsync") getChargeAsync
+### <a name="get_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.getChargeAsync") getChargeAsync
 
 > Get a charge from its id
 
@@ -164,7 +158,7 @@ charges.getChargeAsync(chargeId, new APICallBack<GetChargeResponse>() {
 ```
 
 
-#### <a name="retry_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.retryChargeAsync") retryChargeAsync
+### <a name="retry_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.retryChargeAsync") retryChargeAsync
 
 > Retries a charge
 
@@ -199,7 +193,7 @@ charges.retryChargeAsync(chargeId, new APICallBack<GetChargeResponse>() {
 ```
 
 
-#### <a name="get_charges_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.getChargesAsync") getChargesAsync
+### <a name="get_charges_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.getChargesAsync") getChargesAsync
 
 > Lists all charges
 
@@ -224,7 +218,7 @@ charges.getChargesAsync(new APICallBack<ListChargesResponse>() {
 ```
 
 
-#### <a name="create_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.createChargeAsync") createChargeAsync
+### <a name="create_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.createChargeAsync") createChargeAsync
 
 > Creates a new charge
 
@@ -263,15 +257,15 @@ try {
 ```
 
 
-#### <a name="update_charge_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.updateChargeCreditCardAsync") updateChargeCreditCardAsync
+### <a name="update_charge_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.updateChargeCardAsync") updateChargeCardAsync
 
-> Updates the credit card from a charge
+> Updates the card from a charge
 
 
 ```java
-void updateChargeCreditCardAsync(
+void updateChargeCardAsync(
         final String chargeId,
-        final UpdateChargeCreditCardRequest request,
+        final UpdateChargeCardRequest request,
         final APICallBack<GetChargeResponse> callBack)
 ```
 
@@ -280,7 +274,7 @@ void updateChargeCreditCardAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | chargeId |  ``` Required ```  | Charge id |
-| request |  ``` Required ```  | Request for updating a charge's credit card |
+| request |  ``` Required ```  | Request for updating a charge's card |
 
 
 #### Example Usage
@@ -288,9 +282,9 @@ void updateChargeCreditCardAsync(
 ```java
 try {
     String chargeId = "charge_id";
-    UpdateChargeCreditCardRequest request = new UpdateChargeCreditCardRequest();
+    UpdateChargeCardRequest request = new UpdateChargeCardRequest();
     // Invoking the API call with sample inputs
-    charges.updateChargeCreditCardAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
+    charges.updateChargeCardAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
         public void onSuccess(HttpContext context, GetChargeResponse response) {
             // TODO success callback handler
         }
@@ -305,7 +299,7 @@ try {
 ```
 
 
-#### <a name="update_charge_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.updateChargePaymentMethodAsync") updateChargePaymentMethodAsync
+### <a name="update_charge_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.updateChargePaymentMethodAsync") updateChargePaymentMethodAsync
 
 > Updates a charge's payment method
 
@@ -347,7 +341,7 @@ try {
 ```
 
 
-#### <a name="cancel_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.cancelChargeAsync") cancelChargeAsync
+### <a name="cancel_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.cancelChargeAsync") cancelChargeAsync
 
 > Cancel a charge
 
@@ -389,7 +383,7 @@ try {
 ```
 
 
-#### <a name="capture_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.captureChargeAsync") captureChargeAsync
+### <a name="capture_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.captureChargeAsync") captureChargeAsync
 
 > Captures a charge
 
@@ -433,9 +427,9 @@ try {
 
 [Back to List of Controllers](#list_of_controllers)
 
-### <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.CustomersController") CustomersController
+## <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.CustomersController") CustomersController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` CustomersController ``` class can be accessed from the API Client.
 
@@ -443,7 +437,7 @@ The singleton instance of the ``` CustomersController ``` class can be accessed 
 CustomersController customers = client.getCustomers();
 ```
 
-#### <a name="get_addresses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAddressesAsync") getAddressesAsync
+### <a name="get_addresses_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAddressesAsync") getAddressesAsync
 
 > Gets all adressess from a customer
 
@@ -478,13 +472,13 @@ customers.getAddressesAsync(customerId, new APICallBack<ListAddressesResponse>()
 ```
 
 
-#### <a name="get_credit_cards_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCreditCardsAsync") getCreditCardsAsync
+### <a name="get_cards_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCardsAsync") getCardsAsync
 
-> Get all credit cards from a customer
+> Get all cards from a customer
 
 
 ```java
-void getCreditCardsAsync(
+void getCardsAsync(
         final String customerId,
         final APICallBack<ListCardsResponse> callBack)
 ```
@@ -501,7 +495,7 @@ void getCreditCardsAsync(
 ```java
 String customerId = "customer_id";
 // Invoking the API call with sample inputs
-customers.getCreditCardsAsync(customerId, new APICallBack<ListCardsResponse>() {
+customers.getCardsAsync(customerId, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
         // TODO success callback handler
     }
@@ -513,7 +507,7 @@ customers.getCreditCardsAsync(customerId, new APICallBack<ListCardsResponse>() {
 ```
 
 
-#### <a name="get_customers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomersAsync") getCustomersAsync
+### <a name="get_customers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomersAsync") getCustomersAsync
 
 > Get all Customers
 
@@ -538,7 +532,7 @@ customers.getCustomersAsync(new APICallBack<ListCustomersResponse>() {
 ```
 
 
-#### <a name="create_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createCustomerAsync") createCustomerAsync
+### <a name="create_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createCustomerAsync") createCustomerAsync
 
 > Creates a new customer
 
@@ -577,7 +571,7 @@ try {
 ```
 
 
-#### <a name="get_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomerAsync") getCustomerAsync
+### <a name="get_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomerAsync") getCustomerAsync
 
 > Get a customer
 
@@ -612,7 +606,7 @@ customers.getCustomerAsync(customerId, new APICallBack<GetCustomerResponse>() {
 ```
 
 
-#### <a name="update_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateAddressAsync") updateAddressAsync
+### <a name="update_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateAddressAsync") updateAddressAsync
 
 > Updates an address
 
@@ -657,17 +651,17 @@ try {
 ```
 
 
-#### <a name="update_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateCreditCardAsync") updateCreditCardAsync
+### <a name="update_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateCardAsync") updateCardAsync
 
-> Updates a credit card
+> Updates a card
 
 
 ```java
-void updateCreditCardAsync(
+void updateCardAsync(
         final String customerId,
         final String cardId,
-        final UpdateCreditCardRequest request,
-        final APICallBack<GetCreditCardResponse> callBack)
+        final UpdateCardRequest request,
+        final APICallBack<GetCardResponse> callBack)
 ```
 
 #### Parameters
@@ -675,8 +669,8 @@ void updateCreditCardAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | customerId |  ``` Required ```  | Customer Id |
-| cardId |  ``` Required ```  | Credit card id |
-| request |  ``` Required ```  | Request for updating a credit card |
+| cardId |  ``` Required ```  | Card id |
+| request |  ``` Required ```  | Request for updating a card |
 
 
 #### Example Usage
@@ -685,10 +679,10 @@ void updateCreditCardAsync(
 try {
     String customerId = "customer_id";
     String cardId = "card_id";
-    UpdateCreditCardRequest request = new UpdateCreditCardRequest();
+    UpdateCardRequest request = new UpdateCardRequest();
     // Invoking the API call with sample inputs
-    customers.updateCreditCardAsync(customerId, cardId, request, new APICallBack<GetCreditCardResponse>() {
-        public void onSuccess(HttpContext context, GetCreditCardResponse response) {
+    customers.updateCardAsync(customerId, cardId, request, new APICallBack<GetCardResponse>() {
+        public void onSuccess(HttpContext context, GetCardResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {
@@ -702,7 +696,7 @@ try {
 ```
 
 
-#### <a name="get_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAddressAsync") getAddressAsync
+### <a name="get_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAddressAsync") getAddressAsync
 
 > Get a customer's address
 
@@ -740,7 +734,7 @@ customers.getAddressAsync(customerId, addressId, new APICallBack<GetAddressRespo
 ```
 
 
-#### <a name="delete_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteAddressAsync") deleteAddressAsync
+### <a name="delete_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteAddressAsync") deleteAddressAsync
 
 > Delete a Customer's address
 
@@ -778,16 +772,16 @@ customers.deleteAddressAsync(customerId, addressId, new APICallBack<GetAddressRe
 ```
 
 
-#### <a name="delete_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteCreditCardAsync") deleteCreditCardAsync
+### <a name="delete_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteCardAsync") deleteCardAsync
 
-> Delete a customer's credit card
+> Delete a customer's card
 
 
 ```java
-void deleteCreditCardAsync(
+void deleteCardAsync(
         final String customerId,
         final String cardId,
-        final APICallBack<GetCreditCardResponse> callBack)
+        final APICallBack<GetCardResponse> callBack)
 ```
 
 #### Parameters
@@ -804,8 +798,8 @@ void deleteCreditCardAsync(
 String customerId = "customer_id";
 String cardId = "card_id";
 // Invoking the API call with sample inputs
-customers.deleteCreditCardAsync(customerId, cardId, new APICallBack<GetCreditCardResponse>() {
-    public void onSuccess(HttpContext context, GetCreditCardResponse response) {
+customers.deleteCardAsync(customerId, cardId, new APICallBack<GetCardResponse>() {
+    public void onSuccess(HttpContext context, GetCardResponse response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {
@@ -816,7 +810,7 @@ customers.deleteCreditCardAsync(customerId, cardId, new APICallBack<GetCreditCar
 ```
 
 
-#### <a name="create_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createAddressAsync") createAddressAsync
+### <a name="create_address_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createAddressAsync") createAddressAsync
 
 > Creates a new address for a customer
 
@@ -858,16 +852,16 @@ try {
 ```
 
 
-#### <a name="get_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCreditCardAsync") getCreditCardAsync
+### <a name="get_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCardAsync") getCardAsync
 
-> Get a customer's credit card
+> Get a customer's card
 
 
 ```java
-void getCreditCardAsync(
+void getCardAsync(
         final String customerId,
         final String cardId,
-        final APICallBack<GetCreditCardResponse> callBack)
+        final APICallBack<GetCardResponse> callBack)
 ```
 
 #### Parameters
@@ -884,8 +878,8 @@ void getCreditCardAsync(
 String customerId = "customer_id";
 String cardId = "card_id";
 // Invoking the API call with sample inputs
-customers.getCreditCardAsync(customerId, cardId, new APICallBack<GetCreditCardResponse>() {
-    public void onSuccess(HttpContext context, GetCreditCardResponse response) {
+customers.getCardAsync(customerId, cardId, new APICallBack<GetCardResponse>() {
+    public void onSuccess(HttpContext context, GetCardResponse response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {
@@ -896,16 +890,16 @@ customers.getCreditCardAsync(customerId, cardId, new APICallBack<GetCreditCardRe
 ```
 
 
-#### <a name="create_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createCreditCardAsync") createCreditCardAsync
+### <a name="create_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createCardAsync") createCardAsync
 
-> Creates a new credit card for a customer
+> Creates a new card for a customer
 
 
 ```java
-void createCreditCardAsync(
+void createCardAsync(
         final String customerId,
-        final CreateCreditCardRequest request,
-        final APICallBack<GetCreditCardResponse> callBack)
+        final CreateCardRequest request,
+        final APICallBack<GetCardResponse> callBack)
 ```
 
 #### Parameters
@@ -913,7 +907,7 @@ void createCreditCardAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | customerId |  ``` Required ```  | Customer id |
-| request |  ``` Required ```  | Request for creating a credit card |
+| request |  ``` Required ```  | Request for creating a card |
 
 
 #### Example Usage
@@ -921,10 +915,10 @@ void createCreditCardAsync(
 ```java
 try {
     String customerId = "customer_id";
-    CreateCreditCardRequest request = new CreateCreditCardRequest();
+    CreateCardRequest request = new CreateCardRequest();
     // Invoking the API call with sample inputs
-    customers.createCreditCardAsync(customerId, request, new APICallBack<GetCreditCardResponse>() {
-        public void onSuccess(HttpContext context, GetCreditCardResponse response) {
+    customers.createCardAsync(customerId, request, new APICallBack<GetCardResponse>() {
+        public void onSuccess(HttpContext context, GetCardResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {
@@ -938,7 +932,7 @@ try {
 ```
 
 
-#### <a name="update_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateCustomerAsync") updateCustomerAsync
+### <a name="update_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.updateCustomerAsync") updateCustomerAsync
 
 > Updates a customer
 
@@ -980,11 +974,199 @@ try {
 ```
 
 
+### <a name="delete_access_tokens_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteAccessTokensAsync") deleteAccessTokensAsync
+
+> Delete a Customer's access tokens
+
+
+```java
+void deleteAccessTokensAsync(
+        final String customerId,
+        final APICallBack<ListAccessTokensResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+
+
+#### Example Usage
+
+```java
+String customerId = "customer_id";
+// Invoking the API call with sample inputs
+customers.deleteAccessTokensAsync(customerId, new APICallBack<ListAccessTokensResponse>() {
+    public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_access_tokens_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAccessTokensAsync") getAccessTokensAsync
+
+> Get all access tokens from a customer
+
+
+```java
+void getAccessTokensAsync(
+        final String customerId,
+        final APICallBack<ListAccessTokensResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+
+
+#### Example Usage
+
+```java
+String customerId = "customer_id";
+// Invoking the API call with sample inputs
+customers.getAccessTokensAsync(customerId, new APICallBack<ListAccessTokensResponse>() {
+    public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="delete_access_token_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.deleteAccessTokenAsync") deleteAccessTokenAsync
+
+> Delete a customer's access token
+
+
+```java
+void deleteAccessTokenAsync(
+        final String customerId,
+        final String tokenId,
+        final APICallBack<GetAccessTokenResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| tokenId |  ``` Required ```  | Token Id |
+
+
+#### Example Usage
+
+```java
+String customerId = "customer_id";
+String tokenId = "token_id";
+// Invoking the API call with sample inputs
+customers.deleteAccessTokenAsync(customerId, tokenId, new APICallBack<GetAccessTokenResponse>() {
+    public void onSuccess(HttpContext context, GetAccessTokenResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_access_token_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createAccessTokenAsync") createAccessTokenAsync
+
+> Creates a access token for a customer
+
+
+```java
+void createAccessTokenAsync(
+        final String customerId,
+        final CreateAccessTokenRequest request,
+        final APICallBack<GetAccessTokenResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| request |  ``` Required ```  | Request for creating a access token |
+
+
+#### Example Usage
+
+```java
+try {
+    String customerId = "customer_id";
+    CreateAccessTokenRequest request = new CreateAccessTokenRequest();
+    // Invoking the API call with sample inputs
+    customers.createAccessTokenAsync(customerId, request, new APICallBack<GetAccessTokenResponse>() {
+        public void onSuccess(HttpContext context, GetAccessTokenResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_access_token_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getAccessTokenAsync") getAccessTokenAsync
+
+> Get a Customer's access token
+
+
+```java
+void getAccessTokenAsync(
+        final String customerId,
+        final String tokenId,
+        final APICallBack<GetAccessTokenResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| tokenId |  ``` Required ```  | Token Id |
+
+
+#### Example Usage
+
+```java
+String customerId = "customer_id";
+String tokenId = "token_id";
+// Invoking the API call with sample inputs
+customers.getAccessTokenAsync(customerId, tokenId, new APICallBack<GetAccessTokenResponse>() {
+    public void onSuccess(HttpContext context, GetAccessTokenResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
 [Back to List of Controllers](#list_of_controllers)
 
-### <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SubscriptionsController") SubscriptionsController
+## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SubscriptionsController") SubscriptionsController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` SubscriptionsController ``` class can be accessed from the API Client.
 
@@ -992,112 +1174,7 @@ The singleton instance of the ``` SubscriptionsController ``` class can be acces
 SubscriptionsController subscriptions = client.getSubscriptions();
 ```
 
-#### <a name="delete_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteSubscriptionAsync") deleteSubscriptionAsync
-
-> Cancels a subscription
-
-
-```java
-void deleteSubscriptionAsync(
-        final String subscriptionId,
-        final APICallBack<GetSubscriptionResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-// Invoking the API call with sample inputs
-subscriptions.deleteSubscriptionAsync(subscriptionId, new APICallBack<GetSubscriptionResponse>() {
-    public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-#### <a name="get_subscription_invoices_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionInvoicesAsync") getSubscriptionInvoicesAsync
-
-> Gets all invoices from a subscription
-
-
-```java
-void getSubscriptionInvoicesAsync(
-        final String subscriptionId,
-        final APICallBack<ListInvoicesResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-// Invoking the API call with sample inputs
-subscriptions.getSubscriptionInvoicesAsync(subscriptionId, new APICallBack<ListInvoicesResponse>() {
-    public void onSuccess(HttpContext context, ListInvoicesResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-#### <a name="get_subscription_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionItemsAsync") getSubscriptionItemsAsync
-
-> Gets all the items from a subscription
-
-
-```java
-void getSubscriptionItemsAsync(
-        final String subscriptionId,
-        final APICallBack<ListSubscriptionItemsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-
-
-#### Example Usage
-
-```java
-String subscriptionId = "subscription_id";
-// Invoking the API call with sample inputs
-subscriptions.getSubscriptionItemsAsync(subscriptionId, new APICallBack<ListSubscriptionItemsResponse>() {
-    public void onSuccess(HttpContext context, ListSubscriptionItemsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-#### <a name="update_subscription_billing_date_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionBillingDateAsync") updateSubscriptionBillingDateAsync
+### <a name="update_subscription_billing_date_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionBillingDateAsync") updateSubscriptionBillingDateAsync
 
 > Updates the billing date from a subscription
 
@@ -1139,7 +1216,7 @@ try {
 ```
 
 
-#### <a name="create_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createUsageAsync") createUsageAsync
+### <a name="create_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createUsageAsync") createUsageAsync
 
 > Creates a usage
 
@@ -1184,7 +1261,7 @@ try {
 ```
 
 
-#### <a name="update_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionItemAsync") updateSubscriptionItemAsync
+### <a name="update_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionItemAsync") updateSubscriptionItemAsync
 
 > Updates a subscription item
 
@@ -1229,7 +1306,7 @@ try {
 ```
 
 
-#### <a name="get_subscriptions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionsAsync") getSubscriptionsAsync
+### <a name="get_subscriptions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionsAsync") getSubscriptionsAsync
 
 > Gets all subscriptions
 
@@ -1254,15 +1331,15 @@ subscriptions.getSubscriptionsAsync(new APICallBack<ListSubscriptionsResponse>()
 ```
 
 
-#### <a name="update_subscription_credit_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionCreditCardAsync") updateSubscriptionCreditCardAsync
+### <a name="update_subscription_card_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionCardAsync") updateSubscriptionCardAsync
 
 > Updates the credit card from a subscription
 
 
 ```java
-void updateSubscriptionCreditCardAsync(
-        final UpdateSubscriptionCreditCardRequest body,
+void updateSubscriptionCardAsync(
         final String subscriptionId,
+        final UpdateSubscriptionCardRequest request,
         final APICallBack<GetSubscriptionResponse> callBack)
 ```
 
@@ -1270,18 +1347,18 @@ void updateSubscriptionCreditCardAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for updating a credit card |
 | subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for updating a card |
 
 
 #### Example Usage
 
 ```java
 try {
-    UpdateSubscriptionCreditCardRequest body = new UpdateSubscriptionCreditCardRequest();
     String subscriptionId = "subscription_id";
+    UpdateSubscriptionCardRequest request = new UpdateSubscriptionCardRequest();
     // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionCreditCardAsync(body, subscriptionId, new APICallBack<GetSubscriptionResponse>() {
+    subscriptions.updateSubscriptionCardAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
         public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
             // TODO success callback handler
         }
@@ -1296,7 +1373,7 @@ try {
 ```
 
 
-#### <a name="create_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionAsync") createSubscriptionAsync
+### <a name="create_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionAsync") createSubscriptionAsync
 
 > Creates a new subscription
 
@@ -1335,15 +1412,15 @@ try {
 ```
 
 
-#### <a name="create_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionItemAsync") createSubscriptionItemAsync
+### <a name="create_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createSubscriptionItemAsync") createSubscriptionItemAsync
 
 > Creates a new Subscription item
 
 
 ```java
 void createSubscriptionItemAsync(
-        final CreateSubscriptionItemRequest body,
         final String subscriptionId,
+        final CreateSubscriptionItemRequest request,
         final APICallBack<GetSubscriptionItemResponse> callBack)
 ```
 
@@ -1351,18 +1428,18 @@ void createSubscriptionItemAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for creating a subscription item |
 | subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for creating a subscription item |
 
 
 #### Example Usage
 
 ```java
 try {
-    CreateSubscriptionItemRequest body = new CreateSubscriptionItemRequest();
     String subscriptionId = "subscription_id";
+    CreateSubscriptionItemRequest request = new CreateSubscriptionItemRequest();
     // Invoking the API call with sample inputs
-    subscriptions.createSubscriptionItemAsync(body, subscriptionId, new APICallBack<GetSubscriptionItemResponse>() {
+    subscriptions.createSubscriptionItemAsync(subscriptionId, request, new APICallBack<GetSubscriptionItemResponse>() {
         public void onSuccess(HttpContext context, GetSubscriptionItemResponse response) {
             // TODO success callback handler
         }
@@ -1377,15 +1454,15 @@ try {
 ```
 
 
-#### <a name="create_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createDiscountAsync") createDiscountAsync
+### <a name="create_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.createDiscountAsync") createDiscountAsync
 
 > Creates a discount
 
 
 ```java
 void createDiscountAsync(
-        final CreateDiscountRequest body,
         final String subscriptionId,
+        final CreateDiscountRequest request,
         final APICallBack<GetDiscountResponse> callBack)
 ```
 
@@ -1393,18 +1470,18 @@ void createDiscountAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for creating a discount |
 | subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for creating a discount |
 
 
 #### Example Usage
 
 ```java
 try {
-    CreateDiscountRequest body = new CreateDiscountRequest();
     String subscriptionId = "subscription_id";
+    CreateDiscountRequest request = new CreateDiscountRequest();
     // Invoking the API call with sample inputs
-    subscriptions.createDiscountAsync(body, subscriptionId, new APICallBack<GetDiscountResponse>() {
+    subscriptions.createDiscountAsync(subscriptionId, request, new APICallBack<GetDiscountResponse>() {
         public void onSuccess(HttpContext context, GetDiscountResponse response) {
             // TODO success callback handler
         }
@@ -1419,7 +1496,7 @@ try {
 ```
 
 
-#### <a name="get_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionAsync") getSubscriptionAsync
+### <a name="get_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getSubscriptionAsync") getSubscriptionAsync
 
 > Gets a subscription
 
@@ -1454,15 +1531,15 @@ subscriptions.getSubscriptionAsync(subscriptionId, new APICallBack<GetSubscripti
 ```
 
 
-#### <a name="update_subscription_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionPaymentMethodAsync") updateSubscriptionPaymentMethodAsync
+### <a name="update_subscription_payment_method_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.updateSubscriptionPaymentMethodAsync") updateSubscriptionPaymentMethodAsync
 
 > Updates the payment method from a subscription
 
 
 ```java
 void updateSubscriptionPaymentMethodAsync(
-        final UpdateSubscriptionPaymentMethodRequest body,
         final String subscriptionId,
+        final UpdateSubscriptionPaymentMethodRequest request,
         final APICallBack<GetSubscriptionResponse> callBack)
 ```
 
@@ -1470,18 +1547,18 @@ void updateSubscriptionPaymentMethodAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for updating the payment method from a subscription |
 | subscriptionId |  ``` Required ```  | Subscription id |
+| request |  ``` Required ```  | Request for updating the paymentmethod from a subscription |
 
 
 #### Example Usage
 
 ```java
 try {
-    UpdateSubscriptionPaymentMethodRequest body = new UpdateSubscriptionPaymentMethodRequest();
     String subscriptionId = "subscription_id";
+    UpdateSubscriptionPaymentMethodRequest request = new UpdateSubscriptionPaymentMethodRequest();
     // Invoking the API call with sample inputs
-    subscriptions.updateSubscriptionPaymentMethodAsync(body, subscriptionId, new APICallBack<GetSubscriptionResponse>() {
+    subscriptions.updateSubscriptionPaymentMethodAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
         public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
             // TODO success callback handler
         }
@@ -1496,7 +1573,7 @@ try {
 ```
 
 
-#### <a name="get_usages_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesAsync") getUsagesAsync
+### <a name="get_usages_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.getUsagesAsync") getUsagesAsync
 
 > Lists all usages from a subscription item
 
@@ -1534,7 +1611,7 @@ subscriptions.getUsagesAsync(subscriptionId, itemId, new APICallBack<ListUsagesR
 ```
 
 
-#### <a name="delete_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteUsageAsync") deleteUsageAsync
+### <a name="delete_usage_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteUsageAsync") deleteUsageAsync
 
 > Deletes a usage
 
@@ -1575,7 +1652,7 @@ subscriptions.deleteUsageAsync(subscriptionId, itemId, usageId, new APICallBack<
 ```
 
 
-#### <a name="delete_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteDiscountAsync") deleteDiscountAsync
+### <a name="delete_discount_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteDiscountAsync") deleteDiscountAsync
 
 > Deletes a discount
 
@@ -1613,7 +1690,7 @@ subscriptions.deleteDiscountAsync(subscriptionId, discountId, new APICallBack<Ge
 ```
 
 
-#### <a name="cancel_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.cancelSubscriptionAsync") cancelSubscriptionAsync
+### <a name="cancel_subscription_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.cancelSubscriptionAsync") cancelSubscriptionAsync
 
 > Cancels a subscription
 
@@ -1621,7 +1698,7 @@ subscriptions.deleteDiscountAsync(subscriptionId, discountId, new APICallBack<Ge
 ```java
 void cancelSubscriptionAsync(
         final String subscriptionId,
-        final CreateCancelSubscriptionRequest body,
+        final CreateCancelSubscriptionRequest request,
         final APICallBack<GetSubscriptionResponse> callBack)
 ```
 
@@ -1630,7 +1707,7 @@ void cancelSubscriptionAsync(
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | subscriptionId |  ``` Required ```  | Subscription id |
-| body |  ``` Optional ```  | Request for cancelling a subscription |
+| request |  ``` Optional ```  | Request for cancelling a subscription |
 
 
 #### Example Usage
@@ -1638,9 +1715,9 @@ void cancelSubscriptionAsync(
 ```java
 try {
     String subscriptionId = "subscription_id";
-    CreateCancelSubscriptionRequest body = new CreateCancelSubscriptionRequest();
+    CreateCancelSubscriptionRequest request = new CreateCancelSubscriptionRequest();
     // Invoking the API call with sample inputs
-    subscriptions.cancelSubscriptionAsync(subscriptionId, body, new APICallBack<GetSubscriptionResponse>() {
+    subscriptions.cancelSubscriptionAsync(subscriptionId, request, new APICallBack<GetSubscriptionResponse>() {
         public void onSuccess(HttpContext context, GetSubscriptionResponse response) {
             // TODO success callback handler
         }
@@ -1655,7 +1732,7 @@ try {
 ```
 
 
-#### <a name="delete_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteSubscriptionItemAsync") deleteSubscriptionItemAsync
+### <a name="delete_subscription_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SubscriptionsController.deleteSubscriptionItemAsync") deleteSubscriptionItemAsync
 
 > Deletes a subscription item
 
@@ -1695,9 +1772,9 @@ subscriptions.deleteSubscriptionItemAsync(subscriptionId, subscriptionItemId, ne
 
 [Back to List of Controllers](#list_of_controllers)
 
-### <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.PlansController") PlansController
+## <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.PlansController") PlansController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` PlansController ``` class can be accessed from the API Client.
 
@@ -1705,7 +1782,7 @@ The singleton instance of the ``` PlansController ``` class can be accessed from
 PlansController plans = client.getPlans();
 ```
 
-#### <a name="get_plan_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanItemsAsync") getPlanItemsAsync
+### <a name="get_plan_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanItemsAsync") getPlanItemsAsync
 
 > Gets all items from a plan
 
@@ -1740,7 +1817,7 @@ plans.getPlanItemsAsync(planId, new APICallBack<ListPlanItemsResponse>() {
 ```
 
 
-#### <a name="update_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.updatePlanItemAsync") updatePlanItemAsync
+### <a name="update_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.updatePlanItemAsync") updatePlanItemAsync
 
 > Updates a plan item
 
@@ -1785,42 +1862,7 @@ try {
 ```
 
 
-#### <a name="get_plan_subscriptions_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanSubscriptionsAsync") getPlanSubscriptionsAsync
-
-> Get all subscriptions from a plan
-
-
-```java
-void getPlanSubscriptionsAsync(
-        final String planId,
-        final APICallBack<DynamicResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-
-
-#### Example Usage
-
-```java
-String planId = "plan_id";
-// Invoking the API call with sample inputs
-plans.getPlanSubscriptionsAsync(planId, new APICallBack<DynamicResponse>() {
-    public void onSuccess(HttpContext context, DynamicResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
-#### <a name="get_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanAsync") getPlanAsync
+### <a name="get_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanAsync") getPlanAsync
 
 > Gets a plan
 
@@ -1855,15 +1897,15 @@ plans.getPlanAsync(planId, new APICallBack<GetPlanResponse>() {
 ```
 
 
-#### <a name="create_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.createPlanItemAsync") createPlanItemAsync
+### <a name="create_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.createPlanItemAsync") createPlanItemAsync
 
 > Adds a new item to a plan
 
 
 ```java
 void createPlanItemAsync(
-        final CreatePlanItemRequest body,
         final String planId,
+        final CreatePlanItemRequest request,
         final APICallBack<GetPlanItemResponse> callBack)
 ```
 
@@ -1871,18 +1913,18 @@ void createPlanItemAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for creating a plan item |
 | planId |  ``` Required ```  | Plan id |
+| request |  ``` Required ```  | Request for creating a plan item |
 
 
 #### Example Usage
 
 ```java
 try {
-    CreatePlanItemRequest body = new CreatePlanItemRequest();
     String planId = "plan_id";
+    CreatePlanItemRequest request = new CreatePlanItemRequest();
     // Invoking the API call with sample inputs
-    plans.createPlanItemAsync(body, planId, new APICallBack<GetPlanItemResponse>() {
+    plans.createPlanItemAsync(planId, request, new APICallBack<GetPlanItemResponse>() {
         public void onSuccess(HttpContext context, GetPlanItemResponse response) {
             // TODO success callback handler
         }
@@ -1897,15 +1939,15 @@ try {
 ```
 
 
-#### <a name="update_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.updatePlanAsync") updatePlanAsync
+### <a name="update_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.updatePlanAsync") updatePlanAsync
 
 > Updates a plan
 
 
 ```java
 void updatePlanAsync(
-        final UpdatePlanRequest body,
         final String planId,
+        final UpdatePlanRequest request,
         final APICallBack<GetPlanResponse> callBack)
 ```
 
@@ -1913,18 +1955,18 @@ void updatePlanAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| body |  ``` Required ```  | Request for updating a plan |
 | planId |  ``` Required ```  | Plan id |
+| request |  ``` Required ```  | Request for updating a plan |
 
 
 #### Example Usage
 
 ```java
 try {
-    UpdatePlanRequest body = new UpdatePlanRequest();
     String planId = "plan_id";
+    UpdatePlanRequest request = new UpdatePlanRequest();
     // Invoking the API call with sample inputs
-    plans.updatePlanAsync(body, planId, new APICallBack<GetPlanResponse>() {
+    plans.updatePlanAsync(planId, request, new APICallBack<GetPlanResponse>() {
         public void onSuccess(HttpContext context, GetPlanResponse response) {
             // TODO success callback handler
         }
@@ -1939,7 +1981,7 @@ try {
 ```
 
 
-#### <a name="create_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.createPlanAsync") createPlanAsync
+### <a name="create_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.createPlanAsync") createPlanAsync
 
 > Creates a new plan
 
@@ -1978,7 +2020,7 @@ try {
 ```
 
 
-#### <a name="get_plans_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlansAsync") getPlansAsync
+### <a name="get_plans_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlansAsync") getPlansAsync
 
 > Gets all plans
 
@@ -2003,7 +2045,7 @@ plans.getPlansAsync(new APICallBack<ListPlansResponse>() {
 ```
 
 
-#### <a name="delete_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.deletePlanAsync") deletePlanAsync
+### <a name="delete_plan_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.deletePlanAsync") deletePlanAsync
 
 > Deletes a plan
 
@@ -2038,7 +2080,7 @@ plans.deletePlanAsync(planId, new APICallBack<GetPlanResponse>() {
 ```
 
 
-#### <a name="get_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanItemAsync") getPlanItemAsync
+### <a name="get_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanItemAsync") getPlanItemAsync
 
 > Gets a plan item
 
@@ -2076,7 +2118,7 @@ plans.getPlanItemAsync(planId, planItemId, new APICallBack<GetPlanItemResponse>(
 ```
 
 
-#### <a name="delete_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.deletePlanItemAsync") deletePlanItemAsync
+### <a name="delete_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.deletePlanItemAsync") deletePlanItemAsync
 
 > Removes an item from a plan
 
@@ -2116,9 +2158,9 @@ plans.deletePlanItemAsync(planId, planItemId, new APICallBack<GetPlanItemRespons
 
 [Back to List of Controllers](#list_of_controllers)
 
-### <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.InvoicesController") InvoicesController
+## <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.InvoicesController") InvoicesController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` InvoicesController ``` class can be accessed from the API Client.
 
@@ -2126,7 +2168,7 @@ The singleton instance of the ``` InvoicesController ``` class can be accessed f
 InvoicesController invoices = client.getInvoices();
 ```
 
-#### <a name="cancel_invoice_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.cancelInvoiceAsync") cancelInvoiceAsync
+### <a name="cancel_invoice_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.cancelInvoiceAsync") cancelInvoiceAsync
 
 > Cancels an invoice
 
@@ -2161,7 +2203,7 @@ invoices.cancelInvoiceAsync(invoiceId, new APICallBack<GetInvoiceResponse>() {
 ```
 
 
-#### <a name="get_last_invoice_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getLastInvoiceChargeAsync") getLastInvoiceChargeAsync
+### <a name="get_last_invoice_charge_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getLastInvoiceChargeAsync") getLastInvoiceChargeAsync
 
 > Gets the last charge from an invoice
 
@@ -2196,7 +2238,7 @@ invoices.getLastInvoiceChargeAsync(invoiceId, new APICallBack<GetChargeResponse>
 ```
 
 
-#### <a name="get_invoices_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getInvoicesAsync") getInvoicesAsync
+### <a name="get_invoices_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getInvoicesAsync") getInvoicesAsync
 
 > Gets all invoices
 
@@ -2221,7 +2263,7 @@ invoices.getInvoicesAsync(new APICallBack<ListInvoicesResponse>() {
 ```
 
 
-#### <a name="get_invoice_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getInvoiceAsync") getInvoiceAsync
+### <a name="get_invoice_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.InvoicesController.getInvoiceAsync") getInvoiceAsync
 
 > Gets an invoice
 
@@ -2258,9 +2300,9 @@ invoices.getInvoiceAsync(invoiceId, new APICallBack<GetInvoiceResponse>() {
 
 [Back to List of Controllers](#list_of_controllers)
 
-### <a name="orders_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.OrdersController") OrdersController
+## <a name="orders_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.OrdersController") OrdersController
 
-#### Get singleton instance
+### Get singleton instance
 
 The singleton instance of the ``` OrdersController ``` class can be accessed from the API Client.
 
@@ -2268,7 +2310,7 @@ The singleton instance of the ``` OrdersController ``` class can be accessed fro
 OrdersController orders = client.getOrders();
 ```
 
-#### <a name="get_order_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.getOrderAsync") getOrderAsync
+### <a name="get_order_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.getOrderAsync") getOrderAsync
 
 > Gets an order
 
@@ -2303,7 +2345,7 @@ orders.getOrderAsync(orderId, new APICallBack<GetOrderResponse>() {
 ```
 
 
-#### <a name="get_orders_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.getOrdersAsync") getOrdersAsync
+### <a name="get_orders_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.getOrdersAsync") getOrdersAsync
 
 > Gets all orders
 
@@ -2328,7 +2370,7 @@ orders.getOrdersAsync(new APICallBack<ListOrderResponse>() {
 ```
 
 
-#### <a name="create_order_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.createOrderAsync") createOrderAsync
+### <a name="create_order_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.createOrderAsync") createOrderAsync
 
 > Creates a new Order
 
@@ -2354,6 +2396,102 @@ try {
     // Invoking the API call with sample inputs
     orders.createOrderAsync(body, new APICallBack<GetOrderResponse>() {
         public void onSuccess(HttpContext context, GetOrderResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="tokens_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.TokensController") TokensController
+
+### Get singleton instance
+
+The singleton instance of the ``` TokensController ``` class can be accessed from the API Client.
+
+```java
+TokensController tokens = client.getTokens();
+```
+
+### <a name="get_token_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.TokensController.getTokenAsync") getTokenAsync
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> Gets a token from its id
+
+
+```java
+void getTokenAsync(
+        final String id,
+        final String publicKey,
+        final APICallBack<GetTokenResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ``` Required ```  | Token id |
+| publicKey |  ``` Required ```  | Public key |
+
+
+#### Example Usage
+
+```java
+String id = "id";
+String publicKey = "public_key";
+// Invoking the API call with sample inputs
+tokens.getTokenAsync(id, publicKey, new APICallBack<GetTokenResponse>() {
+    public void onSuccess(HttpContext context, GetTokenResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_token_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.TokensController.createTokenAsync") createTokenAsync
+
+> *Tags:*  ``` Skips Authentication ``` 
+
+> TODO: Add a method description
+
+
+```java
+void createTokenAsync(
+        final String publicKey,
+        final CreateTokenRequest request,
+        final APICallBack<GetTokenResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| publicKey |  ``` Required ```  | Public key |
+| request |  ``` Required ```  | Request for creating a token |
+
+
+#### Example Usage
+
+```java
+try {
+    String publicKey = "public_key";
+    CreateTokenRequest request = new CreateTokenRequest();
+    // Invoking the API call with sample inputs
+    tokens.createTokenAsync(publicKey, request, new APICallBack<GetTokenResponse>() {
+        public void onSuccess(HttpContext context, GetTokenResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {

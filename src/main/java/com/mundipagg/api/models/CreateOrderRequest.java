@@ -11,10 +11,10 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5694283557037419014L;
+    private static final long serialVersionUID = 4679837726887756227L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
-    private CreatePaymentRequest payment;
+    private List<CreatePaymentRequest> payments;
     private String code;
     private String customerId;
     private CreateShippingRequest shipping;
@@ -54,17 +54,17 @@ public class CreateOrderRequest
     /** GETTER
      * Payment data
      */
-    @JsonGetter("payment")
-    public CreatePaymentRequest getPayment ( ) { 
-        return this.payment;
+    @JsonGetter("payments")
+    public List<CreatePaymentRequest> getPayments ( ) { 
+        return this.payments;
     }
     
     /** SETTER
      * Payment data
      */
-    @JsonSetter("payment")
-    public void setPayment (CreatePaymentRequest value) { 
-        this.payment = value;
+    @JsonSetter("payments")
+    public void setPayments (List<CreatePaymentRequest> value) { 
+        this.payments = value;
     }
  
     /** GETTER

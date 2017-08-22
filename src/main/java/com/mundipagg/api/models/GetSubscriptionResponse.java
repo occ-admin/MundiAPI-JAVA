@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4766132798402549012L;
+    private static final long serialVersionUID = 4811522339322310580L;
     private String id;
     private String code;
     private Date startAt;
@@ -26,7 +26,7 @@ public class GetSubscriptionResponse
     private Date createdAt;
     private Date updatedAt;
     private GetCustomerResponse customer;
-    private GetCreditCardResponse creditCard;
+    private GetCardResponse creditCard;
     private List<GetSubscriptionItemResponse> items;
     private String statementDescriptor;
     private LinkedHashMap<String, String> metadata;
@@ -263,7 +263,7 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("credit_card")
-    public GetCreditCardResponse getCreditCard ( ) { 
+    public GetCardResponse getCreditCard ( ) { 
         return this.creditCard;
     }
     
@@ -271,7 +271,7 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("credit_card")
-    public void setCreditCard (GetCreditCardResponse value) { 
+    public void setCreditCard (GetCardResponse value) { 
         this.creditCard = value;
     }
  

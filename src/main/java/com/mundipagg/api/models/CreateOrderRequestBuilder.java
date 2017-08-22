@@ -37,8 +37,8 @@ public class CreateOrderRequestBuilder {
     /**
      * Payment data
      */
-    public CreateOrderRequestBuilder payment(CreatePaymentRequest payment) {
-        createOrderRequest.setPayment(payment);
+    public CreateOrderRequestBuilder payments(List<CreatePaymentRequest> payments) {
+        createOrderRequest.setPayments(payments);
         return this;
     }
 

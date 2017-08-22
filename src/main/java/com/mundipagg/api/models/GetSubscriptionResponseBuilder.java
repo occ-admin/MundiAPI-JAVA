@@ -88,7 +88,7 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder creditCard(GetCreditCardResponse creditCard) {
+    public GetSubscriptionResponseBuilder creditCard(GetCardResponse creditCard) {
         getSubscriptionResponse.setCreditCard(creditCard);
         return this;
     }

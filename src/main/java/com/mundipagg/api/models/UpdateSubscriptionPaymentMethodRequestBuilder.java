@@ -27,26 +27,18 @@ public class UpdateSubscriptionPaymentMethodRequestBuilder {
     }
 
     /**
-     * Credit card's id
+     * Card id
      */
-    public UpdateSubscriptionPaymentMethodRequestBuilder creditCardId(String creditCardId) {
-        updateSubscriptionPaymentMethodRequest.setCreditCardId(creditCardId);
+    public UpdateSubscriptionPaymentMethodRequestBuilder cardId(String cardId) {
+        updateSubscriptionPaymentMethodRequest.setCardId(cardId);
         return this;
     }
 
     /**
-     * Credit card's gateway id
+     * Card data
      */
-    public UpdateSubscriptionPaymentMethodRequestBuilder creditCardGatewayId(String creditCardGatewayId) {
-        updateSubscriptionPaymentMethodRequest.setCreditCardGatewayId(creditCardGatewayId);
-        return this;
-    }
-
-    /**
-     * Credit card data
-     */
-    public UpdateSubscriptionPaymentMethodRequestBuilder creditCard(CreateCreditCardRequest creditCard) {
-        updateSubscriptionPaymentMethodRequest.setCreditCard(creditCard);
+    public UpdateSubscriptionPaymentMethodRequestBuilder card(CreateCardRequest card) {
+        updateSubscriptionPaymentMethodRequest.setCard(card);
         return this;
     }
     /**

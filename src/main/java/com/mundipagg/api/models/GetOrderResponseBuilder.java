@@ -58,8 +58,8 @@ public class GetOrderResponseBuilder {
         return this;
     }
 
-    public GetOrderResponseBuilder charge(GetChargeResponse charge) {
-        getOrderResponse.setCharge(charge);
+    public GetOrderResponseBuilder charges(List<GetChargeResponse> charges) {
+        getOrderResponse.setCharges(charges);
         return this;
     }
 

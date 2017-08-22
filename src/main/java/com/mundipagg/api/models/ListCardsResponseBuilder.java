@@ -21,7 +21,7 @@ public class ListCardsResponseBuilder {
     /**
      * The card objects
      */
-    public ListCardsResponseBuilder data(List<GetCreditCardResponse> data) {
+    public ListCardsResponseBuilder data(List<GetCardResponse> data) {
         listCardsResponse.setData(data);
         return this;
     }

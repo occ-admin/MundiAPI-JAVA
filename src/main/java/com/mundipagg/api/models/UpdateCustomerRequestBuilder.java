@@ -27,14 +27,6 @@ public class UpdateCustomerRequestBuilder {
     }
 
     /**
-     * Phone
-     */
-    public UpdateCustomerRequestBuilder phone(String phone) {
-        updateCustomerRequest.setPhone(phone);
-        return this;
-    }
-
-    /**
      * Email
      */
     public UpdateCustomerRequestBuilder email(String email) {
@@ -71,6 +63,11 @@ public class UpdateCustomerRequestBuilder {
      */
     public UpdateCustomerRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
         updateCustomerRequest.setMetadata(metadata);
+        return this;
+    }
+
+    public UpdateCustomerRequestBuilder phones(CreatePhonesRequest phones) {
+        updateCustomerRequest.setPhones(phones);
         return this;
     }
     /**

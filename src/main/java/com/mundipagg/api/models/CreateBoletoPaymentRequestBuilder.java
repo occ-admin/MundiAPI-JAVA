@@ -41,6 +41,30 @@ public class CreateBoletoPaymentRequestBuilder {
         createBoletoPaymentRequest.setInstructions(instructions);
         return this;
     }
+
+    /**
+     * Boleto due date
+     */
+    public CreateBoletoPaymentRequestBuilder dueAt(Date dueAt) {
+        createBoletoPaymentRequest.setDueAt(dueAt);
+        return this;
+    }
+
+    /**
+     * Card's billing address
+     */
+    public CreateBoletoPaymentRequestBuilder billingAddress(CreateAddressRequest billingAddress) {
+        createBoletoPaymentRequest.setBillingAddress(billingAddress);
+        return this;
+    }
+
+    /**
+     * The address id for the billing address
+     */
+    public CreateBoletoPaymentRequestBuilder billingAddressId(String billingAddressId) {
+        createBoletoPaymentRequest.setBillingAddressId(billingAddressId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

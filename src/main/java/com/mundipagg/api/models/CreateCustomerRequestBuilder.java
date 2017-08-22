@@ -35,14 +35,6 @@ public class CreateCustomerRequestBuilder {
     }
 
     /**
-     * Phone number. Only numbers, no special characters.
-     */
-    public CreateCustomerRequestBuilder phone(String phone) {
-        createCustomerRequest.setPhone(phone);
-        return this;
-    }
-
-    /**
      * Document number. Only numbers, no special characters.
      */
     public CreateCustomerRequestBuilder document(String document) {
@@ -51,10 +43,10 @@ public class CreateCustomerRequestBuilder {
     }
 
     /**
-     * Person type. Can be either 'person' or 'company'
+     * Person type. Can be either 'individual' or 'company'
      */
-    public CreateCustomerRequestBuilder personType(String personType) {
-        createCustomerRequest.setPersonType(personType);
+    public CreateCustomerRequestBuilder type(String type) {
+        createCustomerRequest.setType(type);
         return this;
     }
 
@@ -71,6 +63,19 @@ public class CreateCustomerRequestBuilder {
      */
     public CreateCustomerRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
         createCustomerRequest.setMetadata(metadata);
+        return this;
+    }
+
+    public CreateCustomerRequestBuilder phones(CreatePhonesRequest phones) {
+        createCustomerRequest.setPhones(phones);
+        return this;
+    }
+
+    /**
+     * Customer code
+     */
+    public CreateCustomerRequestBuilder code(String code) {
+        createCustomerRequest.setCode(code);
         return this;
     }
     /**

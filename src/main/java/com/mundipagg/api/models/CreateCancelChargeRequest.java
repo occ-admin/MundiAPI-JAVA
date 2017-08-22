@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCancelChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5363107908615949826L;
+    private static final long serialVersionUID = 5454607592606842597L;
     private Integer amount;
     /** GETTER
      * The amount that will be canceled.

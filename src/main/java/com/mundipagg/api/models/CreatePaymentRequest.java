@@ -11,11 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5272987250091795123L;
+    private static final long serialVersionUID = 4739702986941689566L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
     private CreateBoletoPaymentRequest boleto;
     private String currency;
+    private CreateVoucherPaymentRequest voucher;
+    private CreateBankTransferPaymentRequest bankTransfer;
+    private String gatewayAffiliationId;
     /** GETTER
      * Payment method
      */
@@ -78,6 +81,54 @@ public class CreatePaymentRequest
     @JsonSetter("currency")
     public void setCurrency (String value) { 
         this.currency = value;
+    }
+ 
+    /** GETTER
+     * Settings for voucher payment
+     */
+    @JsonGetter("voucher")
+    public CreateVoucherPaymentRequest getVoucher ( ) { 
+        return this.voucher;
+    }
+    
+    /** SETTER
+     * Settings for voucher payment
+     */
+    @JsonSetter("voucher")
+    public void setVoucher (CreateVoucherPaymentRequest value) { 
+        this.voucher = value;
+    }
+ 
+    /** GETTER
+     * Settings for bank transfer payment
+     */
+    @JsonGetter("bank_transfer")
+    public CreateBankTransferPaymentRequest getBankTransfer ( ) { 
+        return this.bankTransfer;
+    }
+    
+    /** SETTER
+     * Settings for bank transfer payment
+     */
+    @JsonSetter("bank_transfer")
+    public void setBankTransfer (CreateBankTransferPaymentRequest value) { 
+        this.bankTransfer = value;
+    }
+ 
+    /** GETTER
+     * Gateway affiliation code
+     */
+    @JsonGetter("gateway_affiliation_id")
+    public String getGatewayAffiliationId ( ) { 
+        return this.gatewayAffiliationId;
+    }
+    
+    /** SETTER
+     * Gateway affiliation code
+     */
+    @JsonSetter("gateway_affiliation_id")
+    public void setGatewayAffiliationId (String value) { 
+        this.gatewayAffiliationId = value;
     }
  
 }

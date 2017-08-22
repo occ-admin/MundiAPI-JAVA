@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5504547311172497456L;
+    private static final long serialVersionUID = 5630174300023166210L;
     private String code;
     private int amount;
-    private Date dueAt;
     private String customerId;
     private CreateCustomerRequest customer;
     private CreatePaymentRequest payment;
     private LinkedHashMap<String, String> metadata;
+    private Date dueAt;
     /** GETTER
      * Code
      */
@@ -49,22 +49,6 @@ public class CreateChargeRequest
     @JsonSetter("amount")
     public void setAmount (int value) { 
         this.amount = value;
-    }
- 
-    /** GETTER
-     * The charge due date
-     */
-    @JsonGetter("due_at")
-    public Date getDueAt ( ) { 
-        return this.dueAt;
-    }
-    
-    /** SETTER
-     * The charge due date
-     */
-    @JsonSetter("due_at")
-    public void setDueAt (Date value) { 
-        this.dueAt = value;
     }
  
     /** GETTER
@@ -129,6 +113,22 @@ public class CreateChargeRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * The charge due date
+     */
+    @JsonGetter("due_at")
+    public Date getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * The charge due date
+     */
+    @JsonSetter("due_at")
+    public void setDueAt (Date value) { 
+        this.dueAt = value;
     }
  
 }

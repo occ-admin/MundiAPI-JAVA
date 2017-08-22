@@ -19,46 +19,73 @@ public class GetCreditCardTransactionResponseBuilder
         getCreditCardTransactionResponse = new GetCreditCardTransactionResponse();
     }
 
+    /**
+     * Text that will appear on the credit card's statement
+     */
     public GetCreditCardTransactionResponseBuilder statementDescriptor(String statementDescriptor) {
         getCreditCardTransactionResponse.setStatementDescriptor(statementDescriptor);
         return this;
     }
 
-    public GetCreditCardTransactionResponseBuilder acquirer(String acquirer) {
-        getCreditCardTransactionResponse.setAcquirer(acquirer);
+    /**
+     * Acquirer name
+     */
+    public GetCreditCardTransactionResponseBuilder acquirerName(String acquirerName) {
+        getCreditCardTransactionResponse.setAcquirerName(acquirerName);
         return this;
     }
 
+    /**
+     * Aquirer affiliation code
+     */
     public GetCreditCardTransactionResponseBuilder acquirerAffiliationCode(String acquirerAffiliationCode) {
         getCreditCardTransactionResponse.setAcquirerAffiliationCode(acquirerAffiliationCode);
         return this;
     }
 
+    /**
+     * Acquirer TID
+     */
     public GetCreditCardTransactionResponseBuilder acquirerTid(String acquirerTid) {
         getCreditCardTransactionResponse.setAcquirerTid(acquirerTid);
         return this;
     }
 
+    /**
+     * Acquirer NSU
+     */
     public GetCreditCardTransactionResponseBuilder acquirerNsu(String acquirerNsu) {
         getCreditCardTransactionResponse.setAcquirerNsu(acquirerNsu);
         return this;
     }
 
+    /**
+     * Acquirer authorization code
+     */
     public GetCreditCardTransactionResponseBuilder acquirerAuthCode(String acquirerAuthCode) {
         getCreditCardTransactionResponse.setAcquirerAuthCode(acquirerAuthCode);
         return this;
     }
 
+    /**
+     * Operation type
+     */
     public GetCreditCardTransactionResponseBuilder operationType(String operationType) {
         getCreditCardTransactionResponse.setOperationType(operationType);
         return this;
     }
 
-    public GetCreditCardTransactionResponseBuilder creditCard(GetCreditCardResponse creditCard) {
-        getCreditCardTransactionResponse.setCreditCard(creditCard);
+    /**
+     * Card data
+     */
+    public GetCreditCardTransactionResponseBuilder card(GetCardResponse card) {
+        getCreditCardTransactionResponse.setCard(card);
         return this;
     }
 
+    /**
+     * Number of installments
+     */
     public GetCreditCardTransactionResponseBuilder installments(Integer installments) {
         getCreditCardTransactionResponse.setInstallments(installments);
         return this;

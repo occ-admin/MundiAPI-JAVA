@@ -11,14 +11,10 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5200695872654468379L;
-    private String planId;
+    private static final long serialVersionUID = 5178040646124621267L;
     private CreateCustomerRequest customer;
-    private CreateCreditCardRequest creditCard;
+    private CreateCardRequest card;
     private String code;
-    private String customerId;
-    private String creditCardId;
-    private String creditCardGatewayId;
     private String paymentMethod;
     private String billingType;
     private String statementDescriptor;
@@ -32,29 +28,17 @@ public class CreateSubscriptionRequest
     private List<CreateDiscountRequest> discounts;
     private LinkedHashMap<String, String> metadata;
     private CreateSetupRequest setup;
+    private String planId;
+    private String customerId;
+    private String cardId;
     private Integer billingDay;
     private Integer installments;
     private Date startAt;
     private Integer minimumPrice;
     private Integer cycles;
+    private String cardToken;
     /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("plan_id")
-    public String getPlanId ( ) { 
-        return this.planId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("plan_id")
-    public void setPlanId (String value) { 
-        this.planId = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
+     * Customer
      */
     @JsonGetter("customer")
     public CreateCustomerRequest getCustomer ( ) { 
@@ -62,7 +46,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Customer
      */
     @JsonSetter("customer")
     public void setCustomer (CreateCustomerRequest value) { 
@@ -70,23 +54,23 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Card
      */
-    @JsonGetter("credit_card")
-    public CreateCreditCardRequest getCreditCard ( ) { 
-        return this.creditCard;
+    @JsonGetter("card")
+    public CreateCardRequest getCard ( ) { 
+        return this.card;
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Card
      */
-    @JsonSetter("credit_card")
-    public void setCreditCard (CreateCreditCardRequest value) { 
-        this.creditCard = value;
+    @JsonSetter("card")
+    public void setCard (CreateCardRequest value) { 
+        this.card = value;
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription code
      */
     @JsonGetter("code")
     public String getCode ( ) { 
@@ -94,7 +78,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription code
      */
     @JsonSetter("code")
     public void setCode (String value) { 
@@ -102,55 +86,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("customer_id")
-    public String getCustomerId ( ) { 
-        return this.customerId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("customer_id")
-    public void setCustomerId (String value) { 
-        this.customerId = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("credit_card_id")
-    public String getCreditCardId ( ) { 
-        return this.creditCardId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("credit_card_id")
-    public void setCreditCardId (String value) { 
-        this.creditCardId = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
-     */
-    @JsonGetter("credit_card_gateway_id")
-    public String getCreditCardGatewayId ( ) { 
-        return this.creditCardGatewayId;
-    }
-    
-    /** SETTER
-     * TODO: Write general description for this method
-     */
-    @JsonSetter("credit_card_gateway_id")
-    public void setCreditCardGatewayId (String value) { 
-        this.creditCardGatewayId = value;
-    }
- 
-    /** GETTER
-     * TODO: Write general description for this method
+     * Payment method
      */
     @JsonGetter("payment_method")
     public String getPaymentMethod ( ) { 
@@ -158,7 +94,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Payment method
      */
     @JsonSetter("payment_method")
     public void setPaymentMethod (String value) { 
@@ -166,7 +102,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Billing type
      */
     @JsonGetter("billing_type")
     public String getBillingType ( ) { 
@@ -174,7 +110,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Billing type
      */
     @JsonSetter("billing_type")
     public void setBillingType (String value) { 
@@ -182,7 +118,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Statement descriptor for credit card subscriptions
      */
     @JsonGetter("statement_descriptor")
     public String getStatementDescriptor ( ) { 
@@ -190,7 +126,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Statement descriptor for credit card subscriptions
      */
     @JsonSetter("statement_descriptor")
     public void setStatementDescriptor (String value) { 
@@ -198,7 +134,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription description
      */
     @JsonGetter("description")
     public String getDescription ( ) { 
@@ -206,7 +142,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription description
      */
     @JsonSetter("description")
     public void setDescription (String value) { 
@@ -214,7 +150,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Currency
      */
     @JsonGetter("currency")
     public String getCurrency ( ) { 
@@ -222,7 +158,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Currency
      */
     @JsonSetter("currency")
     public void setCurrency (String value) { 
@@ -230,7 +166,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Interval
      */
     @JsonGetter("interval")
     public String getInterval ( ) { 
@@ -238,7 +174,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Interval
      */
     @JsonSetter("interval")
     public void setInterval (String value) { 
@@ -246,7 +182,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Interval count
      */
     @JsonGetter("interval_count")
     public int getIntervalCount ( ) { 
@@ -254,7 +190,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Interval count
      */
     @JsonSetter("interval_count")
     public void setIntervalCount (int value) { 
@@ -262,7 +198,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription pricing scheme
      */
     @JsonGetter("pricing_scheme")
     public CreatePricingSchemeRequest getPricingScheme ( ) { 
@@ -270,7 +206,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription pricing scheme
      */
     @JsonSetter("pricing_scheme")
     public void setPricingScheme (CreatePricingSchemeRequest value) { 
@@ -278,7 +214,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription items
      */
     @JsonGetter("items")
     public List<CreateSubscriptionItemRequest> getItems ( ) { 
@@ -286,7 +222,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription items
      */
     @JsonSetter("items")
     public void setItems (List<CreateSubscriptionItemRequest> value) { 
@@ -294,7 +230,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Shipping
      */
     @JsonGetter("shipping")
     public CreateShippingRequest getShipping ( ) { 
@@ -302,7 +238,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Shipping
      */
     @JsonSetter("shipping")
     public void setShipping (CreateShippingRequest value) { 
@@ -310,7 +246,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Discounts
      */
     @JsonGetter("discounts")
     public List<CreateDiscountRequest> getDiscounts ( ) { 
@@ -318,7 +254,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Discounts
      */
     @JsonSetter("discounts")
     public void setDiscounts (List<CreateDiscountRequest> value) { 
@@ -326,7 +262,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Metadata
      */
     @JsonGetter("metadata")
     public LinkedHashMap<String, String> getMetadata ( ) { 
@@ -334,7 +270,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Metadata
      */
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
@@ -342,7 +278,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Setup data
      */
     @JsonGetter("setup")
     public CreateSetupRequest getSetup ( ) { 
@@ -350,7 +286,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Setup data
      */
     @JsonSetter("setup")
     public void setSetup (CreateSetupRequest value) { 
@@ -358,7 +294,55 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Plan id
+     */
+    @JsonGetter("plan_id")
+    public String getPlanId ( ) { 
+        return this.planId;
+    }
+    
+    /** SETTER
+     * Plan id
+     */
+    @JsonSetter("plan_id")
+    public void setPlanId (String value) { 
+        this.planId = value;
+    }
+ 
+    /** GETTER
+     * Customer id
+     */
+    @JsonGetter("customer_id")
+    public String getCustomerId ( ) { 
+        return this.customerId;
+    }
+    
+    /** SETTER
+     * Customer id
+     */
+    @JsonSetter("customer_id")
+    public void setCustomerId (String value) { 
+        this.customerId = value;
+    }
+ 
+    /** GETTER
+     * Card id
+     */
+    @JsonGetter("card_id")
+    public String getCardId ( ) { 
+        return this.cardId;
+    }
+    
+    /** SETTER
+     * Card id
+     */
+    @JsonSetter("card_id")
+    public void setCardId (String value) { 
+        this.cardId = value;
+    }
+ 
+    /** GETTER
+     * Billing day
      */
     @JsonGetter("billing_day")
     public Integer getBillingDay ( ) { 
@@ -366,7 +350,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Billing day
      */
     @JsonSetter("billing_day")
     public void setBillingDay (Integer value) { 
@@ -374,7 +358,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Number of installments
      */
     @JsonGetter("installments")
     public Integer getInstallments ( ) { 
@@ -382,7 +366,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Number of installments
      */
     @JsonSetter("installments")
     public void setInstallments (Integer value) { 
@@ -390,7 +374,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription start date
      */
     @JsonGetter("start_at")
     public Date getStartAt ( ) { 
@@ -398,7 +382,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription start date
      */
     @JsonSetter("start_at")
     public void setStartAt (Date value) { 
@@ -406,7 +390,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Subscription minimum price
      */
     @JsonGetter("minimum_price")
     public Integer getMinimumPrice ( ) { 
@@ -414,7 +398,7 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Subscription minimum price
      */
     @JsonSetter("minimum_price")
     public void setMinimumPrice (Integer value) { 
@@ -422,7 +406,7 @@ public class CreateSubscriptionRequest
     }
  
     /** GETTER
-     * TODO: Write general description for this method
+     * Number of cycles
      */
     @JsonGetter("cycles")
     public Integer getCycles ( ) { 
@@ -430,11 +414,27 @@ public class CreateSubscriptionRequest
     }
     
     /** SETTER
-     * TODO: Write general description for this method
+     * Number of cycles
      */
     @JsonSetter("cycles")
     public void setCycles (Integer value) { 
         this.cycles = value;
+    }
+ 
+    /** GETTER
+     * Card token
+     */
+    @JsonGetter("card_token")
+    public String getCardToken ( ) { 
+        return this.cardToken;
+    }
+    
+    /** SETTER
+     * Card token
+     */
+    @JsonSetter("card_token")
+    public void setCardToken (String value) { 
+        this.cardToken = value;
     }
  
 }

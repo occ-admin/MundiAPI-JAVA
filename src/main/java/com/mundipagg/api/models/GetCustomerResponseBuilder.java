@@ -48,18 +48,13 @@ public class GetCustomerResponseBuilder {
         return this;
     }
 
-    public GetCustomerResponseBuilder phone(String phone) {
-        getCustomerResponse.setPhone(phone);
-        return this;
-    }
-
     public GetCustomerResponseBuilder document(String document) {
         getCustomerResponse.setDocument(document);
         return this;
     }
 
-    public GetCustomerResponseBuilder personType(String personType) {
-        getCustomerResponse.setPersonType(personType);
+    public GetCustomerResponseBuilder type(String type) {
+        getCustomerResponse.setType(type);
         return this;
     }
 
@@ -75,6 +70,11 @@ public class GetCustomerResponseBuilder {
 
     public GetCustomerResponseBuilder metadata(LinkedHashMap<String, String> metadata) {
         getCustomerResponse.setMetadata(metadata);
+        return this;
+    }
+
+    public GetCustomerResponseBuilder phones(GetPhonesResponse phones) {
+        getCustomerResponse.setPhones(phones);
         return this;
     }
 
