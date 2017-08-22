@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetVoucherTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5416370170083830780L;
+    private static final long serialVersionUID = 5359098203514179208L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;
