@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ListUsagesResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5504533718328298013L;
-    private List<String> data;
+    private static final long serialVersionUID = 4802025291532860769L;
+    private List<GetUsageResponse> data;
     private PagingResponse paging;
     /** GETTER
      * The usage objects
      */
     @JsonGetter("data")
-    public List<String> getData ( ) { 
+    public List<GetUsageResponse> getData ( ) { 
         return this.data;
     }
     
@@ -26,7 +26,7 @@ public class ListUsagesResponse
      * The usage objects
      */
     @JsonSetter("data")
-    public void setData (List<String> value) { 
+    public void setData (List<GetUsageResponse> value) { 
         this.data = value;
     }
  

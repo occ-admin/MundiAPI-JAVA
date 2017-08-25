@@ -21,7 +21,7 @@ public class ListUsagesResponseBuilder {
     /**
      * The usage objects
      */
-    public ListUsagesResponseBuilder data(List<String> data) {
+    public ListUsagesResponseBuilder data(List<GetUsageResponse> data) {
         listUsagesResponse.setData(data);
         return this;
     }

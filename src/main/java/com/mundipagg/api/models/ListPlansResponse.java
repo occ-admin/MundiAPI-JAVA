@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class ListPlansResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5003647078003740602L;
+    private static final long serialVersionUID = 4895783860454565642L;
     private List<GetPlanResponse> data;
-    private String paging;
+    private PagingResponse paging;
     /** GETTER
      * The plan objects
      */
@@ -34,7 +34,7 @@ public class ListPlansResponse
      * Paging object
      */
     @JsonGetter("paging")
-    public String getPaging ( ) { 
+    public PagingResponse getPaging ( ) { 
         return this.paging;
     }
     
@@ -42,7 +42,7 @@ public class ListPlansResponse
      * Paging object
      */
     @JsonSetter("paging")
-    public void setPaging (String value) { 
+    public void setPaging (PagingResponse value) { 
         this.paging = value;
     }
  

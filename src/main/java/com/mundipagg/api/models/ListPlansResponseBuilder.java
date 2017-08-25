@@ -29,7 +29,7 @@ public class ListPlansResponseBuilder {
     /**
      * Paging object
      */
-    public ListPlansResponseBuilder paging(String paging) {
+    public ListPlansResponseBuilder paging(PagingResponse paging) {
         listPlansResponse.setPaging(paging);
         return this;
     }
