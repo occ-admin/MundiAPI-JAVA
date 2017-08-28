@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCaptureChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4996293609237651154L;
+    private static final long serialVersionUID = 4655256827968381587L;
     private String code;
     private Integer amount;
     /** GETTER

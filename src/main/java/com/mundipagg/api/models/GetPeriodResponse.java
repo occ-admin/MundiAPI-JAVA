@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetPeriodResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4903638441122158317L;
+    private static final long serialVersionUID = 5079473872636299826L;
     private Date startAt;
     private Date endAt;
     private String id;

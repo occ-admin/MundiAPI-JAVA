@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateVoucherPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4996216554454389119L;
+    private static final long serialVersionUID = 5675959896381694284L;
     private boolean capture;
     private String statementDescriptor;
     private String cardId;

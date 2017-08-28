@@ -21,7 +21,7 @@ public class ListSubscriptionsResponseBuilder {
     /**
      * The subscription objects
      */
-    public ListSubscriptionsResponseBuilder data(List<String> data) {
+    public ListSubscriptionsResponseBuilder data(List<GetSubscriptionResponse> data) {
         listSubscriptionsResponse.setData(data);
         return this;
     }
