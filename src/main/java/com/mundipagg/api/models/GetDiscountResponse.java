@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetDiscountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5426580406200564268L;
+    private static final long serialVersionUID = 5093479831858335166L;
     private String id;
     private double value;
     private String discountType;

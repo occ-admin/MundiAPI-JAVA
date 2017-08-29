@@ -73,6 +73,14 @@ public class CreatePaymentRequestBuilder {
         createPaymentRequest.setGatewayAffiliationId(gatewayAffiliationId);
         return this;
     }
+
+    /**
+     * The amount of the payment, in cents
+     */
+    public CreatePaymentRequestBuilder amount(Integer amount) {
+        createPaymentRequest.setAmount(amount);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5277782525019060552L;
+    private static final long serialVersionUID = 4950638128821000085L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
     private CreateBoletoPaymentRequest boleto;
@@ -19,6 +19,7 @@ public class CreatePaymentRequest
     private CreateVoucherPaymentRequest voucher;
     private CreateBankTransferPaymentRequest bankTransfer;
     private String gatewayAffiliationId;
+    private Integer amount;
     /** GETTER
      * Payment method
      */
@@ -129,6 +130,22 @@ public class CreatePaymentRequest
     @JsonSetter("gateway_affiliation_id")
     public void setGatewayAffiliationId (String value) { 
         this.gatewayAffiliationId = value;
+    }
+ 
+    /** GETTER
+     * The amount of the payment, in cents
+     */
+    @JsonGetter("amount")
+    public Integer getAmount ( ) { 
+        return this.amount;
+    }
+    
+    /** SETTER
+     * The amount of the payment, in cents
+     */
+    @JsonSetter("amount")
+    public void setAmount (Integer value) { 
+        this.amount = value;
     }
  
 }
