@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5258243302064227072L;
+    private static final long serialVersionUID = 5634778611192379462L;
     private int installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -19,6 +19,7 @@ public class CreateCreditCardPaymentRequest
     private boolean updateSubscriptionCard;
     private String cardId;
     private String cardToken;
+    private boolean recurrence;
     private Boolean capture = true;
     /** GETTER
      * Number of installments
@@ -130,6 +131,22 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("card_token")
     public void setCardToken (String value) { 
         this.cardToken = value;
+    }
+ 
+    /** GETTER
+     * Indicates a recurrence
+     */
+    @JsonGetter("recurrence")
+    public boolean getRecurrence ( ) { 
+        return this.recurrence;
+    }
+    
+    /** SETTER
+     * Indicates a recurrence
+     */
+    @JsonSetter("recurrence")
+    public void setRecurrence (boolean value) { 
+        this.recurrence = value;
     }
  
     /** GETTER

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCreditCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5697534915121562173L;
+    private static final long serialVersionUID = 4887768188277795489L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;
@@ -20,6 +20,7 @@ public class GetCreditCardTransactionResponse
     private String acquirerAuthCode;
     private String operationType;
     private GetCardResponse card;
+    private String acquirerMessage;
     private Integer installments;
     /** GETTER
      * Text that will appear on the credit card's statement
@@ -147,6 +148,22 @@ public class GetCreditCardTransactionResponse
     @JsonSetter("card")
     public void setCard (GetCardResponse value) { 
         this.card = value;
+    }
+ 
+    /** GETTER
+     * Acquirer message
+     */
+    @JsonGetter("acquirer_message")
+    public String getAcquirerMessage ( ) { 
+        return this.acquirerMessage;
+    }
+    
+    /** SETTER
+     * Acquirer message
+     */
+    @JsonSetter("acquirer_message")
+    public void setAcquirerMessage (String value) { 
+        this.acquirerMessage = value;
     }
  
     /** GETTER

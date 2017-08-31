@@ -41,6 +41,14 @@ public class UpdateChargeCardRequestBuilder {
         updateChargeCardRequest.setCard(card);
         return this;
     }
+
+    /**
+     * Indicates a recurrence
+     */
+    public UpdateChargeCardRequestBuilder recurrence(boolean recurrence) {
+        updateChargeCardRequest.setRecurrence(recurrence);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

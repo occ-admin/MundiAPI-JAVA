@@ -84,6 +84,14 @@ public class GetCreditCardTransactionResponseBuilder
     }
 
     /**
+     * Acquirer message
+     */
+    public GetCreditCardTransactionResponseBuilder acquirerMessage(String acquirerMessage) {
+        getCreditCardTransactionResponse.setAcquirerMessage(acquirerMessage);
+        return this;
+    }
+
+    /**
      * Number of installments
      */
     public GetCreditCardTransactionResponseBuilder installments(Integer installments) {

@@ -11,10 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateChargeCardRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5138299218372964074L;
+    private static final long serialVersionUID = 5611717680980673469L;
     private boolean updateSubscription;
     private String cardId;
     private CreateCardRequest card;
+    private boolean recurrence;
     /** GETTER
      * Indicates if the subscriptions using this card must also be updated
      */
@@ -61,6 +62,22 @@ public class UpdateChargeCardRequest
     @JsonSetter("card")
     public void setCard (CreateCardRequest value) { 
         this.card = value;
+    }
+ 
+    /** GETTER
+     * Indicates a recurrence
+     */
+    @JsonGetter("recurrence")
+    public boolean getRecurrence ( ) { 
+        return this.recurrence;
+    }
+    
+    /** SETTER
+     * Indicates a recurrence
+     */
+    @JsonSetter("recurrence")
+    public void setRecurrence (boolean value) { 
+        this.recurrence = value;
     }
  
 }

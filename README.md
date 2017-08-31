@@ -1908,41 +1908,6 @@ The singleton instance of the ``` PlansController ``` class can be accessed from
 PlansController plans = client.getPlans();
 ```
 
-### <a name="get_plan_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.getPlanItemsAsync") getPlanItemsAsync
-
-> Gets all items from a plan
-
-
-```java
-void getPlanItemsAsync(
-        final String planId,
-        final APICallBack<ListPlanItemsResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-
-
-#### Example Usage
-
-```java
-String planId = "plan_id";
-// Invoking the API call with sample inputs
-plans.getPlanItemsAsync(planId, new APICallBack<ListPlanItemsResponse>() {
-    public void onSuccess(HttpContext context, ListPlanItemsResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
 ### <a name="update_plan_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.PlansController.updatePlanItemAsync") updatePlanItemAsync
 
 > Updates a plan item

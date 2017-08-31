@@ -72,6 +72,14 @@ public class CreateCreditCardPaymentRequestBuilder {
     }
 
     /**
+     * Indicates a recurrence
+     */
+    public CreateCreditCardPaymentRequestBuilder recurrence(boolean recurrence) {
+        createCreditCardPaymentRequest.setRecurrence(recurrence);
+        return this;
+    }
+
+    /**
      * Indicates if the operation should be only authorization or auth and capture.
      */
     public CreateCreditCardPaymentRequestBuilder capture(Boolean capture) {
