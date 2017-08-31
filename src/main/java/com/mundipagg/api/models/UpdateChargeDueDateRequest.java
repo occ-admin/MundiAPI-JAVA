@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateChargeDueDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5008385549500857535L;
+    private static final long serialVersionUID = 4732200411503166548L;
     private Date dueAt;
     /** GETTER
      * The charge's new due date

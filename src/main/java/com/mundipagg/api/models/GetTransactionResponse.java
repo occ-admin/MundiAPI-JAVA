@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         })
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5125768769332455166L;
+    private static final long serialVersionUID = 4862145147951460789L;
     private String gatewayId;
     private int amount;
     private String status;
