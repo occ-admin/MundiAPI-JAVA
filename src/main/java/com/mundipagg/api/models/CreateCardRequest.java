@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCardRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5737509154022538491L;
+    private static final long serialVersionUID = 5459479402663968329L;
     private String number;
     private String holderName;
     private int expMonth;

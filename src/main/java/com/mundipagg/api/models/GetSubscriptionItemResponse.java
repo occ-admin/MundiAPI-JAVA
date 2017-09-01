@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSubscriptionItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5697893181455227529L;
+    private static final long serialVersionUID = 5015944281085176137L;
     private String id;
     private String description;
     private String status;
