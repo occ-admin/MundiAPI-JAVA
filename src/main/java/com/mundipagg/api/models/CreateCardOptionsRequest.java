@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCardOptionsRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5030343168289410937L;
+    private static final long serialVersionUID = 4714237486032181308L;
     private boolean verifyCard;
     /** GETTER
      * Indicates if the card should be verified before creation. If true, executes an authorization before saving the card.

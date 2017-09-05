@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdatePlanItemRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4806912044646954001L;
+    private static final long serialVersionUID = 5743774962869628601L;
     private String name;
     private String description;
     private String status;
