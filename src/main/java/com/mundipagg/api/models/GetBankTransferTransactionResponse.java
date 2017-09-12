@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetBankTransferTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5085904691899753270L;
+    private static final long serialVersionUID = 4927629208804662733L;
     private String url;
     private String bankTid;
     private String bank;

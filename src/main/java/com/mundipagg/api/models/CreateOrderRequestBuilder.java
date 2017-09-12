@@ -73,6 +73,14 @@ public class CreateOrderRequestBuilder {
         createOrderRequest.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Defines whether the order will go through anti-fraud
+     */
+    public CreateOrderRequestBuilder antifraudEnabled(Boolean antifraudEnabled) {
+        createOrderRequest.setAntifraudEnabled(antifraudEnabled);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
