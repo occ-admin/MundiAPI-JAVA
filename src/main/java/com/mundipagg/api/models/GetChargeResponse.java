@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetChargeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4830643677715892134L;
+    private static final long serialVersionUID = 4732432994226748449L;
     private String id;
     private String code;
     private String gatewayId;

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5372814444112986174L;
+    private static final long serialVersionUID = 4954940577150885679L;
     private String url;
     private String barCode;
     private String nossoNumero;

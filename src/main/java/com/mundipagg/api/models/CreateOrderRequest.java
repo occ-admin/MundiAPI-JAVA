@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5020579837623213873L;
+    private static final long serialVersionUID = 5416571442171082642L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -19,6 +19,7 @@ public class CreateOrderRequest
     private String customerId;
     private CreateShippingRequest shipping;
     private LinkedHashMap<String, String> metadata;
+    private Boolean antifraudEnabled;
     /** GETTER
      * Items
      */
@@ -129,6 +130,22 @@ public class CreateOrderRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Defines whether the order will go through anti-fraud
+     */
+    @JsonGetter("antifraud_enabled")
+    public Boolean getAntifraudEnabled ( ) { 
+        return this.antifraudEnabled;
+    }
+    
+    /** SETTER
+     * Defines whether the order will go through anti-fraud
+     */
+    @JsonSetter("antifraud_enabled")
+    public void setAntifraudEnabled (Boolean value) { 
+        this.antifraudEnabled = value;
     }
  
 }
