@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5637890102270703740L;
+    private static final long serialVersionUID = 5631996291342986553L;
     private String statementDescriptor;
     private List<CreateCheckoutCardInstallmentOptionRequest> installments;
     /** GETTER
