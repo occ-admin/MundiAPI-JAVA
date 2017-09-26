@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSubscriptionBillingDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4634785345846563561L;
+    private static final long serialVersionUID = 5258933764539874342L;
     private Date nextBillingAt;
     /** GETTER
      * The date when the next subscription billing must occur

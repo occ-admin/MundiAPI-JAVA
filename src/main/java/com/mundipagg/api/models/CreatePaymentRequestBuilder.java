@@ -59,6 +59,14 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
+     * Metadata
+     */
+    public CreatePaymentRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
+        createPaymentRequest.setMetadata(metadata);
+        return this;
+    }
+
+    /**
      * Settings for bank transfer payment
      */
     public CreatePaymentRequestBuilder bankTransfer(CreateBankTransferPaymentRequest bankTransfer) {
@@ -79,6 +87,14 @@ public class CreatePaymentRequestBuilder {
      */
     public CreatePaymentRequestBuilder amount(Integer amount) {
         createPaymentRequest.setAmount(amount);
+        return this;
+    }
+
+    /**
+     * Settings for checkout payment
+     */
+    public CreatePaymentRequestBuilder checkout(CreateCheckoutPaymentRequest checkout) {
+        createPaymentRequest.setCheckout(checkout);
         return this;
     }
     /**

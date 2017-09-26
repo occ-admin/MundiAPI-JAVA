@@ -11,15 +11,17 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4647827479029335558L;
+    private static final long serialVersionUID = 5026976122561955101L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
     private CreateBoletoPaymentRequest boleto;
     private String currency;
     private CreateVoucherPaymentRequest voucher;
+    private LinkedHashMap<String, String> metadata;
     private CreateBankTransferPaymentRequest bankTransfer;
     private String gatewayAffiliationId;
     private Integer amount;
+    private CreateCheckoutPaymentRequest checkout;
     /** GETTER
      * Payment method
      */
@@ -101,6 +103,22 @@ public class CreatePaymentRequest
     }
  
     /** GETTER
+     * Metadata
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * Metadata
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
+    }
+ 
+    /** GETTER
      * Settings for bank transfer payment
      */
     @JsonGetter("bank_transfer")
@@ -146,6 +164,22 @@ public class CreatePaymentRequest
     @JsonSetter("amount")
     public void setAmount (Integer value) { 
         this.amount = value;
+    }
+ 
+    /** GETTER
+     * Settings for checkout payment
+     */
+    @JsonGetter("checkout")
+    public CreateCheckoutPaymentRequest getCheckout ( ) { 
+        return this.checkout;
+    }
+    
+    /** SETTER
+     * Settings for checkout payment
+     */
+    @JsonSetter("checkout")
+    public void setCheckout (CreateCheckoutPaymentRequest value) { 
+        this.checkout = value;
     }
  
 }

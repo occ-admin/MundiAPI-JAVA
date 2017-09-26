@@ -77,6 +77,14 @@ public class GetOrderResponseBuilder {
         getOrderResponse.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Checkout Payment Settings Response
+     */
+    public GetOrderResponseBuilder checkouts(List<GetCheckoutPaymentSettingsResponse> checkouts) {
+        getOrderResponse.setCheckouts(checkouts);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

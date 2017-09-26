@@ -32,6 +32,14 @@ public class GetOrderItemResponseBuilder {
         getOrderItemResponse.setQuantity(quantity);
         return this;
     }
+
+    /**
+     * Seller data
+     */
+    public GetOrderItemResponseBuilder getSellerResponse(GetSellerResponse getSellerResponse) {
+        getOrderItemResponse.setGetSellerResponse(getSellerResponse);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

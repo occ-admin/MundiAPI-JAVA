@@ -88,8 +88,8 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder creditCard(GetCardResponse creditCard) {
-        getSubscriptionResponse.setCreditCard(creditCard);
+    public GetSubscriptionResponseBuilder card(GetCardResponse card) {
+        getSubscriptionResponse.setCard(card);
         return this;
     }
 
@@ -130,6 +130,14 @@ public class GetSubscriptionResponseBuilder {
 
     public GetSubscriptionResponseBuilder canceledAt(Date canceledAt) {
         getSubscriptionResponse.setCanceledAt(canceledAt);
+        return this;
+    }
+
+    /**
+     * Subscription discounts
+     */
+    public GetSubscriptionResponseBuilder discounts(List<GetDiscountResponse> discounts) {
+        getSubscriptionResponse.setDiscounts(discounts);
         return this;
     }
     /**

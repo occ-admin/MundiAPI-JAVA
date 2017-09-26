@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4887150816212455088L;
+    private static final long serialVersionUID = 4992000750524111893L;
     private String id;
     private String code;
     private Date startAt;
@@ -26,7 +26,7 @@ public class GetSubscriptionResponse
     private Date createdAt;
     private Date updatedAt;
     private GetCustomerResponse customer;
-    private GetCardResponse creditCard;
+    private GetCardResponse card;
     private List<GetSubscriptionItemResponse> items;
     private String statementDescriptor;
     private LinkedHashMap<String, String> metadata;
@@ -35,6 +35,7 @@ public class GetSubscriptionResponse
     private Integer billingDay;
     private Integer minimumPrice;
     private Date canceledAt;
+    private List<GetDiscountResponse> discounts;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -262,17 +263,17 @@ public class GetSubscriptionResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("credit_card")
-    public GetCardResponse getCreditCard ( ) { 
-        return this.creditCard;
+    @JsonGetter("card")
+    public GetCardResponse getCard ( ) { 
+        return this.card;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("credit_card")
-    public void setCreditCard (GetCardResponse value) { 
-        this.creditCard = value;
+    @JsonSetter("card")
+    public void setCard (GetCardResponse value) { 
+        this.card = value;
     }
  
     /** GETTER
@@ -401,6 +402,22 @@ public class GetSubscriptionResponse
     @JsonSetter("canceled_at")
     public void setCanceledAt (Date value) { 
         this.canceledAt = value;
+    }
+ 
+    /** GETTER
+     * Subscription discounts
+     */
+    @JsonGetter("discounts")
+    public List<GetDiscountResponse> getDiscounts ( ) { 
+        return this.discounts;
+    }
+    
+    /** SETTER
+     * Subscription discounts
+     */
+    @JsonSetter("discounts")
+    public void setDiscounts (List<GetDiscountResponse> value) { 
+        this.discounts = value;
     }
  
 }
