@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5350737296122663891L;
+    private static final long serialVersionUID = 5715498071240010989L;
     private String id;
     private String code;
     private String currency;
@@ -24,6 +24,7 @@ public class GetOrderResponse
     private String invoiceUrl;
     private GetShippingResponse shipping;
     private LinkedHashMap<String, String> metadata;
+    private List<GetCheckoutPaymentSettingsResponse> checkouts;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -214,6 +215,22 @@ public class GetOrderResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Checkout Payment Settings Response
+     */
+    @JsonGetter("checkouts")
+    public List<GetCheckoutPaymentSettingsResponse> getCheckouts ( ) { 
+        return this.checkouts;
+    }
+    
+    /** SETTER
+     * Checkout Payment Settings Response
+     */
+    @JsonSetter("checkouts")
+    public void setCheckouts (List<GetCheckoutPaymentSettingsResponse> value) { 
+        this.checkouts = value;
     }
  
 }

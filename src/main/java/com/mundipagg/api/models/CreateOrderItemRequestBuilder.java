@@ -41,6 +41,22 @@ public class CreateOrderItemRequestBuilder {
         createOrderItemRequest.setQuantity(quantity);
         return this;
     }
+
+    /**
+     * Item seller
+     */
+    public CreateOrderItemRequestBuilder seller(CreateSellerRequest seller) {
+        createOrderItemRequest.setSeller(seller);
+        return this;
+    }
+
+    /**
+     * seller identificator
+     */
+    public CreateOrderItemRequestBuilder sellerId(String sellerId) {
+        createOrderItemRequest.setSellerId(sellerId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
