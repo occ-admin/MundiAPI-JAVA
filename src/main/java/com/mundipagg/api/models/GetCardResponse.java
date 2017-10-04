@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5320003642115519586L;
+    private static final long serialVersionUID = 4680391868763527322L;
     private String id;
     private String lastFourDigits;
     private String brand;

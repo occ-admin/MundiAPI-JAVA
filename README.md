@@ -549,31 +549,6 @@ customers.getCardsAsync(customerId, new APICallBack<ListCardsResponse>() {
 ```
 
 
-### <a name="get_customers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomersAsync") getCustomersAsync
-
-> Get all Customers
-
-
-```java
-void getCustomersAsync(final APICallBack<ListCustomersResponse> callBack)
-```
-
-#### Example Usage
-
-```java
-// Invoking the API call with sample inputs
-customers.getCustomersAsync(new APICallBack<ListCustomersResponse>() {
-    public void onSuccess(HttpContext context, ListCustomersResponse response) {
-        // TODO success callback handler
-    }
-    public void onFailure(HttpContext context, Throwable error) {
-        // TODO failure callback handler
-    }
-});
-
-```
-
-
 ### <a name="create_customer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.createCustomerAsync") createCustomerAsync
 
 > Creates a new customer
@@ -1076,6 +1051,50 @@ String customerId = "customer_id";
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_customers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.CustomersController.getCustomersAsync") getCustomersAsync
+
+> Get all Customers
+
+
+```java
+void getCustomersAsync(
+        final String name,
+        final String document,
+        final Integer page,
+        final Integer size,
+        final APICallBack<ListCustomersResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| name |  ``` Optional ```  | Name of the Customer |
+| document |  ``` Optional ```  | Document of the Customer |
+| page |  ``` Optional ```  ``` DefaultValue ```  | Current page the the search |
+| size |  ``` Optional ```  ``` DefaultValue ```  | Quantity pages of the search |
+
+
+#### Example Usage
+
+```java
+String name = "name";
+String document = "document";
+Integer page = 1;
+Integer size = 10;
+// Invoking the API call with sample inputs
+customers.getCustomersAsync(name, document, page, size, new APICallBack<ListCustomersResponse>() {
+    public void onSuccess(HttpContext context, ListCustomersResponse response) {
         // TODO success callback handler
     }
     public void onFailure(HttpContext context, Throwable error) {

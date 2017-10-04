@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4976216513285622650L;
+    private static final long serialVersionUID = 4852448888816170672L;
     private String bank;
     private String instructions;
     private Date dueAt;
