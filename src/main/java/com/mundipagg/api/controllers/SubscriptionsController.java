@@ -41,52 +41,57 @@ public class SubscriptionsController extends BaseController {
     }
 
     /**
-     * Updates the billing date from a subscription
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    request    Required parameter: Request for updating the subscription billing date
-     * @return    Returns the GetSubscriptionResponse response from the API call 
+     * Updates a subscription item
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @param    itemId    Required parameter: Item id
+     * @param    body    Required parameter: Request for updating a subscription item
+     * @return    Returns the GetSubscriptionItemResponse response from the API call 
      */
-    public GetSubscriptionResponse updateSubscriptionBillingDate(
+    public GetSubscriptionItemResponse updateSubscriptionItem(
                 final String subscriptionId,
-                final UpdateSubscriptionBillingDateRequest request
+                final String itemId,
+                final UpdateSubscriptionItemRequest body
     ) throws Throwable {
-        APICallBackCatcher<GetSubscriptionResponse> callback = new APICallBackCatcher<GetSubscriptionResponse>();
-        updateSubscriptionBillingDateAsync(subscriptionId, request, callback);
+        APICallBackCatcher<GetSubscriptionItemResponse> callback = new APICallBackCatcher<GetSubscriptionItemResponse>();
+        updateSubscriptionItemAsync(subscriptionId, itemId, body, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Updates the billing date from a subscription
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    request    Required parameter: Request for updating the subscription billing date
+     * Updates a subscription item
+     * @param    subscriptionId    Required parameter: Subscription Id
+     * @param    itemId    Required parameter: Item id
+     * @param    body    Required parameter: Request for updating a subscription item
      * @return    Returns the void response from the API call 
      */
-    public void updateSubscriptionBillingDateAsync(
+    public void updateSubscriptionItemAsync(
                 final String subscriptionId,
-                final UpdateSubscriptionBillingDateRequest request,
-                final APICallBack<GetSubscriptionResponse> callBack
+                final String itemId,
+                final UpdateSubscriptionItemRequest body,
+                final APICallBack<GetSubscriptionItemResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/subscriptions/{subscription_id}/billing-date");
+        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}");
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5615800611904312472L;
+            private static final long serialVersionUID = 5186451067361031912L;
             {
                     put( "subscription_id", subscriptionId );
+                    put( "item_id", itemId );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4646319433554542527L;
+            private static final long serialVersionUID = 5406890793468535762L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -94,7 +99,7 @@ public class SubscriptionsController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(body),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -122,8 +127,8 @@ public class SubscriptionsController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetSubscriptionResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetSubscriptionResponse>(){});
+                            GetSubscriptionItemResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetSubscriptionItemResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -197,7 +202,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5573353306690814379L;
+            private static final long serialVersionUID = 5113477143892400151L;
             {
                     put( "subscription_id", subscriptionId );
                     put( "item_id", itemId );
@@ -207,7 +212,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4848441355118951018L;
+            private static final long serialVersionUID = 4801862336169595022L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -278,57 +283,52 @@ public class SubscriptionsController extends BaseController {
     }
 
     /**
-     * Updates a subscription item
-     * @param    subscriptionId    Required parameter: Subscription Id
-     * @param    itemId    Required parameter: Item id
-     * @param    body    Required parameter: Request for updating a subscription item
-     * @return    Returns the GetSubscriptionItemResponse response from the API call 
+     * Updates the billing date from a subscription
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    request    Required parameter: Request for updating the subscription billing date
+     * @return    Returns the GetSubscriptionResponse response from the API call 
      */
-    public GetSubscriptionItemResponse updateSubscriptionItem(
+    public GetSubscriptionResponse updateSubscriptionBillingDate(
                 final String subscriptionId,
-                final String itemId,
-                final UpdateSubscriptionItemRequest body
+                final UpdateSubscriptionBillingDateRequest request
     ) throws Throwable {
-        APICallBackCatcher<GetSubscriptionItemResponse> callback = new APICallBackCatcher<GetSubscriptionItemResponse>();
-        updateSubscriptionItemAsync(subscriptionId, itemId, body, callback);
+        APICallBackCatcher<GetSubscriptionResponse> callback = new APICallBackCatcher<GetSubscriptionResponse>();
+        updateSubscriptionBillingDateAsync(subscriptionId, request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Updates a subscription item
-     * @param    subscriptionId    Required parameter: Subscription Id
-     * @param    itemId    Required parameter: Item id
-     * @param    body    Required parameter: Request for updating a subscription item
+     * Updates the billing date from a subscription
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    request    Required parameter: Request for updating the subscription billing date
      * @return    Returns the void response from the API call 
      */
-    public void updateSubscriptionItemAsync(
+    public void updateSubscriptionBillingDateAsync(
                 final String subscriptionId,
-                final String itemId,
-                final UpdateSubscriptionItemRequest body,
-                final APICallBack<GetSubscriptionItemResponse> callBack
+                final UpdateSubscriptionBillingDateRequest request,
+                final APICallBack<GetSubscriptionResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}");
+        _queryBuilder.append("/subscriptions/{subscription_id}/billing-date");
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5366511790487412008L;
+            private static final long serialVersionUID = 5600764607663658385L;
             {
                     put( "subscription_id", subscriptionId );
-                    put( "item_id", itemId );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5184393256755848739L;
+            private static final long serialVersionUID = 4927037349302851211L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -336,7 +336,7 @@ public class SubscriptionsController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(body),
+        final HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -364,109 +364,8 @@ public class SubscriptionsController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetSubscriptionItemResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetSubscriptionItemResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Gets all subscriptions
-     * @return    Returns the ListSubscriptionsResponse response from the API call 
-     */
-    public ListSubscriptionsResponse getSubscriptions(
-    ) throws Throwable {
-        APICallBackCatcher<ListSubscriptionsResponse> callback = new APICallBackCatcher<ListSubscriptionsResponse>();
-        getSubscriptionsAsync(callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Gets all subscriptions
-     * @return    Returns the void response from the API call 
-     */
-    public void getSubscriptionsAsync(
-                final APICallBack<ListSubscriptionsResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/subscriptions");
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5241876542525129389L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListSubscriptionsResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListSubscriptionsResponse>(){});
+                            GetSubscriptionResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetSubscriptionResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -536,7 +435,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5764556862190009865L;
+            private static final long serialVersionUID = 5662100946876560646L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -545,7 +444,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5118120445115640394L;
+            private static final long serialVersionUID = 5204913761845989645L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -650,7 +549,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4863395570655605111L;
+            private static final long serialVersionUID = 5222406931275372157L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -757,7 +656,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5340068645329477187L;
+            private static final long serialVersionUID = 5139219437223096517L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -766,7 +665,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5302872283879497834L;
+            private static final long serialVersionUID = 5731068838043826248L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -873,7 +772,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4622221341422391940L;
+            private static final long serialVersionUID = 5174722374284430073L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -882,7 +781,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5047344146468863422L;
+            private static final long serialVersionUID = 4891756656979154989L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -985,7 +884,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5563823168354751901L;
+            private static final long serialVersionUID = 5489471789121513734L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -994,7 +893,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5483181935914198038L;
+            private static final long serialVersionUID = 5059006322966295493L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1101,7 +1000,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5109948200740036591L;
+            private static final long serialVersionUID = 5432534276240916056L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -1110,7 +1009,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5197042311146540580L;
+            private static final long serialVersionUID = 5211479204483769443L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1181,245 +1080,6 @@ public class SubscriptionsController extends BaseController {
     }
 
     /**
-     * Lists all usages from a subscription item
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    itemId    Required parameter: The subscription item id
-     * @return    Returns the ListUsagesResponse response from the API call 
-     */
-    public ListUsagesResponse getUsages(
-                final String subscriptionId,
-                final String itemId
-    ) throws Throwable {
-        APICallBackCatcher<ListUsagesResponse> callback = new APICallBackCatcher<ListUsagesResponse>();
-        getUsagesAsync(subscriptionId, itemId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Lists all usages from a subscription item
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    itemId    Required parameter: The subscription item id
-     * @return    Returns the void response from the API call 
-     */
-    public void getUsagesAsync(
-                final String subscriptionId,
-                final String itemId,
-                final APICallBack<ListUsagesResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}/usages");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4955952504298587864L;
-            {
-                    put( "subscription_id", subscriptionId );
-                    put( "item_id", itemId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5095466098670245446L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListUsagesResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListUsagesResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Deletes a usage
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    itemId    Required parameter: The subscription item id
-     * @param    usageId    Required parameter: The usage id
-     * @return    Returns the GetUsageResponse response from the API call 
-     */
-    public GetUsageResponse deleteUsage(
-                final String subscriptionId,
-                final String itemId,
-                final String usageId
-    ) throws Throwable {
-        APICallBackCatcher<GetUsageResponse> callback = new APICallBackCatcher<GetUsageResponse>();
-        deleteUsageAsync(subscriptionId, itemId, usageId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Deletes a usage
-     * @param    subscriptionId    Required parameter: The subscription id
-     * @param    itemId    Required parameter: The subscription item id
-     * @param    usageId    Required parameter: The usage id
-     * @return    Returns the void response from the API call 
-     */
-    public void deleteUsageAsync(
-                final String subscriptionId,
-                final String itemId,
-                final String usageId,
-                final APICallBack<GetUsageResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}/usages/{usage_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4748338110050562392L;
-            {
-                    put( "subscription_id", subscriptionId );
-                    put( "item_id", itemId );
-                    put( "usage_id", usageId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5251540196405968918L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetUsageResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetUsageResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Deletes a discount
      * @param    subscriptionId    Required parameter: Subscription id
      * @param    discountId    Required parameter: Discount Id
@@ -1456,7 +1116,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4891453835429816971L;
+            private static final long serialVersionUID = 5359466680682156107L;
             {
                     put( "subscription_id", subscriptionId );
                     put( "discount_id", discountId );
@@ -1466,7 +1126,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5070574276642035279L;
+            private static final long serialVersionUID = 4875605341916938115L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1573,7 +1233,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5189589349631644203L;
+            private static final long serialVersionUID = 5089700112811531246L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -1582,7 +1242,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4807003125786171660L;
+            private static final long serialVersionUID = 5011146957297021934L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1689,7 +1349,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5566856677386521383L;
+            private static final long serialVersionUID = 5114535145504064774L;
             {
                     put( "subscription_id", subscriptionId );
                     put( "subscription_item_id", subscriptionItemId );
@@ -1699,7 +1359,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5630562186632485960L;
+            private static final long serialVersionUID = 5106521430309306928L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1770,6 +1430,261 @@ public class SubscriptionsController extends BaseController {
     }
 
     /**
+     * Deletes a usage
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    itemId    Required parameter: The subscription item id
+     * @param    usageId    Required parameter: The usage id
+     * @return    Returns the GetUsageResponse response from the API call 
+     */
+    public GetUsageResponse deleteUsage(
+                final String subscriptionId,
+                final String itemId,
+                final String usageId
+    ) throws Throwable {
+        APICallBackCatcher<GetUsageResponse> callback = new APICallBackCatcher<GetUsageResponse>();
+        deleteUsageAsync(subscriptionId, itemId, usageId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Deletes a usage
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    itemId    Required parameter: The subscription item id
+     * @param    usageId    Required parameter: The usage id
+     * @return    Returns the void response from the API call 
+     */
+    public void deleteUsageAsync(
+                final String subscriptionId,
+                final String itemId,
+                final String usageId,
+                final APICallBack<GetUsageResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}/usages/{usage_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4676269213332149696L;
+            {
+                    put( "subscription_id", subscriptionId );
+                    put( "item_id", itemId );
+                    put( "usage_id", usageId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5511625227938616646L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetUsageResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetUsageResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)	
+                            {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Lists all usages from a subscription item
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    itemId    Required parameter: The subscription item id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the ListUsagesResponse response from the API call 
+     */
+    public ListUsagesResponse getUsages(
+                final String subscriptionId,
+                final String itemId,
+                final Integer page,
+                final Integer size
+    ) throws Throwable {
+        APICallBackCatcher<ListUsagesResponse> callback = new APICallBackCatcher<ListUsagesResponse>();
+        getUsagesAsync(subscriptionId, itemId, page, size, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Lists all usages from a subscription item
+     * @param    subscriptionId    Required parameter: The subscription id
+     * @param    itemId    Required parameter: The subscription item id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the void response from the API call 
+     */
+    public void getUsagesAsync(
+                final String subscriptionId,
+                final String itemId,
+                final Integer page,
+                final Integer size,
+                final APICallBack<ListUsagesResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/subscriptions/{subscription_id}/items/{item_id}/usages");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4834075374329613864L;
+            {
+                    put( "subscription_id", subscriptionId );
+                    put( "item_id", itemId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5163244288693515302L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4866080486079415379L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListUsagesResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListUsagesResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)	
+                            {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
      * Updates the metadata from a subscription
      * @param    subscriptionId    Required parameter: The subscription id
      * @param    request    Required parameter: Request for updating the subscrption metadata
@@ -1806,7 +1721,7 @@ public class SubscriptionsController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4936146008971558684L;
+            private static final long serialVersionUID = 5444962147246896592L;
             {
                     put( "subscription_id", subscriptionId );
             }});
@@ -1815,7 +1730,7 @@ public class SubscriptionsController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4737218592192509613L;
+            private static final long serialVersionUID = 5036871628435370276L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1853,6 +1768,173 @@ public class SubscriptionsController extends BaseController {
                             String _responseBody = ((HttpStringResponse)_response).getBody();
                             GetSubscriptionResponse _result = APIHelper.deserialize(_responseBody,
                                                         new TypeReference<GetSubscriptionResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)	
+                            {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Gets all subscriptions
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @param    code    Optional parameter: Filter for subscription's code
+     * @param    billingType    Optional parameter: Filter for subscription's billing type
+     * @param    customerId    Optional parameter: Filter for subscription's customer id
+     * @param    planId    Optional parameter: Filter for subscription's plan id
+     * @param    cardId    Optional parameter: Filter for subscription's card id
+     * @param    status    Optional parameter: Filter for subscription's status
+     * @param    nextBillingSince    Optional parameter: Filter for subscription's next billing date start range
+     * @param    nextBillingUntil    Optional parameter: Filter for subscription's next billing date end range
+     * @param    createdSince    Optional parameter: Filter for subscription's creation date start range
+     * @param    createdUntil    Optional parameter: Filter for subscriptions creation date end range
+     * @return    Returns the ListSubscriptionsResponse response from the API call 
+     */
+    public ListSubscriptionsResponse getSubscriptions(
+                final Integer page,
+                final Integer size,
+                final String code,
+                final String billingType,
+                final String customerId,
+                final String planId,
+                final String cardId,
+                final String status,
+                final Date nextBillingSince,
+                final Date nextBillingUntil,
+                final Date createdSince,
+                final Date createdUntil
+    ) throws Throwable {
+        APICallBackCatcher<ListSubscriptionsResponse> callback = new APICallBackCatcher<ListSubscriptionsResponse>();
+        getSubscriptionsAsync(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Gets all subscriptions
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @param    code    Optional parameter: Filter for subscription's code
+     * @param    billingType    Optional parameter: Filter for subscription's billing type
+     * @param    customerId    Optional parameter: Filter for subscription's customer id
+     * @param    planId    Optional parameter: Filter for subscription's plan id
+     * @param    cardId    Optional parameter: Filter for subscription's card id
+     * @param    status    Optional parameter: Filter for subscription's status
+     * @param    nextBillingSince    Optional parameter: Filter for subscription's next billing date start range
+     * @param    nextBillingUntil    Optional parameter: Filter for subscription's next billing date end range
+     * @param    createdSince    Optional parameter: Filter for subscription's creation date start range
+     * @param    createdUntil    Optional parameter: Filter for subscriptions creation date end range
+     * @return    Returns the void response from the API call 
+     */
+    public void getSubscriptionsAsync(
+                final Integer page,
+                final Integer size,
+                final String code,
+                final String billingType,
+                final String customerId,
+                final String planId,
+                final String cardId,
+                final String status,
+                final Date nextBillingSince,
+                final Date nextBillingUntil,
+                final Date createdSince,
+                final Date createdUntil,
+                final APICallBack<ListSubscriptionsResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/subscriptions");
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5399508975594128584L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+                    put( "code", code );
+                    put( "billing_type", billingType );
+                    put( "customer_id", customerId );
+                    put( "plan_id", planId );
+                    put( "card_id", cardId );
+                    put( "status", status );
+                    put( "next_billing_since", nextBillingSince );
+                    put( "next_billing_until", nextBillingUntil );
+                    put( "created_since", createdSince );
+                    put( "created_until", createdUntil );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5664414059041644431L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListSubscriptionsResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListSubscriptionsResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

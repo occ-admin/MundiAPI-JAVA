@@ -73,7 +73,7 @@ public class OrdersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4738197906449402174L;
+            private static final long serialVersionUID = 5030530550264011054L;
             {
                     put( "order_id", orderId );
             }});
@@ -82,7 +82,7 @@ public class OrdersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5761127829925567571L;
+            private static final long serialVersionUID = 5309838723497805236L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -153,107 +153,6 @@ public class OrdersController extends BaseController {
     }
 
     /**
-     * Gets all orders
-     * @return    Returns the ListOrderResponse response from the API call 
-     */
-    public ListOrderResponse getOrders(
-    ) throws Throwable {
-        APICallBackCatcher<ListOrderResponse> callback = new APICallBackCatcher<ListOrderResponse>();
-        getOrdersAsync(callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Gets all orders
-     * @return    Returns the void response from the API call 
-     */
-    public void getOrdersAsync(
-                final APICallBack<ListOrderResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/orders");
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4946390310027044612L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListOrderResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListOrderResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Creates a new Order
      * @param    body    Required parameter: Request for creating an order
      * @return    Returns the GetOrderResponse response from the API call 
@@ -288,7 +187,7 @@ public class OrdersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4925739874334756321L;
+            private static final long serialVersionUID = 4901282500250773113L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -395,7 +294,7 @@ public class OrdersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4966006821083872377L;
+            private static final long serialVersionUID = 4942295037399742284L;
             {
                     put( "order_id", orderId );
             }});
@@ -404,7 +303,7 @@ public class OrdersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5088191668221829945L;
+            private static final long serialVersionUID = 5296395317938205525L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -442,6 +341,148 @@ public class OrdersController extends BaseController {
                             String _responseBody = ((HttpStringResponse)_response).getBody();
                             GetOrderResponse _result = APIHelper.deserialize(_responseBody,
                                                         new TypeReference<GetOrderResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)	
+                            {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Gets all orders
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @param    code    Optional parameter: Filter for order's code
+     * @param    status    Optional parameter: Filter for order's status
+     * @param    createdSince    Optional parameter: Filter for order's creation date start range
+     * @param    createdUntil    Optional parameter: Filter for order's creation date end range
+     * @param    customerId    Optional parameter: Filter for order's customer id
+     * @return    Returns the ListOrderResponse response from the API call 
+     */
+    public ListOrderResponse getOrders(
+                final Integer page,
+                final Integer size,
+                final String code,
+                final String status,
+                final Date createdSince,
+                final Date createdUntil,
+                final String customerId
+    ) throws Throwable {
+        APICallBackCatcher<ListOrderResponse> callback = new APICallBackCatcher<ListOrderResponse>();
+        getOrdersAsync(page, size, code, status, createdSince, createdUntil, customerId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Gets all orders
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @param    code    Optional parameter: Filter for order's code
+     * @param    status    Optional parameter: Filter for order's status
+     * @param    createdSince    Optional parameter: Filter for order's creation date start range
+     * @param    createdUntil    Optional parameter: Filter for order's creation date end range
+     * @param    customerId    Optional parameter: Filter for order's customer id
+     * @return    Returns the void response from the API call 
+     */
+    public void getOrdersAsync(
+                final Integer page,
+                final Integer size,
+                final String code,
+                final String status,
+                final Date createdSince,
+                final Date createdUntil,
+                final String customerId,
+                final APICallBack<ListOrderResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/orders");
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4734880441595010488L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+                    put( "code", code );
+                    put( "status", status );
+                    put( "created_since", createdSince );
+                    put( "created_until", createdUntil );
+                    put( "customer_id", customerId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4635295560076865326L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListOrderResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListOrderResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

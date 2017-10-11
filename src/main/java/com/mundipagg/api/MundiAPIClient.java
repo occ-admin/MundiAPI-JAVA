@@ -26,11 +26,11 @@ public class MundiAPIClient {
     }
 
     /**
-     * Singleton access to Subscriptions controller
-     * @return	Returns the SubscriptionsController instance 
+     * Singleton access to Invoices controller
+     * @return	Returns the InvoicesController instance 
      */
-    public SubscriptionsController getSubscriptions() {
-        return SubscriptionsController.getInstance();
+    public InvoicesController getInvoices() {
+        return InvoicesController.getInstance();
     }
 
     /**
@@ -42,11 +42,11 @@ public class MundiAPIClient {
     }
 
     /**
-     * Singleton access to Invoices controller
-     * @return	Returns the InvoicesController instance 
+     * Singleton access to Subscriptions controller
+     * @return	Returns the SubscriptionsController instance 
      */
-    public InvoicesController getInvoices() {
-        return InvoicesController.getInstance();
+    public SubscriptionsController getSubscriptions() {
+        return SubscriptionsController.getInstance();
     }
 
     /**
