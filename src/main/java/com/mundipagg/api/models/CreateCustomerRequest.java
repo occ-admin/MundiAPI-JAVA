@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCustomerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5116612276190287802L;
+    private static final long serialVersionUID = 5272835786934214326L;
     private String name;
     private String email;
     private String document;
@@ -20,6 +20,7 @@ public class CreateCustomerRequest
     private LinkedHashMap<String, String> metadata;
     private CreatePhonesRequest phones;
     private String code;
+    private String gender;
     /** GETTER
      * Name
      */
@@ -146,6 +147,22 @@ public class CreateCustomerRequest
     @JsonSetter("code")
     public void setCode (String value) { 
         this.code = value;
+    }
+ 
+    /** GETTER
+     * Customer Gender
+     */
+    @JsonGetter("gender")
+    public String getGender ( ) { 
+        return this.gender;
+    }
+    
+    /** SETTER
+     * Customer Gender
+     */
+    @JsonSetter("gender")
+    public void setGender (String value) { 
+        this.gender = value;
     }
  
 }

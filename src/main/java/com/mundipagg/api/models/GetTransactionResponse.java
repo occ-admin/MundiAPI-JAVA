@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
           defaultImpl = GetTransactionResponse.class)
         @JsonSubTypes({
          @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
-         @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-         @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
          @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
-         @Type(value = GetVoucherTransactionResponse.class, name = "voucher")
+         @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
+         @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
+         @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay")
         })
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5553443299283455055L;
+    private static final long serialVersionUID = 5634680320942990792L;
     private String gatewayId;
     private int amount;
     private String status;
