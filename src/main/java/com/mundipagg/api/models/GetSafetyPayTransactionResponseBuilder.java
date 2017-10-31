@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetSafetyPayTransactionResponseBuilder 
         extends GetTransactionResponseBuilder {
@@ -38,7 +39,7 @@ public class GetSafetyPayTransactionResponseBuilder
     /**
      * Payment date
      */
-    public GetSafetyPayTransactionResponseBuilder paidAt(Date paidAt) {
+    public GetSafetyPayTransactionResponseBuilder paidAt(DateTime paidAt) {
         getSafetyPayTransactionResponse.setPaidAt(paidAt);
         return this;
     }

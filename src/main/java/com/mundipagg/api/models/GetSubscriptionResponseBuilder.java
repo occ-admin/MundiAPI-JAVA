@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetSubscriptionResponseBuilder {
     //the instance to build
@@ -28,7 +29,7 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder startAt(Date startAt) {
+    public GetSubscriptionResponseBuilder startAt(DateTime startAt) {
         getSubscriptionResponse.setStartAt(startAt);
         return this;
     }
@@ -73,12 +74,12 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder createdAt(Date createdAt) {
+    public GetSubscriptionResponseBuilder createdAt(DateTime createdAt) {
         getSubscriptionResponse.setCreatedAt(createdAt);
         return this;
     }
 
-    public GetSubscriptionResponseBuilder updatedAt(Date updatedAt) {
+    public GetSubscriptionResponseBuilder updatedAt(DateTime updatedAt) {
         getSubscriptionResponse.setUpdatedAt(updatedAt);
         return this;
     }
@@ -113,7 +114,7 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder nextBillingAt(Date nextBillingAt) {
+    public GetSubscriptionResponseBuilder nextBillingAt(DateTime nextBillingAt) {
         getSubscriptionResponse.setNextBillingAt(nextBillingAt);
         return this;
     }
@@ -128,7 +129,7 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder canceledAt(Date canceledAt) {
+    public GetSubscriptionResponseBuilder canceledAt(DateTime canceledAt) {
         getSubscriptionResponse.setCanceledAt(canceledAt);
         return this;
     }

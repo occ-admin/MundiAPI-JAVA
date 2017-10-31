@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.joda.time.DateTime;
 
 import com.mundipagg.api.*;
 import com.mundipagg.api.models.*;
@@ -73,7 +74,7 @@ public class InvoicesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4823287460279857466L;
+            private static final long serialVersionUID = 5122791124083081750L;
             {
                     put( "invoice_id", invoiceId );
             }});
@@ -82,7 +83,7 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5006764182687552304L;
+            private static final long serialVersionUID = 5389029650476478211L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -136,8 +137,8 @@ public class InvoicesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -185,7 +186,7 @@ public class InvoicesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5119213782124870095L;
+            private static final long serialVersionUID = 4662892450041045561L;
             {
                     put( "invoice_id", invoiceId );
             }});
@@ -194,7 +195,7 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4740025506694360919L;
+            private static final long serialVersionUID = 4651575608665357240L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -248,8 +249,8 @@ public class InvoicesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -301,7 +302,7 @@ public class InvoicesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4891377159177083247L;
+            private static final long serialVersionUID = 5198105124763751880L;
             {
                     put( "invoice_id", invoiceId );
             }});
@@ -310,10 +311,11 @@ public class InvoicesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5457441152716226450L;
+            private static final long serialVersionUID = 4874931602342611348L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -364,8 +366,8 @@ public class InvoicesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -400,11 +402,11 @@ public class InvoicesController extends BaseController {
                 final String code,
                 final String customerId,
                 final String subscriptionId,
-                final Date createdSince,
-                final Date createdUntil,
+                final DateTime createdSince,
+                final DateTime createdUntil,
                 final String status,
-                final Date dueSince,
-                final Date dueUntil
+                final DateTime dueSince,
+                final DateTime dueUntil
     ) throws Throwable {
         APICallBackCatcher<ListInvoicesResponse> callback = new APICallBackCatcher<ListInvoicesResponse>();
         getInvoicesAsync(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, callback);
@@ -433,11 +435,11 @@ public class InvoicesController extends BaseController {
                 final String code,
                 final String customerId,
                 final String subscriptionId,
-                final Date createdSince,
-                final Date createdUntil,
+                final DateTime createdSince,
+                final DateTime createdUntil,
                 final String status,
-                final Date dueSince,
-                final Date dueUntil,
+                final DateTime dueSince,
+                final DateTime dueUntil,
                 final APICallBack<ListInvoicesResponse> callBack
     ) {
         //the base uri for api requests
@@ -449,25 +451,25 @@ public class InvoicesController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5596579324096617455L;
+            private static final long serialVersionUID = 4788042806849071341L;
             {
                     put( "page", page );
                     put( "size", size );
                     put( "code", code );
                     put( "customer_id", customerId );
                     put( "subscription_id", subscriptionId );
-                    put( "created_since", createdSince );
-                    put( "created_until", createdUntil );
+                    put( "created_since", DateTimeHelper.toRfc8601DateTime(createdSince) );
+                    put( "created_until", DateTimeHelper.toRfc8601DateTime(createdUntil) );
                     put( "status", status );
-                    put( "due_since", dueSince );
-                    put( "due_until", dueUntil );
+                    put( "due_since", DateTimeHelper.toRfc8601DateTime(dueSince) );
+                    put( "due_until", DateTimeHelper.toRfc8601DateTime(dueUntil) );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5058020095857100664L;
+            private static final long serialVersionUID = 5507712160905361556L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -521,8 +523,8 @@ public class InvoicesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 

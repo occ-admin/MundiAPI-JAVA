@@ -112,6 +112,7 @@ MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword)
 * [SubscriptionsController](#subscriptions_controller)
 * [OrdersController](#orders_controller)
 * [TokensController](#tokens_controller)
+* [RecipientsController](#recipients_controller)
 
 ## <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.ChargesController") ChargesController
 
@@ -456,8 +457,8 @@ void getChargesAsync(
         final String paymentMethod,
         final String customerId,
         final String orderId,
-        final Date createdSince,
-        final Date createdUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
         final APICallBack<ListChargesResponse> callBack)
 ```
 
@@ -479,15 +480,15 @@ void getChargesAsync(
 #### Example Usage
 
 ```java
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 String code = "code";
 String status = "status";
 String paymentMethod = "payment_method";
 String customerId = "customer_id";
 String orderId = "order_id";
-Date createdSince = new Date();
-Date createdUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
 // Invoking the API call with sample inputs
 charges.getChargesAsync(page, size, code, status, paymentMethod, customerId, orderId, createdSince, createdUntil, new APICallBack<ListChargesResponse>() {
     public void onSuccess(HttpContext context, ListChargesResponse response) {
@@ -1223,8 +1224,8 @@ void getAccessTokensAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, page, size, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
@@ -1264,8 +1265,8 @@ void getAddressesAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 // Invoking the API call with sample inputs
 customers.getAddressesAsync(customerId, page, size, new APICallBack<ListAddressesResponse>() {
     public void onSuccess(HttpContext context, ListAddressesResponse response) {
@@ -1305,8 +1306,8 @@ void getCardsAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 // Invoking the API call with sample inputs
 customers.getCardsAsync(customerId, page, size, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
@@ -1456,11 +1457,11 @@ void getInvoicesAsync(
         final String code,
         final String customerId,
         final String subscriptionId,
-        final Date createdSince,
-        final Date createdUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
         final String status,
-        final Date dueSince,
-        final Date dueUntil,
+        final DateTime dueSince,
+        final DateTime dueUntil,
         final APICallBack<ListInvoicesResponse> callBack)
 ```
 
@@ -1483,16 +1484,16 @@ void getInvoicesAsync(
 #### Example Usage
 
 ```java
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 String code = "code";
 String customerId = "customer_id";
 String subscriptionId = "subscription_id";
-Date createdSince = new Date();
-Date createdUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
 String status = "status";
-Date dueSince = new Date();
-Date dueUntil = new Date();
+DateTime dueSince = new Date();
+DateTime dueUntil = new Date();
 // Invoking the API call with sample inputs
 invoices.getInvoicesAsync(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, new APICallBack<ListInvoicesResponse>() {
     public void onSuccess(HttpContext context, ListInvoicesResponse response) {
@@ -1886,8 +1887,8 @@ void getPlansAsync(
         final String name,
         final String status,
         final String billingType,
-        final Date createdSince,
-        final Date createdUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
         final APICallBack<ListPlansResponse> callBack)
 ```
 
@@ -1907,13 +1908,13 @@ void getPlansAsync(
 #### Example Usage
 
 ```java
-Integer page = 170;
-Integer size = 170;
+Integer page = 144;
+Integer size = 144;
 String name = "name";
 String status = "status";
 String billingType = "billing_type";
-Date createdSince = new Date();
-Date createdUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
 // Invoking the API call with sample inputs
 plans.getPlansAsync(page, size, name, status, billingType, createdSince, createdUntil, new APICallBack<ListPlansResponse>() {
     public void onSuccess(HttpContext context, ListPlansResponse response) {
@@ -2501,8 +2502,8 @@ void getUsagesAsync(
 ```java
 String subscriptionId = "subscription_id";
 String itemId = "item_id";
-Integer page = 128;
-Integer size = 128;
+Integer page = 236;
+Integer size = 236;
 // Invoking the API call with sample inputs
 subscriptions.getUsagesAsync(subscriptionId, itemId, page, size, new APICallBack<ListUsagesResponse>() {
     public void onSuccess(HttpContext context, ListUsagesResponse response) {
@@ -2573,10 +2574,10 @@ void getSubscriptionsAsync(
         final String planId,
         final String cardId,
         final String status,
-        final Date nextBillingSince,
-        final Date nextBillingUntil,
-        final Date createdSince,
-        final Date createdUntil,
+        final DateTime nextBillingSince,
+        final DateTime nextBillingUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
         final APICallBack<ListSubscriptionsResponse> callBack)
 ```
 
@@ -2601,18 +2602,18 @@ void getSubscriptionsAsync(
 #### Example Usage
 
 ```java
-Integer page = 128;
-Integer size = 128;
+Integer page = 236;
+Integer size = 236;
 String code = "code";
 String billingType = "billing_type";
 String customerId = "customer_id";
 String planId = "plan_id";
 String cardId = "card_id";
 String status = "status";
-Date nextBillingSince = new Date();
-Date nextBillingUntil = new Date();
-Date createdSince = new Date();
-Date createdUntil = new Date();
+DateTime nextBillingSince = new Date();
+DateTime nextBillingUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
 // Invoking the API call with sample inputs
 subscriptions.getSubscriptionsAsync(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, new APICallBack<ListSubscriptionsResponse>() {
     public void onSuccess(HttpContext context, ListSubscriptionsResponse response) {
@@ -2765,8 +2766,8 @@ void getOrdersAsync(
         final Integer size,
         final String code,
         final String status,
-        final Date createdSince,
-        final Date createdUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
         final String customerId,
         final APICallBack<ListOrderResponse> callBack)
 ```
@@ -2787,12 +2788,12 @@ void getOrdersAsync(
 #### Example Usage
 
 ```java
-Integer page = 128;
-Integer size = 128;
+Integer page = 236;
+Integer size = 236;
 String code = "code";
 String status = "status";
-Date createdSince = new Date();
-Date createdUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
 String customerId = "customer_id";
 // Invoking the API call with sample inputs
 orders.getOrdersAsync(page, size, code, status, createdSince, createdUntil, customerId, new APICallBack<ListOrderResponse>() {
@@ -2890,6 +2891,601 @@ try {
     // Invoking the API call with sample inputs
     tokens.createTokenAsync(publicKey, request, new APICallBack<GetTokenResponse>() {
         public void onSuccess(HttpContext context, GetTokenResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="recipients_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.RecipientsController") RecipientsController
+
+### Get singleton instance
+
+The singleton instance of the ``` RecipientsController ``` class can be accessed from the API Client.
+
+```java
+RecipientsController recipients = client.getRecipients();
+```
+
+### <a name="create_recipient_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.createRecipientAsync") createRecipientAsync
+
+> Creates a new recipient
+
+
+```java
+void createRecipientAsync(
+        final CreateRecipientRequest request,
+        final APICallBack<GetRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| request |  ``` Required ```  | Recipient data |
+
+
+#### Example Usage
+
+```java
+try {
+    CreateRecipientRequest request = new CreateRecipientRequest();
+    // Invoking the API call with sample inputs
+    recipients.createRecipientAsync(request, new APICallBack<GetRecipientResponse>() {
+        public void onSuccess(HttpContext context, GetRecipientResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="update_recipient_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.updateRecipientAsync") updateRecipientAsync
+
+> Updates a recipient
+
+
+```java
+void updateRecipientAsync(
+        final String recipientId,
+        final UpdateRecipientRequest request,
+        final APICallBack<GetRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Recipient data |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    UpdateRecipientRequest request = new UpdateRecipientRequest();
+    // Invoking the API call with sample inputs
+    recipients.updateRecipientAsync(recipientId, request, new APICallBack<GetRecipientResponse>() {
+        public void onSuccess(HttpContext context, GetRecipientResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="update_recipient_default_bank_account_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.updateRecipientDefaultBankAccountAsync") updateRecipientDefaultBankAccountAsync
+
+> Updates the default bank account from a recipient
+
+
+```java
+void updateRecipientDefaultBankAccountAsync(
+        final String recipientId,
+        final UpdateRecipientBankAccountRequest request,
+        final APICallBack<GetRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Bank account data |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    UpdateRecipientBankAccountRequest request = new UpdateRecipientBankAccountRequest();
+    // Invoking the API call with sample inputs
+    recipients.updateRecipientDefaultBankAccountAsync(recipientId, request, new APICallBack<GetRecipientResponse>() {
+        public void onSuccess(HttpContext context, GetRecipientResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_recipient_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getRecipientAsync") getRecipientAsync
+
+> Retrieves recipient information
+
+
+```java
+void getRecipientAsync(
+        final String recipientId,
+        final APICallBack<GetRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipiend id |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+// Invoking the API call with sample inputs
+recipients.getRecipientAsync(recipientId, new APICallBack<GetRecipientResponse>() {
+    public void onSuccess(HttpContext context, GetRecipientResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_recipients_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getRecipientsAsync") getRecipientsAsync
+
+> Retrieves paginated recipients information
+
+
+```java
+void getRecipientsAsync(
+        final Integer page,
+        final Integer size,
+        final APICallBack<ListRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+#### Example Usage
+
+```java
+Integer page = 236;
+Integer size = 236;
+// Invoking the API call with sample inputs
+recipients.getRecipientsAsync(page, size, new APICallBack<ListRecipientResponse>() {
+    public void onSuccess(HttpContext context, ListRecipientResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_balance_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getBalanceAsync") getBalanceAsync
+
+> Get balance information for a recipient
+
+
+```java
+void getBalanceAsync(
+        final String recipientId,
+        final APICallBack<GetBalanceResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+// Invoking the API call with sample inputs
+recipients.getBalanceAsync(recipientId, new APICallBack<GetBalanceResponse>() {
+    public void onSuccess(HttpContext context, GetBalanceResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_transfer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.createTransferAsync") createTransferAsync
+
+> Creates a transfer for a recipient
+
+
+```java
+void createTransferAsync(
+        final String recipientId,
+        final CreateTransferRequest request,
+        final APICallBack<GetTransferResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient Id |
+| request |  ``` Required ```  | Transfer data |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    CreateTransferRequest request = new CreateTransferRequest();
+    // Invoking the API call with sample inputs
+    recipients.createTransferAsync(recipientId, request, new APICallBack<GetTransferResponse>() {
+        public void onSuccess(HttpContext context, GetTransferResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_transfer_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getTransferAsync") getTransferAsync
+
+> Gets a transfer
+
+
+```java
+void getTransferAsync(
+        final String recipientId,
+        final String transferId,
+        final APICallBack<GetTransferResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| transferId |  ``` Required ```  | Transfer id |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+String transferId = "transfer_id";
+// Invoking the API call with sample inputs
+recipients.getTransferAsync(recipientId, transferId, new APICallBack<GetTransferResponse>() {
+    public void onSuccess(HttpContext context, GetTransferResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_transfers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getTransfersAsync") getTransfersAsync
+
+> Gets a paginated list of transfers for the recipient
+
+
+```java
+void getTransfersAsync(
+        final String recipientId,
+        final Integer page,
+        final Integer size,
+        final String status,
+        final DateTime createdSince,
+        final DateTime createdUntil,
+        final APICallBack<ListTransferResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| status |  ``` Optional ```  | Filter for transfer status |
+| createdSince |  ``` Optional ```  | Filter for start range of transfer creation date |
+| createdUntil |  ``` Optional ```  | Filter for end range of transfer creation date |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+Integer page = 236;
+Integer size = 236;
+String status = "status";
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
+// Invoking the API call with sample inputs
+recipients.getTransfersAsync(recipientId, page, size, status, createdSince, createdUntil, new APICallBack<ListTransferResponse>() {
+    public void onSuccess(HttpContext context, ListTransferResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_anticipation_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.createAnticipationAsync") createAnticipationAsync
+
+> Creates an anticipation
+
+
+```java
+void createAnticipationAsync(
+        final String recipientId,
+        final CreateAnticipationRequest request,
+        final APICallBack<GetAnticipationResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Anticipation data |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    CreateAnticipationRequest request = new CreateAnticipationRequest();
+    // Invoking the API call with sample inputs
+    recipients.createAnticipationAsync(recipientId, request, new APICallBack<GetAnticipationResponse>() {
+        public void onSuccess(HttpContext context, GetAnticipationResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_anticipation_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getAnticipationAsync") getAnticipationAsync
+
+> Gets an anticipation
+
+
+```java
+void getAnticipationAsync(
+        final String recipientId,
+        final String anticipationId,
+        final APICallBack<GetAnticipationResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| anticipationId |  ``` Required ```  | Anticipation id |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+String anticipationId = "anticipation_id";
+// Invoking the API call with sample inputs
+recipients.getAnticipationAsync(recipientId, anticipationId, new APICallBack<GetAnticipationResponse>() {
+    public void onSuccess(HttpContext context, GetAnticipationResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_anticipation_limits_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getAnticipationLimitsAsync") getAnticipationLimitsAsync
+
+> Gets the anticipation limits for a recipient
+
+
+```java
+void getAnticipationLimitsAsync(
+        final String recipientId,
+        final String timeframe,
+        final DateTime paymentDate,
+        final APICallBack<GetAnticipationLimitResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| timeframe |  ``` Required ```  | Timeframe |
+| paymentDate |  ``` Required ```  | Anticipation payment date |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+String timeframe = "timeframe";
+DateTime paymentDate = new Date();
+// Invoking the API call with sample inputs
+recipients.getAnticipationLimitsAsync(recipientId, timeframe, paymentDate, new APICallBack<GetAnticipationLimitResponse>() {
+    public void onSuccess(HttpContext context, GetAnticipationLimitResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="get_anticipations_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.getAnticipationsAsync") getAnticipationsAsync
+
+> Retrieves a paginated list of anticipations from a recipient
+
+
+```java
+void getAnticipationsAsync(
+        final String recipientId,
+        final Integer page,
+        final Integer size,
+        final String status,
+        final String timeframe,
+        final DateTime paymentDateSince,
+        final DateTime paymentDateUntil,
+        final DateTime createdSince,
+        final DateTime createdUntil,
+        final APICallBack<ListAnticipationResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| status |  ``` Optional ```  | Filter for anticipation status |
+| timeframe |  ``` Optional ```  | Filter for anticipation timeframe |
+| paymentDateSince |  ``` Optional ```  | Filter for start range for anticipation payment date |
+| paymentDateUntil |  ``` Optional ```  | Filter for end range for anticipation payment date |
+| createdSince |  ``` Optional ```  | Filter for start range for anticipation creation date |
+| createdUntil |  ``` Optional ```  | Filter for end range for anticipation creation date |
+
+
+#### Example Usage
+
+```java
+String recipientId = "recipient_id";
+Integer page = 236;
+Integer size = 236;
+String status = "status";
+String timeframe = "timeframe";
+DateTime paymentDateSince = new Date();
+DateTime paymentDateUntil = new Date();
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
+// Invoking the API call with sample inputs
+recipients.getAnticipationsAsync(recipientId, page, size, status, timeframe, paymentDateSince, paymentDateUntil, createdSince, createdUntil, new APICallBack<ListAnticipationResponse>() {
+    public void onSuccess(HttpContext context, ListAnticipationResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_recipient_metadata_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.RecipientsController.updateRecipientMetadataAsync") updateRecipientMetadataAsync
+
+> Updates recipient metadata
+
+
+```java
+void updateRecipientMetadataAsync(
+        final String recipientId,
+        final UpdateMetadataRequest request,
+        final APICallBack<GetRecipientResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Metadata |
+
+
+#### Example Usage
+
+```java
+try {
+    String recipientId = "recipient_id";
+    UpdateMetadataRequest request = new UpdateMetadataRequest();
+    // Invoking the API call with sample inputs
+    recipients.updateRecipientMetadataAsync(recipientId, request, new APICallBack<GetRecipientResponse>() {
+        public void onSuccess(HttpContext context, GetRecipientResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {

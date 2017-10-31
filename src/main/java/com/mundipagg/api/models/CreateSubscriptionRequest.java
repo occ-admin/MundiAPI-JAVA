@@ -8,10 +8,14 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5498193881556707697L;
+    private static final long serialVersionUID = 5361488737136380666L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -33,7 +37,7 @@ public class CreateSubscriptionRequest
     private String cardId;
     private Integer billingDay;
     private Integer installments;
-    private Date startAt;
+    private DateTime startAt;
     private Integer minimumPrice;
     private Integer cycles;
     private String cardToken;
@@ -377,7 +381,8 @@ public class CreateSubscriptionRequest
      * Subscription start date
      */
     @JsonGetter("start_at")
-    public Date getStartAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getStartAt ( ) { 
         return this.startAt;
     }
     
@@ -385,7 +390,8 @@ public class CreateSubscriptionRequest
      * Subscription start date
      */
     @JsonSetter("start_at")
-    public void setStartAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setStartAt (DateTime value) { 
         this.startAt = value;
     }
  

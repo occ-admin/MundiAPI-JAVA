@@ -8,14 +8,18 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5290846400932308054L;
+    private static final long serialVersionUID = 4889433309503332327L;
     private int retries;
     private String bank;
     private String instructions;
-    private Date dueAt;
+    private DateTime dueAt;
     private CreateAddressRequest billingAddress;
     private String billingAddressId;
     /** GETTER
@@ -70,7 +74,8 @@ public class CreateBoletoPaymentRequest
      * Boleto due date
      */
     @JsonGetter("due_at")
-    public Date getDueAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
         return this.dueAt;
     }
     
@@ -78,7 +83,8 @@ public class CreateBoletoPaymentRequest
      * Boleto due date
      */
     @JsonSetter("due_at")
-    public void setDueAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
         this.dueAt = value;
     }
  

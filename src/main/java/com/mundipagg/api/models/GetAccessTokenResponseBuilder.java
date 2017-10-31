@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetAccessTokenResponseBuilder {
     //the instance to build
@@ -33,7 +34,7 @@ public class GetAccessTokenResponseBuilder {
         return this;
     }
 
-    public GetAccessTokenResponseBuilder createdAt(Date createdAt) {
+    public GetAccessTokenResponseBuilder createdAt(DateTime createdAt) {
         getAccessTokenResponse.setCreatedAt(createdAt);
         return this;
     }

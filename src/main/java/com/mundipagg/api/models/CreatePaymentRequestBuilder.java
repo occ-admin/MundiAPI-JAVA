@@ -67,6 +67,14 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
+     * Splits
+     */
+    public CreatePaymentRequestBuilder split(List<CreateSplitRequest> split) {
+        createPaymentRequest.setSplit(split);
+        return this;
+    }
+
+    /**
      * Settings for bank transfer payment
      */
     public CreatePaymentRequestBuilder bankTransfer(CreateBankTransferPaymentRequest bankTransfer) {

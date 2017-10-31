@@ -8,18 +8,22 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetDiscountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5564499416285772078L;
+    private static final long serialVersionUID = 5448493864449361320L;
     private String id;
     private double value;
     private String discountType;
     private String status;
-    private Date createdAt;
+    private DateTime createdAt;
     private GetSubscriptionResponse subscription;
     private Integer cycles;
-    private Date deletedAt;
+    private DateTime deletedAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -88,7 +92,8 @@ public class GetDiscountResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -96,7 +101,8 @@ public class GetDiscountResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -136,7 +142,8 @@ public class GetDiscountResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("deleted_at")
-    public Date getDeletedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDeletedAt ( ) { 
         return this.deletedAt;
     }
     
@@ -144,7 +151,8 @@ public class GetDiscountResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("deleted_at")
-    public void setDeletedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDeletedAt (DateTime value) { 
         this.deletedAt = value;
     }
  

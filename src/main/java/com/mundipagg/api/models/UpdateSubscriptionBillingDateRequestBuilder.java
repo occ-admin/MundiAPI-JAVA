@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class UpdateSubscriptionBillingDateRequestBuilder {
     //the instance to build
@@ -21,7 +22,7 @@ public class UpdateSubscriptionBillingDateRequestBuilder {
     /**
      * The date when the next subscription billing must occur
      */
-    public UpdateSubscriptionBillingDateRequestBuilder nextBillingAt(Date nextBillingAt) {
+    public UpdateSubscriptionBillingDateRequestBuilder nextBillingAt(DateTime nextBillingAt) {
         updateSubscriptionBillingDateRequest.setNextBillingAt(nextBillingAt);
         return this;
     }

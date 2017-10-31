@@ -8,18 +8,22 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4688900924581134225L;
+    private static final long serialVersionUID = 5636824741490999545L;
     private String id;
     private String code;
     private String currency;
     private List<GetOrderItemResponse> items;
     private GetCustomerResponse customer;
     private String status;
-    private Date createdAt;
-    private Date updatedAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
     private List<GetChargeResponse> charges;
     private String invoiceUrl;
     private GetShippingResponse shipping;
@@ -125,7 +129,8 @@ public class GetOrderResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -133,7 +138,8 @@ public class GetOrderResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -141,7 +147,8 @@ public class GetOrderResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("updated_at")
-    public Date getUpdatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUpdatedAt ( ) { 
         return this.updatedAt;
     }
     
@@ -149,7 +156,8 @@ public class GetOrderResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("updated_at")
-    public void setUpdatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUpdatedAt (DateTime value) { 
         this.updatedAt = value;
     }
  

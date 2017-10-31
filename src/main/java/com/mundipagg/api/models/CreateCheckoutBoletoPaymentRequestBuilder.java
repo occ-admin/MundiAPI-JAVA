@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class CreateCheckoutBoletoPaymentRequestBuilder {
     //the instance to build
@@ -37,7 +38,7 @@ public class CreateCheckoutBoletoPaymentRequestBuilder {
     /**
      * Due date
      */
-    public CreateCheckoutBoletoPaymentRequestBuilder dueAt(Date dueAt) {
+    public CreateCheckoutBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
         createCheckoutBoletoPaymentRequest.setDueAt(dueAt);
         return this;
     }

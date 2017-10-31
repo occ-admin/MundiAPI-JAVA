@@ -8,14 +8,26 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
+@JsonTypeInfo(
+          use = JsonTypeInfo.Id.NAME,
+          include = JsonTypeInfo.As.PROPERTY,
+          property = "transaction_type",
+          defaultImpl = GetBankTransferTransactionResponse.class)
 public class GetBankTransferTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5644851248473045595L;
+    private static final long serialVersionUID = 5702598778628710344L;
     private String url;
     private String bankTid;
     private String bank;
-    private Date paidAt;
+    private DateTime paidAt;
     private Integer paidAmount;
     /** GETTER
      * Payment url
@@ -69,7 +81,8 @@ public class GetBankTransferTransactionResponse
      * Payment date
      */
     @JsonGetter("paid_at")
-    public Date getPaidAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getPaidAt ( ) { 
         return this.paidAt;
     }
     
@@ -77,7 +90,8 @@ public class GetBankTransferTransactionResponse
      * Payment date
      */
     @JsonSetter("paid_at")
-    public void setPaidAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setPaidAt (DateTime value) { 
         this.paidAt = value;
     }
  

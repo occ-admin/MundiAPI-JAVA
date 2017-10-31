@@ -8,13 +8,17 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5099943681261096219L;
+    private static final long serialVersionUID = 4717700600965235757L;
     private String id;
     private String code;
-    private Date startAt;
+    private DateTime startAt;
     private String interval;
     private int intervalCount;
     private String billingType;
@@ -23,18 +27,18 @@ public class GetSubscriptionResponse
     private String currency;
     private int installments;
     private String status;
-    private Date createdAt;
-    private Date updatedAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
     private GetCustomerResponse customer;
     private GetCardResponse card;
     private List<GetSubscriptionItemResponse> items;
     private String statementDescriptor;
     private LinkedHashMap<String, String> metadata;
     private GetSetupResponse setup;
-    private Date nextBillingAt;
+    private DateTime nextBillingAt;
     private Integer billingDay;
     private Integer minimumPrice;
-    private Date canceledAt;
+    private DateTime canceledAt;
     private List<GetDiscountResponse> discounts;
     /** GETTER
      * TODO: Write general description for this method
@@ -72,7 +76,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("start_at")
-    public Date getStartAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getStartAt ( ) { 
         return this.startAt;
     }
     
@@ -80,7 +85,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("start_at")
-    public void setStartAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setStartAt (DateTime value) { 
         this.startAt = value;
     }
  
@@ -216,7 +222,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -224,7 +231,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -232,7 +240,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("updated_at")
-    public Date getUpdatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUpdatedAt ( ) { 
         return this.updatedAt;
     }
     
@@ -240,7 +249,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("updated_at")
-    public void setUpdatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUpdatedAt (DateTime value) { 
         this.updatedAt = value;
     }
  
@@ -344,7 +354,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("next_billing_at")
-    public Date getNextBillingAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getNextBillingAt ( ) { 
         return this.nextBillingAt;
     }
     
@@ -352,7 +363,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("next_billing_at")
-    public void setNextBillingAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setNextBillingAt (DateTime value) { 
         this.nextBillingAt = value;
     }
  
@@ -392,7 +404,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("canceled_at")
-    public Date getCanceledAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCanceledAt ( ) { 
         return this.canceledAt;
     }
     
@@ -400,7 +413,8 @@ public class GetSubscriptionResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("canceled_at")
-    public void setCanceledAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCanceledAt (DateTime value) { 
         this.canceledAt = value;
     }
  

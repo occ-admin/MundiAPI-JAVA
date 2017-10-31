@@ -8,20 +8,25 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetPeriodResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4645381392482512016L;
-    private Date startAt;
-    private Date endAt;
+    private static final long serialVersionUID = 4707869687956550154L;
+    private DateTime startAt;
+    private DateTime endAt;
     private String id;
-    private Date billingAt;
+    private DateTime billingAt;
     private GetSubscriptionResponse subscription;
     /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("start_at")
-    public Date getStartAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getStartAt ( ) { 
         return this.startAt;
     }
     
@@ -29,7 +34,8 @@ public class GetPeriodResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("start_at")
-    public void setStartAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setStartAt (DateTime value) { 
         this.startAt = value;
     }
  
@@ -37,7 +43,8 @@ public class GetPeriodResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("end_at")
-    public Date getEndAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getEndAt ( ) { 
         return this.endAt;
     }
     
@@ -45,7 +52,8 @@ public class GetPeriodResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("end_at")
-    public void setEndAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setEndAt (DateTime value) { 
         this.endAt = value;
     }
  
@@ -69,7 +77,8 @@ public class GetPeriodResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("billing_at")
-    public Date getBillingAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getBillingAt ( ) { 
         return this.billingAt;
     }
     
@@ -77,7 +86,8 @@ public class GetPeriodResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("billing_at")
-    public void setBillingAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setBillingAt (DateTime value) { 
         this.billingAt = value;
     }
  

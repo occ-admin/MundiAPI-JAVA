@@ -11,31 +11,36 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
           include = JsonTypeInfo.As.PROPERTY,
           property = "transaction_type",
           defaultImpl = GetTransactionResponse.class)
-        @JsonSubTypes({
-         @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
-         @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
-         @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
-         @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-         @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay")
-        })
+@JsonSubTypes({
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
+    @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
+    @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
+    @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
+    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay")
+})
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5634680320942990792L;
+    private static final long serialVersionUID = 4896956522687400468L;
     private String gatewayId;
     private int amount;
     private String status;
     private boolean success;
-    private Date createdAt;
-    private Date updatedAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
     private int attemptCount;
     private int maxAttempts;
-    private Date nextAttempt;
+    private List<GetSplitResponse> splits;
+    private DateTime nextAttempt;
     private String transactionType;
     /** GETTER
      * Gateway transaction id
@@ -105,7 +110,8 @@ public class GetTransactionResponse
      * Creation date
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -113,7 +119,8 @@ public class GetTransactionResponse
      * Creation date
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -121,7 +128,8 @@ public class GetTransactionResponse
      * Last update date
      */
     @JsonGetter("updated_at")
-    public Date getUpdatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUpdatedAt ( ) { 
         return this.updatedAt;
     }
     
@@ -129,7 +137,8 @@ public class GetTransactionResponse
      * Last update date
      */
     @JsonSetter("updated_at")
-    public void setUpdatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUpdatedAt (DateTime value) { 
         this.updatedAt = value;
     }
  
@@ -166,10 +175,27 @@ public class GetTransactionResponse
     }
  
     /** GETTER
+     * Splits
+     */
+    @JsonGetter("splits")
+    public List<GetSplitResponse> getSplits ( ) { 
+        return this.splits;
+    }
+    
+    /** SETTER
+     * Splits
+     */
+    @JsonSetter("splits")
+    public void setSplits (List<GetSplitResponse> value) { 
+        this.splits = value;
+    }
+ 
+    /** GETTER
      * Date and time of the next attempt
      */
     @JsonGetter("next_attempt")
-    public Date getNextAttempt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getNextAttempt ( ) { 
         return this.nextAttempt;
     }
     
@@ -177,7 +203,8 @@ public class GetTransactionResponse
      * Date and time of the next attempt
      */
     @JsonSetter("next_attempt")
-    public void setNextAttempt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setNextAttempt (DateTime value) { 
         this.nextAttempt = value;
     }
  

@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetCustomerResponseBuilder {
     //the instance to build
@@ -38,12 +39,12 @@ public class GetCustomerResponseBuilder {
         return this;
     }
 
-    public GetCustomerResponseBuilder createdAt(Date createdAt) {
+    public GetCustomerResponseBuilder createdAt(DateTime createdAt) {
         getCustomerResponse.setCreatedAt(createdAt);
         return this;
     }
 
-    public GetCustomerResponseBuilder updatedAt(Date updatedAt) {
+    public GetCustomerResponseBuilder updatedAt(DateTime updatedAt) {
         getCustomerResponse.setUpdatedAt(updatedAt);
         return this;
     }

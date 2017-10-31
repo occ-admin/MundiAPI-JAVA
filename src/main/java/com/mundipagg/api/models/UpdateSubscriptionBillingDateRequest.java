@@ -8,16 +8,21 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class UpdateSubscriptionBillingDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5748233187463674860L;
-    private Date nextBillingAt;
+    private static final long serialVersionUID = 4987367466620079644L;
+    private DateTime nextBillingAt;
     /** GETTER
      * The date when the next subscription billing must occur
      */
     @JsonGetter("next_billing_at")
-    public Date getNextBillingAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getNextBillingAt ( ) { 
         return this.nextBillingAt;
     }
     
@@ -25,7 +30,8 @@ public class UpdateSubscriptionBillingDateRequest
      * The date when the next subscription billing must occur
      */
     @JsonSetter("next_billing_at")
-    public void setNextBillingAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setNextBillingAt (DateTime value) { 
         this.nextBillingAt = value;
     }
  

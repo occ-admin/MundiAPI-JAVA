@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetDiscountResponseBuilder {
     //the instance to build
@@ -38,7 +39,7 @@ public class GetDiscountResponseBuilder {
         return this;
     }
 
-    public GetDiscountResponseBuilder createdAt(Date createdAt) {
+    public GetDiscountResponseBuilder createdAt(DateTime createdAt) {
         getDiscountResponse.setCreatedAt(createdAt);
         return this;
     }
@@ -53,7 +54,7 @@ public class GetDiscountResponseBuilder {
         return this;
     }
 
-    public GetDiscountResponseBuilder deletedAt(Date deletedAt) {
+    public GetDiscountResponseBuilder deletedAt(DateTime deletedAt) {
         getDiscountResponse.setDeletedAt(deletedAt);
         return this;
     }
