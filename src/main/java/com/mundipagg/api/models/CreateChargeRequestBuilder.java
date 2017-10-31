@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class CreateChargeRequestBuilder {
     //the instance to build
@@ -69,7 +70,7 @@ public class CreateChargeRequestBuilder {
     /**
      * The charge due date
      */
-    public CreateChargeRequestBuilder dueAt(Date dueAt) {
+    public CreateChargeRequestBuilder dueAt(DateTime dueAt) {
         createChargeRequest.setDueAt(dueAt);
         return this;
     }

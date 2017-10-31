@@ -8,17 +8,21 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetInvoiceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4729921960645500351L;
+    private static final long serialVersionUID = 4896166138799889677L;
     private String id;
     private String code;
     private String url;
     private int amount;
     private String status;
     private String paymentMethod;
-    private Date createdAt;
+    private DateTime createdAt;
     private List<GetInvoiceItemResponse> items;
     private GetCustomerResponse customer;
     private GetChargeResponse charge;
@@ -27,10 +31,10 @@ public class GetInvoiceResponse
     private GetSubscriptionResponse subscription;
     private GetPeriodResponse cycle;
     private GetShippingResponse shipping;
-    private Date dueAt;
-    private Date canceledAt;
-    private Date billingAt;
-    private Date seenAt;
+    private DateTime dueAt;
+    private DateTime canceledAt;
+    private DateTime billingAt;
+    private DateTime seenAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -131,7 +135,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -139,7 +144,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -275,7 +281,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("due_at")
-    public Date getDueAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
         return this.dueAt;
     }
     
@@ -283,7 +290,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("due_at")
-    public void setDueAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
         this.dueAt = value;
     }
  
@@ -291,7 +299,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("canceled_at")
-    public Date getCanceledAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCanceledAt ( ) { 
         return this.canceledAt;
     }
     
@@ -299,7 +308,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("canceled_at")
-    public void setCanceledAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCanceledAt (DateTime value) { 
         this.canceledAt = value;
     }
  
@@ -307,7 +317,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("billing_at")
-    public Date getBillingAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getBillingAt ( ) { 
         return this.billingAt;
     }
     
@@ -315,7 +326,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("billing_at")
-    public void setBillingAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setBillingAt (DateTime value) { 
         this.billingAt = value;
     }
  
@@ -323,7 +335,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("seen_at")
-    public Date getSeenAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getSeenAt ( ) { 
         return this.seenAt;
     }
     
@@ -331,7 +344,8 @@ public class GetInvoiceResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("seen_at")
-    public void setSeenAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setSeenAt (DateTime value) { 
         this.seenAt = value;
     }
  

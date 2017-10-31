@@ -8,10 +8,18 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+@JsonTypeInfo(
+          use = JsonTypeInfo.Id.NAME,
+          include = JsonTypeInfo.As.PROPERTY,
+          property = "transaction_type",
+          defaultImpl = GetCreditCardTransactionResponse.class)
 public class GetCreditCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4677262099212839243L;
+    private static final long serialVersionUID = 5006486429038490186L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;

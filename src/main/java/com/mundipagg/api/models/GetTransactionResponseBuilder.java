@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetTransactionResponseBuilder {
     //the instance to build
@@ -53,7 +54,7 @@ public class GetTransactionResponseBuilder {
     /**
      * Creation date
      */
-    public GetTransactionResponseBuilder createdAt(Date createdAt) {
+    public GetTransactionResponseBuilder createdAt(DateTime createdAt) {
         getTransactionResponse.setCreatedAt(createdAt);
         return this;
     }
@@ -61,7 +62,7 @@ public class GetTransactionResponseBuilder {
     /**
      * Last update date
      */
-    public GetTransactionResponseBuilder updatedAt(Date updatedAt) {
+    public GetTransactionResponseBuilder updatedAt(DateTime updatedAt) {
         getTransactionResponse.setUpdatedAt(updatedAt);
         return this;
     }
@@ -83,9 +84,17 @@ public class GetTransactionResponseBuilder {
     }
 
     /**
+     * Splits
+     */
+    public GetTransactionResponseBuilder splits(List<GetSplitResponse> splits) {
+        getTransactionResponse.setSplits(splits);
+        return this;
+    }
+
+    /**
      * Date and time of the next attempt
      */
-    public GetTransactionResponseBuilder nextAttempt(Date nextAttempt) {
+    public GetTransactionResponseBuilder nextAttempt(DateTime nextAttempt) {
         getTransactionResponse.setNextAttempt(nextAttempt);
         return this;
     }

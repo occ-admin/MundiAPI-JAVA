@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class UpdateChargeDueDateRequestBuilder {
     //the instance to build
@@ -21,7 +22,7 @@ public class UpdateChargeDueDateRequestBuilder {
     /**
      * The charge's new due date
      */
-    public UpdateChargeDueDateRequestBuilder dueAt(Date dueAt) {
+    public UpdateChargeDueDateRequestBuilder dueAt(DateTime dueAt) {
         updateChargeDueDateRequest.setDueAt(dueAt);
         return this;
     }

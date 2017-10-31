@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetUsageResponseBuilder {
     //the instance to build
@@ -45,7 +46,7 @@ public class GetUsageResponseBuilder {
     /**
      * Used at
      */
-    public GetUsageResponseBuilder usedAt(Date usedAt) {
+    public GetUsageResponseBuilder usedAt(DateTime usedAt) {
         getUsageResponse.setUsedAt(usedAt);
         return this;
     }
@@ -53,7 +54,7 @@ public class GetUsageResponseBuilder {
     /**
      * Creation date
      */
-    public GetUsageResponseBuilder createdAt(Date createdAt) {
+    public GetUsageResponseBuilder createdAt(DateTime createdAt) {
         getUsageResponse.setCreatedAt(createdAt);
         return this;
     }

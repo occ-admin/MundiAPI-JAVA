@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4992172167523671889L;
+    private static final long serialVersionUID = 5516753048837041972L;
     private String paymentMethod;
     private CreateCreditCardPaymentRequest creditCard;
     private CreateBoletoPaymentRequest boleto;
     private String currency;
     private CreateVoucherPaymentRequest voucher;
     private LinkedHashMap<String, String> metadata;
+    private List<CreateSplitRequest> split;
     private CreateBankTransferPaymentRequest bankTransfer;
     private String gatewayAffiliationId;
     private Integer amount;
@@ -116,6 +117,22 @@ public class CreatePaymentRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Splits
+     */
+    @JsonGetter("split")
+    public List<CreateSplitRequest> getSplit ( ) { 
+        return this.split;
+    }
+    
+    /** SETTER
+     * Splits
+     */
+    @JsonSetter("split")
+    public void setSplit (List<CreateSplitRequest> value) { 
+        this.split = value;
     }
  
     /** GETTER

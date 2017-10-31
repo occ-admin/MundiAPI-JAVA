@@ -8,10 +8,14 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetCardResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5588738317920654815L;
+    private static final long serialVersionUID = 5070637050953815285L;
     private String id;
     private String lastFourDigits;
     private String brand;
@@ -19,14 +23,14 @@ public class GetCardResponse
     private int expMonth;
     private int expYear;
     private String status;
-    private Date createdAt;
-    private Date updatedAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
     private GetBillingAddressResponse billingAddress;
     private GetCustomerResponse customer;
     private LinkedHashMap<String, String> metadata;
     private String type;
     private String holderDocument;
-    private Date deletedAt;
+    private DateTime deletedAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -143,7 +147,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -151,7 +156,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -159,7 +165,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("updated_at")
-    public Date getUpdatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUpdatedAt ( ) { 
         return this.updatedAt;
     }
     
@@ -167,7 +174,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("updated_at")
-    public void setUpdatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUpdatedAt (DateTime value) { 
         this.updatedAt = value;
     }
  
@@ -255,7 +263,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("deleted_at")
-    public Date getDeletedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDeletedAt ( ) { 
         return this.deletedAt;
     }
     
@@ -263,7 +272,8 @@ public class GetCardResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("deleted_at")
-    public void setDeletedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDeletedAt (DateTime value) { 
         this.deletedAt = value;
     }
  

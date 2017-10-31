@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.joda.time.DateTime;
 
 import com.mundipagg.api.*;
 import com.mundipagg.api.models.*;
@@ -73,7 +74,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5107360358974495590L;
+            private static final long serialVersionUID = 5033886952788764065L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -82,7 +83,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5372138711823390010L;
+            private static final long serialVersionUID = 5212271313552286142L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -136,8 +137,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -185,7 +186,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5102258244099162948L;
+            private static final long serialVersionUID = 4925246457603588492L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -194,7 +195,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5672296410690115923L;
+            private static final long serialVersionUID = 5386431394350562277L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -248,8 +249,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -299,10 +300,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5670530517681937457L;
+            private static final long serialVersionUID = 4789218281759160907L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -353,8 +355,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -406,7 +408,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5505846454255589801L;
+            private static final long serialVersionUID = 5423237851940793535L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -415,10 +417,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5741750395993296582L;
+            private static final long serialVersionUID = 5759097587080827480L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -469,8 +472,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -522,7 +525,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4980669600037924613L;
+            private static final long serialVersionUID = 5189275058620814958L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -531,10 +534,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4990854279556319507L;
+            private static final long serialVersionUID = 4925307722345680619L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -585,8 +589,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -638,7 +642,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5511510498327501540L;
+            private static final long serialVersionUID = 4640947530853760406L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -647,10 +651,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5537866291092182022L;
+            private static final long serialVersionUID = 5430433856803931615L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -701,8 +706,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -754,7 +759,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4847541563998200709L;
+            private static final long serialVersionUID = 5465330038022515565L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -763,10 +768,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5183934981150330193L;
+            private static final long serialVersionUID = 4990131701963174401L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -817,8 +823,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -870,7 +876,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4694561594731676891L;
+            private static final long serialVersionUID = 5564441651464306567L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -879,10 +885,11 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5567368342244547910L;
+            private static final long serialVersionUID = 5023693244792521403L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
@@ -933,8 +940,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 
@@ -970,8 +977,8 @@ public class ChargesController extends BaseController {
                 final String paymentMethod,
                 final String customerId,
                 final String orderId,
-                final Date createdSince,
-                final Date createdUntil
+                final DateTime createdSince,
+                final DateTime createdUntil
     ) throws Throwable {
         APICallBackCatcher<ListChargesResponse> callback = new APICallBackCatcher<ListChargesResponse>();
         getChargesAsync(page, size, code, status, paymentMethod, customerId, orderId, createdSince, createdUntil, callback);
@@ -1001,8 +1008,8 @@ public class ChargesController extends BaseController {
                 final String paymentMethod,
                 final String customerId,
                 final String orderId,
-                final Date createdSince,
-                final Date createdUntil,
+                final DateTime createdSince,
+                final DateTime createdUntil,
                 final APICallBack<ListChargesResponse> callBack
     ) {
         //the base uri for api requests
@@ -1014,7 +1021,7 @@ public class ChargesController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5171649581839459727L;
+            private static final long serialVersionUID = 5112990431597467878L;
             {
                     put( "page", page );
                     put( "size", size );
@@ -1023,15 +1030,15 @@ public class ChargesController extends BaseController {
                     put( "payment_method", paymentMethod );
                     put( "customer_id", customerId );
                     put( "order_id", orderId );
-                    put( "created_since", createdSince );
-                    put( "created_until", createdUntil );
+                    put( "created_since", DateTimeHelper.toRfc8601DateTime(createdSince) );
+                    put( "created_until", DateTimeHelper.toRfc8601DateTime(createdUntil) );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4982202374266760616L;
+            private static final long serialVersionUID = 4822519371539475471L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1085,8 +1092,8 @@ public class ChargesController extends BaseController {
                     }
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)	
-                            {
+                        if (getHttpCallBack() != null)
+                        {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 

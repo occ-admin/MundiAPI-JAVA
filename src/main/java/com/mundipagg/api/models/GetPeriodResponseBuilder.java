@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetPeriodResponseBuilder {
     //the instance to build
@@ -18,12 +19,12 @@ public class GetPeriodResponseBuilder {
         getPeriodResponse = new GetPeriodResponse();
     }
 
-    public GetPeriodResponseBuilder startAt(Date startAt) {
+    public GetPeriodResponseBuilder startAt(DateTime startAt) {
         getPeriodResponse.setStartAt(startAt);
         return this;
     }
 
-    public GetPeriodResponseBuilder endAt(Date endAt) {
+    public GetPeriodResponseBuilder endAt(DateTime endAt) {
         getPeriodResponse.setEndAt(endAt);
         return this;
     }
@@ -33,7 +34,7 @@ public class GetPeriodResponseBuilder {
         return this;
     }
 
-    public GetPeriodResponseBuilder billingAt(Date billingAt) {
+    public GetPeriodResponseBuilder billingAt(DateTime billingAt) {
         getPeriodResponse.setBillingAt(billingAt);
         return this;
     }

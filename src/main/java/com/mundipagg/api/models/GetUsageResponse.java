@@ -8,15 +8,19 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetUsageResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5670746065297853696L;
+    private static final long serialVersionUID = 5457492225265457395L;
     private String id;
     private int quantity;
     private String description;
-    private Date usedAt;
-    private Date createdAt;
+    private DateTime usedAt;
+    private DateTime createdAt;
     private GetSubscriptionItemResponse subscriptionItem;
     /** GETTER
      * Id
@@ -70,7 +74,8 @@ public class GetUsageResponse
      * Used at
      */
     @JsonGetter("used_at")
-    public Date getUsedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUsedAt ( ) { 
         return this.usedAt;
     }
     
@@ -78,7 +83,8 @@ public class GetUsageResponse
      * Used at
      */
     @JsonSetter("used_at")
-    public void setUsedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUsedAt (DateTime value) { 
         this.usedAt = value;
     }
  
@@ -86,7 +92,8 @@ public class GetUsageResponse
      * Creation date
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -94,7 +101,8 @@ public class GetUsageResponse
      * Creation date
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  

@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetCardResponseBuilder {
     //the instance to build
@@ -53,12 +54,12 @@ public class GetCardResponseBuilder {
         return this;
     }
 
-    public GetCardResponseBuilder createdAt(Date createdAt) {
+    public GetCardResponseBuilder createdAt(DateTime createdAt) {
         getCardResponse.setCreatedAt(createdAt);
         return this;
     }
 
-    public GetCardResponseBuilder updatedAt(Date updatedAt) {
+    public GetCardResponseBuilder updatedAt(DateTime updatedAt) {
         getCardResponse.setUpdatedAt(updatedAt);
         return this;
     }
@@ -94,7 +95,7 @@ public class GetCardResponseBuilder {
         return this;
     }
 
-    public GetCardResponseBuilder deletedAt(Date deletedAt) {
+    public GetCardResponseBuilder deletedAt(DateTime deletedAt) {
         getCardResponse.setDeletedAt(deletedAt);
         return this;
     }

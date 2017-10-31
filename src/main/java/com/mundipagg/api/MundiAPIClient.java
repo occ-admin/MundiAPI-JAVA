@@ -66,6 +66,14 @@ public class MundiAPIClient {
     }
 
     /**
+     * Singleton access to Recipients controller
+     * @return	Returns the RecipientsController instance 
+     */
+    public RecipientsController getRecipients() {
+        return RecipientsController.getInstance();
+    }
+
+    /**
      * Get the shared http client currently being used for API calls
      * @return The http client instance currently being used
      */

@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class CreateUsageRequestBuilder {
     //the instance to build
@@ -28,7 +29,7 @@ public class CreateUsageRequestBuilder {
         return this;
     }
 
-    public CreateUsageRequestBuilder usedAt(Date usedAt) {
+    public CreateUsageRequestBuilder usedAt(DateTime usedAt) {
         createUsageRequest.setUsedAt(usedAt);
         return this;
     }

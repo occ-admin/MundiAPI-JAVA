@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequestBuilder {
     //the instance to build
@@ -189,7 +190,7 @@ public class CreateSubscriptionRequestBuilder {
     /**
      * Subscription start date
      */
-    public CreateSubscriptionRequestBuilder startAt(Date startAt) {
+    public CreateSubscriptionRequestBuilder startAt(DateTime startAt) {
         createSubscriptionRequest.setStartAt(startAt);
         return this;
     }

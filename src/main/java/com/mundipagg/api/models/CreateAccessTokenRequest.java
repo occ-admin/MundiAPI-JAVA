@@ -11,22 +11,22 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateAccessTokenRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5251504659677233827L;
-    private Integer esxpiresIn;
+    private static final long serialVersionUID = 4775142670730268727L;
+    private Integer expiresIn;
     /** GETTER
      * Minutes to expire the token
      */
-    @JsonGetter("esxpires_in")
-    public Integer getEsxpiresIn ( ) { 
-        return this.esxpiresIn;
+    @JsonGetter("expires_in")
+    public Integer getExpiresIn ( ) { 
+        return this.expiresIn;
     }
     
     /** SETTER
      * Minutes to expire the token
      */
-    @JsonSetter("esxpires_in")
-    public void setEsxpiresIn (Integer value) { 
-        this.esxpiresIn = value;
+    @JsonSetter("expires_in")
+    public void setExpiresIn (Integer value) { 
+        this.expiresIn = value;
     }
  
 }

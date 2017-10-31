@@ -8,13 +8,17 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class CreateUsageRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5739591014532056854L;
+    private static final long serialVersionUID = 5281360940680269442L;
     private int quantity;
     private String description;
-    private Date usedAt;
+    private DateTime usedAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -51,7 +55,8 @@ public class CreateUsageRequest
      * TODO: Write general description for this method
      */
     @JsonGetter("used_at")
-    public Date getUsedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUsedAt ( ) { 
         return this.usedAt;
     }
     
@@ -59,7 +64,8 @@ public class CreateUsageRequest
      * TODO: Write general description for this method
      */
     @JsonSetter("used_at")
-    public void setUsedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUsedAt (DateTime value) { 
         this.usedAt = value;
     }
  

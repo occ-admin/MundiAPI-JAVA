@@ -11,11 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateCustomerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4804777789806738982L;
+    private static final long serialVersionUID = 5658820378765947261L;
     private String name;
     private String email;
     private String document;
-    private String personType;
+    private String type;
     private CreateAddressRequest address;
     private LinkedHashMap<String, String> metadata;
     private CreatePhonesRequest phones;
@@ -70,17 +70,17 @@ public class UpdateCustomerRequest
     /** GETTER
      * Person type
      */
-    @JsonGetter("person_type")
-    public String getPersonType ( ) { 
-        return this.personType;
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
     }
     
     /** SETTER
      * Person type
      */
-    @JsonSetter("person_type")
-    public void setPersonType (String value) { 
-        this.personType = value;
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
     }
  
     /** GETTER

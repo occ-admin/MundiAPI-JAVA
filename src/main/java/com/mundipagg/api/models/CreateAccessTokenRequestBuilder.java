@@ -21,8 +21,8 @@ public class CreateAccessTokenRequestBuilder {
     /**
      * Minutes to expire the token
      */
-    public CreateAccessTokenRequestBuilder esxpiresIn(Integer esxpiresIn) {
-        createAccessTokenRequest.setEsxpiresIn(esxpiresIn);
+    public CreateAccessTokenRequestBuilder expiresIn(Integer expiresIn) {
+        createAccessTokenRequest.setExpiresIn(expiresIn);
         return this;
     }
     /**

@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetBankTransferTransactionResponseBuilder 
         extends GetTransactionResponseBuilder {
@@ -46,7 +47,7 @@ public class GetBankTransferTransactionResponseBuilder
     /**
      * Payment date
      */
-    public GetBankTransferTransactionResponseBuilder paidAt(Date paidAt) {
+    public GetBankTransferTransactionResponseBuilder paidAt(DateTime paidAt) {
         getBankTransferTransactionResponse.setPaidAt(paidAt);
         return this;
     }

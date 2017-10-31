@@ -45,8 +45,8 @@ public class UpdateCustomerRequestBuilder {
     /**
      * Person type
      */
-    public UpdateCustomerRequestBuilder personType(String personType) {
-        updateCustomerRequest.setPersonType(personType);
+    public UpdateCustomerRequestBuilder type(String type) {
+        updateCustomerRequest.setType(type);
         return this;
     }
 

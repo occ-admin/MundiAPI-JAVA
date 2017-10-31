@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetPlanItemResponseBuilder {
     //the instance to build
@@ -33,12 +34,12 @@ public class GetPlanItemResponseBuilder {
         return this;
     }
 
-    public GetPlanItemResponseBuilder createdAt(Date createdAt) {
+    public GetPlanItemResponseBuilder createdAt(DateTime createdAt) {
         getPlanItemResponse.setCreatedAt(createdAt);
         return this;
     }
 
-    public GetPlanItemResponseBuilder updatedAt(Date updatedAt) {
+    public GetPlanItemResponseBuilder updatedAt(DateTime updatedAt) {
         getPlanItemResponse.setUpdatedAt(updatedAt);
         return this;
     }
@@ -68,7 +69,7 @@ public class GetPlanItemResponseBuilder {
         return this;
     }
 
-    public GetPlanItemResponseBuilder deletedAt(Date deletedAt) {
+    public GetPlanItemResponseBuilder deletedAt(DateTime deletedAt) {
         getPlanItemResponse.setDeletedAt(deletedAt);
         return this;
     }

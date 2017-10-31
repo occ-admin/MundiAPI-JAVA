@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetChargeResponseBuilder {
     //the instance to build
@@ -53,17 +54,17 @@ public class GetChargeResponseBuilder {
         return this;
     }
 
-    public GetChargeResponseBuilder dueAt(Date dueAt) {
+    public GetChargeResponseBuilder dueAt(DateTime dueAt) {
         getChargeResponse.setDueAt(dueAt);
         return this;
     }
 
-    public GetChargeResponseBuilder createdAt(Date createdAt) {
+    public GetChargeResponseBuilder createdAt(DateTime createdAt) {
         getChargeResponse.setCreatedAt(createdAt);
         return this;
     }
 
-    public GetChargeResponseBuilder updatedAt(Date updatedAt) {
+    public GetChargeResponseBuilder updatedAt(DateTime updatedAt) {
         getChargeResponse.setUpdatedAt(updatedAt);
         return this;
     }
@@ -93,12 +94,12 @@ public class GetChargeResponseBuilder {
         return this;
     }
 
-    public GetChargeResponseBuilder paidAt(Date paidAt) {
+    public GetChargeResponseBuilder paidAt(DateTime paidAt) {
         getChargeResponse.setPaidAt(paidAt);
         return this;
     }
 
-    public GetChargeResponseBuilder canceledAt(Date canceledAt) {
+    public GetChargeResponseBuilder canceledAt(DateTime canceledAt) {
         getChargeResponse.setCanceledAt(canceledAt);
         return this;
     }

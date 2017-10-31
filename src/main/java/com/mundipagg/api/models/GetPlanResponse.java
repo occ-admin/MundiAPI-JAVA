@@ -8,10 +8,14 @@ package com.mundipagg.api.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.hopto.apimatic.DateTimeHelper;
+import org.joda.time.DateTime;
 
 public class GetPlanResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5081728561156321647L;
+    private static final long serialVersionUID = 5691408835287885087L;
     private String id;
     private String name;
     private String description;
@@ -24,15 +28,15 @@ public class GetPlanResponse
     private List<Integer> installments;
     private String status;
     private String currency;
-    private Date createdAt;
-    private Date updatedAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
     private List<GetPlanItemResponse> items;
     private List<Integer> billingDays;
     private boolean shippable;
     private LinkedHashMap<String, String> metadata;
     private Integer trialPeriodDays;
     private Integer minimumPrice;
-    private Date deletedAt;
+    private DateTime deletedAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -229,7 +233,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("created_at")
-    public Date getCreatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getCreatedAt ( ) { 
         return this.createdAt;
     }
     
@@ -237,7 +242,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("created_at")
-    public void setCreatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setCreatedAt (DateTime value) { 
         this.createdAt = value;
     }
  
@@ -245,7 +251,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("updated_at")
-    public Date getUpdatedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getUpdatedAt ( ) { 
         return this.updatedAt;
     }
     
@@ -253,7 +260,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("updated_at")
-    public void setUpdatedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setUpdatedAt (DateTime value) { 
         this.updatedAt = value;
     }
  
@@ -357,7 +365,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonGetter("deleted_at")
-    public Date getDeletedAt ( ) { 
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDeletedAt ( ) { 
         return this.deletedAt;
     }
     
@@ -365,7 +374,8 @@ public class GetPlanResponse
      * TODO: Write general description for this method
      */
     @JsonSetter("deleted_at")
-    public void setDeletedAt (Date value) { 
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDeletedAt (DateTime value) { 
         this.deletedAt = value;
     }
  

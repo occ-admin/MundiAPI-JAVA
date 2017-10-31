@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetTokenResponseBuilder {
     //the instance to build
@@ -28,7 +29,7 @@ public class GetTokenResponseBuilder {
         return this;
     }
 
-    public GetTokenResponseBuilder createdAt(Date createdAt) {
+    public GetTokenResponseBuilder createdAt(DateTime createdAt) {
         getTokenResponse.setCreatedAt(createdAt);
         return this;
     }
