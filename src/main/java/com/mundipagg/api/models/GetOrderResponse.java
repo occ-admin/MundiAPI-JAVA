@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5636824741490999545L;
+    private static final long serialVersionUID = 4916088450319675645L;
     private String id;
     private String code;
     private String currency;
@@ -29,6 +29,10 @@ public class GetOrderResponse
     private GetShippingResponse shipping;
     private LinkedHashMap<String, String> metadata;
     private List<GetCheckoutPaymentSettingsResponse> checkouts;
+    private String ip;
+    private String sessionId;
+    private GetLocationResponse location;
+    private GetDeviceResponse device;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -239,6 +243,70 @@ public class GetOrderResponse
     @JsonSetter("checkouts")
     public void setCheckouts (List<GetCheckoutPaymentSettingsResponse> value) { 
         this.checkouts = value;
+    }
+ 
+    /** GETTER
+     * Ip address
+     */
+    @JsonGetter("ip")
+    public String getIp ( ) { 
+        return this.ip;
+    }
+    
+    /** SETTER
+     * Ip address
+     */
+    @JsonSetter("ip")
+    public void setIp (String value) { 
+        this.ip = value;
+    }
+ 
+    /** GETTER
+     * Session id
+     */
+    @JsonGetter("session_id")
+    public String getSessionId ( ) { 
+        return this.sessionId;
+    }
+    
+    /** SETTER
+     * Session id
+     */
+    @JsonSetter("session_id")
+    public void setSessionId (String value) { 
+        this.sessionId = value;
+    }
+ 
+    /** GETTER
+     * Location
+     */
+    @JsonGetter("location")
+    public GetLocationResponse getLocation ( ) { 
+        return this.location;
+    }
+    
+    /** SETTER
+     * Location
+     */
+    @JsonSetter("location")
+    public void setLocation (GetLocationResponse value) { 
+        this.location = value;
+    }
+ 
+    /** GETTER
+     * Device's informations
+     */
+    @JsonGetter("device")
+    public GetDeviceResponse getDevice ( ) { 
+        return this.device;
+    }
+    
+    /** SETTER
+     * Device's informations
+     */
+    @JsonSetter("device")
+    public void setDevice (GetDeviceResponse value) { 
+        this.device = value;
     }
  
 }

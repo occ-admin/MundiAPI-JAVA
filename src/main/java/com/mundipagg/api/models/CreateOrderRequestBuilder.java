@@ -81,6 +81,38 @@ public class CreateOrderRequestBuilder {
         createOrderRequest.setAntifraudEnabled(antifraudEnabled);
         return this;
     }
+
+    /**
+     * Ip address
+     */
+    public CreateOrderRequestBuilder ip(String ip) {
+        createOrderRequest.setIp(ip);
+        return this;
+    }
+
+    /**
+     * Session id
+     */
+    public CreateOrderRequestBuilder sessionId(String sessionId) {
+        createOrderRequest.setSessionId(sessionId);
+        return this;
+    }
+
+    /**
+     * Request's location
+     */
+    public CreateOrderRequestBuilder location(CreateLocationRequest location) {
+        createOrderRequest.setLocation(location);
+        return this;
+    }
+
+    /**
+     * Device's informations
+     */
+    public CreateOrderRequestBuilder device(CreateDeviceRequest device) {
+        createOrderRequest.setDevice(device);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

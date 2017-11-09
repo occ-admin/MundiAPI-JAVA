@@ -86,6 +86,38 @@ public class GetOrderResponseBuilder {
         getOrderResponse.setCheckouts(checkouts);
         return this;
     }
+
+    /**
+     * Ip address
+     */
+    public GetOrderResponseBuilder ip(String ip) {
+        getOrderResponse.setIp(ip);
+        return this;
+    }
+
+    /**
+     * Session id
+     */
+    public GetOrderResponseBuilder sessionId(String sessionId) {
+        getOrderResponse.setSessionId(sessionId);
+        return this;
+    }
+
+    /**
+     * Location
+     */
+    public GetOrderResponseBuilder location(GetLocationResponse location) {
+        getOrderResponse.setLocation(location);
+        return this;
+    }
+
+    /**
+     * Device's informations
+     */
+    public GetOrderResponseBuilder device(GetDeviceResponse device) {
+        getOrderResponse.setDevice(device);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

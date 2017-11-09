@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 @JsonTypeInfo(
@@ -23,7 +23,7 @@ import org.joda.time.DateTime;
           defaultImpl = GetSafetyPayTransactionResponse.class)
 public class GetSafetyPayTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4629500267441719011L;
+    private static final long serialVersionUID = 5088857460709951757L;
     private String url;
     private String bankTid;
     private DateTime paidAt;
