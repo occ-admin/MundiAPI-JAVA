@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 public class GetAddressResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4938441186408010871L;
+    private static final long serialVersionUID = 5331164230022380384L;
     private String id;
     private String street;
     private String number;

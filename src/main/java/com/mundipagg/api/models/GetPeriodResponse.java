@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 public class GetPeriodResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4707869687956550154L;
+    private static final long serialVersionUID = 4853432585107140278L;
     private DateTime startAt;
     private DateTime endAt;
     private String id;

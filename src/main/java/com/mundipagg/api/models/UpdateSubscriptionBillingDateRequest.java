@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 public class UpdateSubscriptionBillingDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4987367466620079644L;
+    private static final long serialVersionUID = 5219573803721703937L;
     private DateTime nextBillingAt;
     /** GETTER
      * The date when the next subscription billing must occur

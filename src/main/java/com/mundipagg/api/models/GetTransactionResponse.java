@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hopto.apimatic.DateTimeHelper;
+import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
 @JsonTypeInfo(
@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
 })
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4896956522687400468L;
+    private static final long serialVersionUID = 5173445029140201325L;
     private String gatewayId;
     private int amount;
     private String status;

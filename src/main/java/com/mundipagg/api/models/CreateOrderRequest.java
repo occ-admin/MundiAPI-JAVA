@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5664894886348050055L;
+    private static final long serialVersionUID = 5313656432479050680L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -20,6 +20,10 @@ public class CreateOrderRequest
     private CreateShippingRequest shipping;
     private LinkedHashMap<String, String> metadata;
     private Boolean antifraudEnabled;
+    private String ip;
+    private String sessionId;
+    private CreateLocationRequest location;
+    private CreateDeviceRequest device;
     /** GETTER
      * Items
      */
@@ -146,6 +150,70 @@ public class CreateOrderRequest
     @JsonSetter("antifraud_enabled")
     public void setAntifraudEnabled (Boolean value) { 
         this.antifraudEnabled = value;
+    }
+ 
+    /** GETTER
+     * Ip address
+     */
+    @JsonGetter("ip")
+    public String getIp ( ) { 
+        return this.ip;
+    }
+    
+    /** SETTER
+     * Ip address
+     */
+    @JsonSetter("ip")
+    public void setIp (String value) { 
+        this.ip = value;
+    }
+ 
+    /** GETTER
+     * Session id
+     */
+    @JsonGetter("session_id")
+    public String getSessionId ( ) { 
+        return this.sessionId;
+    }
+    
+    /** SETTER
+     * Session id
+     */
+    @JsonSetter("session_id")
+    public void setSessionId (String value) { 
+        this.sessionId = value;
+    }
+ 
+    /** GETTER
+     * Request's location
+     */
+    @JsonGetter("location")
+    public CreateLocationRequest getLocation ( ) { 
+        return this.location;
+    }
+    
+    /** SETTER
+     * Request's location
+     */
+    @JsonSetter("location")
+    public void setLocation (CreateLocationRequest value) { 
+        this.location = value;
+    }
+ 
+    /** GETTER
+     * Device's informations
+     */
+    @JsonGetter("device")
+    public CreateDeviceRequest getDevice ( ) { 
+        return this.device;
+    }
+    
+    /** SETTER
+     * Device's informations
+     */
+    @JsonSetter("device")
+    public void setDevice (CreateDeviceRequest value) { 
+        this.device = value;
     }
  
 }

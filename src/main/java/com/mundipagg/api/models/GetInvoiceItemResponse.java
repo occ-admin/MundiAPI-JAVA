@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetInvoiceItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4831277573558618043L;
+    private static final long serialVersionUID = 4677063471123665810L;
     private int amount;
     private String description;
     private GetPricingSchemeResponse pricingScheme;
