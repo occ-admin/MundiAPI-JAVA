@@ -9,24 +9,24 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreateDeviceRequest 
+public class UpdateInvoiceStatusRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4807463559527273212L;
-    private String platform;
+    private static final long serialVersionUID = 5378210611254772246L;
+    private String status;
     /** GETTER
-     * Device's platform
+     * Status
      */
-    @JsonGetter("platform")
-    public String getPlatform ( ) { 
-        return this.platform;
+    @JsonGetter("status")
+    public String getStatus ( ) { 
+        return this.status;
     }
     
     /** SETTER
-     * Device's platform
+     * Status
      */
-    @JsonSetter("platform")
-    public void setPlatform (String value) { 
-        this.platform = value;
+    @JsonSetter("status")
+    public void setStatus (String value) { 
+        this.status = value;
     }
  
 }

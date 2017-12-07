@@ -23,7 +23,7 @@ import org.joda.time.DateTime;
           defaultImpl = GetSafetyPayTransactionResponse.class)
 public class GetSafetyPayTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5088857460709951757L;
+    private static final long serialVersionUID = 5455599875829150958L;
     private String url;
     private String bankTid;
     private DateTime paidAt;

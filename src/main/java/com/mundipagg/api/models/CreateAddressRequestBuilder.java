@@ -89,6 +89,22 @@ public class CreateAddressRequestBuilder {
         createAddressRequest.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Line 1 for address
+     */
+    public CreateAddressRequestBuilder line1(String line1) {
+        createAddressRequest.setLine1(line1);
+        return this;
+    }
+
+    /**
+     * Line 2 for address
+     */
+    public CreateAddressRequestBuilder line2(String line2) {
+        createAddressRequest.setLine2(line2);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

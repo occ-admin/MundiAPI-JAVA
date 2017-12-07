@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetInvoiceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5021100202598360183L;
+    private static final long serialVersionUID = 5365213616021140149L;
     private String id;
     private String code;
     private String url;
@@ -31,6 +31,7 @@ public class GetInvoiceResponse
     private GetSubscriptionResponse subscription;
     private GetPeriodResponse cycle;
     private GetShippingResponse shipping;
+    private LinkedHashMap<String, String> metadata;
     private DateTime dueAt;
     private DateTime canceledAt;
     private DateTime billingAt;
@@ -275,6 +276,22 @@ public class GetInvoiceResponse
     @JsonSetter("shipping")
     public void setShipping (GetShippingResponse value) { 
         this.shipping = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
     }
  
     /** GETTER

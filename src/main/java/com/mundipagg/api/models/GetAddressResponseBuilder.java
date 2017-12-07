@@ -89,6 +89,22 @@ public class GetAddressResponseBuilder {
         return this;
     }
 
+    /**
+     * Line 1 for address
+     */
+    public GetAddressResponseBuilder line1(String line1) {
+        getAddressResponse.setLine1(line1);
+        return this;
+    }
+
+    /**
+     * Line 2 for address
+     */
+    public GetAddressResponseBuilder line2(String line2) {
+        getAddressResponse.setLine2(line2);
+        return this;
+    }
+
     public GetAddressResponseBuilder deletedAt(DateTime deletedAt) {
         getAddressResponse.setDeletedAt(deletedAt);
         return this;

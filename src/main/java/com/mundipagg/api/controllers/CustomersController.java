@@ -41,224 +41,6 @@ public class CustomersController extends BaseController {
     }
 
     /**
-     * Creates a new customer
-     * @param    request    Required parameter: Request for creating a customer
-     * @return    Returns the GetCustomerResponse response from the API call 
-     */
-    public GetCustomerResponse createCustomer(
-                final CreateCustomerRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetCustomerResponse> callback = new APICallBackCatcher<GetCustomerResponse>();
-        createCustomerAsync(request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Creates a new customer
-     * @param    request    Required parameter: Request for creating a customer
-     * @return    Returns the void response from the API call 
-     */
-    public void createCustomerAsync(
-                final CreateCustomerRequest request,
-                final APICallBack<GetCustomerResponse> callBack
-    ) throws JsonProcessingException {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers");
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5377727837405229041L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetCustomerResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetCustomerResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Get a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @return    Returns the GetCustomerResponse response from the API call 
-     */
-    public GetCustomerResponse getCustomer(
-                final String customerId
-    ) throws Throwable {
-        APICallBackCatcher<GetCustomerResponse> callback = new APICallBackCatcher<GetCustomerResponse>();
-        getCustomerAsync(customerId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Get a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @return    Returns the void response from the API call 
-     */
-    public void getCustomerAsync(
-                final String customerId,
-                final APICallBack<GetCustomerResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5040399881956185812L;
-            {
-                    put( "customer_id", customerId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4804024613806840196L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetCustomerResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetCustomerResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Updates a card
      * @param    customerId    Required parameter: Customer Id
      * @param    cardId    Required parameter: Card id
@@ -299,7 +81,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5689732949077768114L;
+            private static final long serialVersionUID = 5637842368411511087L;
             {
                     put( "customer_id", customerId );
                     put( "card_id", cardId );
@@ -309,7 +91,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5638995464124299051L;
+            private static final long serialVersionUID = 5620399290672859198L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -421,7 +203,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5746124060990863935L;
+            private static final long serialVersionUID = 4880066142445648835L;
             {
                     put( "customer_id", customerId );
                     put( "address_id", addressId );
@@ -431,7 +213,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4645908166269027477L;
+            private static final long serialVersionUID = 5369727471276372391L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -503,733 +285,27 @@ public class CustomersController extends BaseController {
     }
 
     /**
-     * Get a customer's address
-     * @param    customerId    Required parameter: Customer id
-     * @param    addressId    Required parameter: Address Id
-     * @return    Returns the GetAddressResponse response from the API call 
-     */
-    public GetAddressResponse getAddress(
-                final String customerId,
-                final String addressId
-    ) throws Throwable {
-        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
-        getAddressAsync(customerId, addressId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Get a customer's address
-     * @param    customerId    Required parameter: Customer id
-     * @param    addressId    Required parameter: Address Id
-     * @return    Returns the void response from the API call 
-     */
-    public void getAddressAsync(
-                final String customerId,
-                final String addressId,
-                final APICallBack<GetAddressResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/addresses/{address_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5633096449971375489L;
-            {
-                    put( "customer_id", customerId );
-                    put( "address_id", addressId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5505033438975545772L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetAddressResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Delete a Customer's address
-     * @param    customerId    Required parameter: Customer Id
-     * @param    addressId    Required parameter: Address Id
-     * @return    Returns the GetAddressResponse response from the API call 
-     */
-    public GetAddressResponse deleteAddress(
-                final String customerId,
-                final String addressId
-    ) throws Throwable {
-        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
-        deleteAddressAsync(customerId, addressId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Delete a Customer's address
-     * @param    customerId    Required parameter: Customer Id
-     * @param    addressId    Required parameter: Address Id
-     * @return    Returns the void response from the API call 
-     */
-    public void deleteAddressAsync(
-                final String customerId,
-                final String addressId,
-                final APICallBack<GetAddressResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/addresses/{address_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5440757961916085884L;
-            {
-                    put( "customer_id", customerId );
-                    put( "address_id", addressId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4647634058040196506L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetAddressResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Delete a customer's card
-     * @param    customerId    Required parameter: Customer Id
-     * @param    cardId    Required parameter: Card Id
-     * @return    Returns the GetCardResponse response from the API call 
-     */
-    public GetCardResponse deleteCard(
-                final String customerId,
-                final String cardId
-    ) throws Throwable {
-        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
-        deleteCardAsync(customerId, cardId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Delete a customer's card
-     * @param    customerId    Required parameter: Customer Id
-     * @param    cardId    Required parameter: Card Id
-     * @return    Returns the void response from the API call 
-     */
-    public void deleteCardAsync(
-                final String customerId,
-                final String cardId,
-                final APICallBack<GetCardResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/cards/{card_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4855729520839635997L;
-            {
-                    put( "customer_id", customerId );
-                    put( "card_id", cardId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5221167893786813626L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetCardResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Creates a new address for a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    request    Required parameter: Request for creating an address
-     * @return    Returns the GetAddressResponse response from the API call 
-     */
-    public GetAddressResponse createAddress(
-                final String customerId,
-                final CreateAddressRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
-        createAddressAsync(customerId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Creates a new address for a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    request    Required parameter: Request for creating an address
-     * @return    Returns the void response from the API call 
-     */
-    public void createAddressAsync(
-                final String customerId,
-                final CreateAddressRequest request,
-                final APICallBack<GetAddressResponse> callBack
-    ) throws JsonProcessingException {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/addresses");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5466798282385840875L;
-            {
-                    put( "customer_id", customerId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5495847639945651877L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetAddressResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Get a customer's card
-     * @param    customerId    Required parameter: Customer id
-     * @param    cardId    Required parameter: Card id
-     * @return    Returns the GetCardResponse response from the API call 
-     */
-    public GetCardResponse getCard(
-                final String customerId,
-                final String cardId
-    ) throws Throwable {
-        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
-        getCardAsync(customerId, cardId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Get a customer's card
-     * @param    customerId    Required parameter: Customer id
-     * @param    cardId    Required parameter: Card id
-     * @return    Returns the void response from the API call 
-     */
-    public void getCardAsync(
-                final String customerId,
-                final String cardId,
-                final APICallBack<GetCardResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/cards/{card_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5332477824548921224L;
-            {
-                    put( "customer_id", customerId );
-                    put( "card_id", cardId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4639444217157285351L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetCardResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Creates a new card for a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    request    Required parameter: Request for creating a card
-     * @return    Returns the GetCardResponse response from the API call 
-     */
-    public GetCardResponse createCard(
-                final String customerId,
-                final CreateCardRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
-        createCardAsync(customerId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Creates a new card for a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    request    Required parameter: Request for creating a card
-     * @return    Returns the void response from the API call 
-     */
-    public void createCardAsync(
-                final String customerId,
-                final CreateCardRequest request,
-                final APICallBack<GetCardResponse> callBack
-    ) throws JsonProcessingException {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/cards");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5759907926554459876L;
-            {
-                    put( "customer_id", customerId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5558150092816087572L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetCardResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Updates a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    request    Required parameter: Request for updating a customer
+     * Creates a new customer
+     * @param    request    Required parameter: Request for creating a customer
      * @return    Returns the GetCustomerResponse response from the API call 
      */
-    public GetCustomerResponse updateCustomer(
-                final String customerId,
-                final UpdateCustomerRequest request
+    public GetCustomerResponse createCustomer(
+                final CreateCustomerRequest request
     ) throws Throwable {
         APICallBackCatcher<GetCustomerResponse> callback = new APICallBackCatcher<GetCustomerResponse>();
-        updateCustomerAsync(customerId, request, callback);
+        createCustomerAsync(request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Updates a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    request    Required parameter: Request for updating a customer
+     * Creates a new customer
+     * @param    request    Required parameter: Request for creating a customer
      * @return    Returns the void response from the API call 
      */
-    public void updateCustomerAsync(
-                final String customerId,
-                final UpdateCustomerRequest request,
+    public void createCustomerAsync(
+                final CreateCustomerRequest request,
                 final APICallBack<GetCustomerResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
@@ -1237,20 +313,13 @@ public class CustomersController extends BaseController {
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5572925079781008821L;
-            {
-                    put( "customer_id", customerId );
-            }});
+        _queryBuilder.append("/customers");
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5578678361002081877L;
+            private static final long serialVersionUID = 5353315613714627287L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1259,7 +328,7 @@ public class CustomersController extends BaseController {
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(request),
+        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -1289,6 +358,502 @@ public class CustomersController extends BaseController {
                             String _responseBody = ((HttpStringResponse)_response).getBody();
                             GetCustomerResponse _result = APIHelper.deserialize(_responseBody,
                                                         new TypeReference<GetCustomerResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Get a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @return    Returns the GetCustomerResponse response from the API call 
+     */
+    public GetCustomerResponse getCustomer(
+                final String customerId
+    ) throws Throwable {
+        APICallBackCatcher<GetCustomerResponse> callback = new APICallBackCatcher<GetCustomerResponse>();
+        getCustomerAsync(customerId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Get a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @return    Returns the void response from the API call 
+     */
+    public void getCustomerAsync(
+                final String customerId,
+                final APICallBack<GetCustomerResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4941498719928578248L;
+            {
+                    put( "customer_id", customerId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5534656536557973149L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetCustomerResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetCustomerResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Get all access tokens from a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the ListAccessTokensResponse response from the API call 
+     */
+    public ListAccessTokensResponse getAccessTokens(
+                final String customerId,
+                final Integer page,
+                final Integer size
+    ) throws Throwable {
+        APICallBackCatcher<ListAccessTokensResponse> callback = new APICallBackCatcher<ListAccessTokensResponse>();
+        getAccessTokensAsync(customerId, page, size, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Get all access tokens from a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the void response from the API call 
+     */
+    public void getAccessTokensAsync(
+                final String customerId,
+                final Integer page,
+                final Integer size,
+                final APICallBack<ListAccessTokensResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/access-tokens");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5284799956430476942L;
+            {
+                    put( "customer_id", customerId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5251084297148472027L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5296345022134006900L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListAccessTokensResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListAccessTokensResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Gets all adressess from a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the ListAddressesResponse response from the API call 
+     */
+    public ListAddressesResponse getAddresses(
+                final String customerId,
+                final Integer page,
+                final Integer size
+    ) throws Throwable {
+        APICallBackCatcher<ListAddressesResponse> callback = new APICallBackCatcher<ListAddressesResponse>();
+        getAddressesAsync(customerId, page, size, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Gets all adressess from a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the void response from the API call 
+     */
+    public void getAddressesAsync(
+                final String customerId,
+                final Integer page,
+                final Integer size,
+                final APICallBack<ListAddressesResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/addresses");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5429304353520302049L;
+            {
+                    put( "customer_id", customerId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4878702942604841625L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5708050666068288593L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListAddressesResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListAddressesResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Get all cards from a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the ListCardsResponse response from the API call 
+     */
+    public ListCardsResponse getCards(
+                final String customerId,
+                final Integer page,
+                final Integer size
+    ) throws Throwable {
+        APICallBackCatcher<ListCardsResponse> callback = new APICallBackCatcher<ListCardsResponse>();
+        getCardsAsync(customerId, page, size, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Get all cards from a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    page    Optional parameter: Page number
+     * @param    size    Optional parameter: Page size
+     * @return    Returns the void response from the API call 
+     */
+    public void getCardsAsync(
+                final String customerId,
+                final Integer page,
+                final Integer size,
+                final APICallBack<ListCardsResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/cards");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5459067381917846527L;
+            {
+                    put( "customer_id", customerId );
+            }});
+
+        //process query parameters
+        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5177270623402301839L;
+            {
+                    put( "page", page );
+                    put( "size", size );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5165494691444585539L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            ListCardsResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<ListCardsResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -1354,7 +919,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4915242428056728584L;
+            private static final long serialVersionUID = 5570878034872739118L;
             {
                     put( "customer_id", customerId );
             }});
@@ -1363,7 +928,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5514545178800438064L;
+            private static final long serialVersionUID = 5666878020711389738L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1482,7 +1047,7 @@ public class CustomersController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5450523066173838122L;
+            private static final long serialVersionUID = 4645072170940944121L;
             {
                     put( "name", name );
                     put( "document", document );
@@ -1495,7 +1060,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5316313675431506582L;
+            private static final long serialVersionUID = 5216431685990736428L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1602,7 +1167,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5599433741121514353L;
+            private static final long serialVersionUID = 5444204911169896012L;
             {
                     put( "customer_id", customerId );
                     put( "token_id", tokenId );
@@ -1612,7 +1177,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5093765016661474574L;
+            private static final long serialVersionUID = 5496797194369834040L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1719,7 +1284,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4906973553924351344L;
+            private static final long serialVersionUID = 5659568561441771796L;
             {
                     put( "customer_id", customerId );
             }});
@@ -1728,7 +1293,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5205991786104753106L;
+            private static final long serialVersionUID = 5355677922523088907L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1836,7 +1401,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4772281438972147476L;
+            private static final long serialVersionUID = 4962995675997513691L;
             {
                     put( "customer_id", customerId );
                     put( "token_id", tokenId );
@@ -1846,7 +1411,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4873137800296416652L;
+            private static final long serialVersionUID = 4818143854551222438L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1953,7 +1518,7 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4898028867102940428L;
+            private static final long serialVersionUID = 4677925792249759647L;
             {
                     put( "customer_id", customerId );
             }});
@@ -1962,7 +1527,7 @@ public class CustomersController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5175733723982320427L;
+            private static final long serialVersionUID = 5529045361400531886L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -2034,64 +1599,170 @@ public class CustomersController extends BaseController {
     }
 
     /**
-     * Get all access tokens from a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
-     * @return    Returns the ListAccessTokensResponse response from the API call 
+     * Updates a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    request    Required parameter: Request for updating a customer
+     * @return    Returns the GetCustomerResponse response from the API call 
      */
-    public ListAccessTokensResponse getAccessTokens(
+    public GetCustomerResponse updateCustomer(
                 final String customerId,
-                final Integer page,
-                final Integer size
+                final UpdateCustomerRequest request
     ) throws Throwable {
-        APICallBackCatcher<ListAccessTokensResponse> callback = new APICallBackCatcher<ListAccessTokensResponse>();
-        getAccessTokensAsync(customerId, page, size, callback);
+        APICallBackCatcher<GetCustomerResponse> callback = new APICallBackCatcher<GetCustomerResponse>();
+        updateCustomerAsync(customerId, request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Get all access tokens from a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
+     * Updates a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    request    Required parameter: Request for updating a customer
      * @return    Returns the void response from the API call 
      */
-    public void getAccessTokensAsync(
+    public void updateCustomerAsync(
                 final String customerId,
-                final Integer page,
-                final Integer size,
-                final APICallBack<ListAccessTokensResponse> callBack
-    ) {
+                final UpdateCustomerRequest request,
+                final APICallBack<GetCustomerResponse> callBack
+    ) throws JsonProcessingException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/access-tokens");
+        _queryBuilder.append("/customers/{customer_id}");
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5709904625494182703L;
+            private static final long serialVersionUID = 5296931808400261068L;
             {
                     put( "customer_id", customerId );
-            }});
-
-        //process query parameters
-        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4837434351526477546L;
-            {
-                    put( "page", page );
-                    put( "size", size );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5327194928918766149L;
+            private static final long serialVersionUID = 4761111027157182882L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().putBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetCustomerResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetCustomerResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Get a customer's address
+     * @param    customerId    Required parameter: Customer id
+     * @param    addressId    Required parameter: Address Id
+     * @return    Returns the GetAddressResponse response from the API call 
+     */
+    public GetAddressResponse getAddress(
+                final String customerId,
+                final String addressId
+    ) throws Throwable {
+        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
+        getAddressAsync(customerId, addressId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Get a customer's address
+     * @param    customerId    Required parameter: Customer id
+     * @param    addressId    Required parameter: Address Id
+     * @return    Returns the void response from the API call 
+     */
+    public void getAddressAsync(
+                final String customerId,
+                final String addressId,
+                final APICallBack<GetAddressResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/addresses/{address_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4871479714339725879L;
+            {
+                    put( "customer_id", customerId );
+                    put( "address_id", addressId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4863420102349879347L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -2127,8 +1798,8 @@ public class CustomersController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListAccessTokensResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListAccessTokensResponse>(){});
+                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetAddressResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -2162,37 +1833,267 @@ public class CustomersController extends BaseController {
     }
 
     /**
-     * Gets all adressess from a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
-     * @return    Returns the ListAddressesResponse response from the API call 
+     * Delete a Customer's address
+     * @param    customerId    Required parameter: Customer Id
+     * @param    addressId    Required parameter: Address Id
+     * @return    Returns the GetAddressResponse response from the API call 
      */
-    public ListAddressesResponse getAddresses(
+    public GetAddressResponse deleteAddress(
                 final String customerId,
-                final Integer page,
-                final Integer size
+                final String addressId
     ) throws Throwable {
-        APICallBackCatcher<ListAddressesResponse> callback = new APICallBackCatcher<ListAddressesResponse>();
-        getAddressesAsync(customerId, page, size, callback);
+        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
+        deleteAddressAsync(customerId, addressId, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Gets all adressess from a customer
-     * @param    customerId    Required parameter: Customer id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
+     * Delete a Customer's address
+     * @param    customerId    Required parameter: Customer Id
+     * @param    addressId    Required parameter: Address Id
      * @return    Returns the void response from the API call 
      */
-    public void getAddressesAsync(
+    public void deleteAddressAsync(
                 final String customerId,
-                final Integer page,
-                final Integer size,
-                final APICallBack<ListAddressesResponse> callBack
+                final String addressId,
+                final APICallBack<GetAddressResponse> callBack
     ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/addresses/{address_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4853263419413719227L;
+            {
+                    put( "customer_id", customerId );
+                    put( "address_id", addressId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5302596507621903520L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetAddressResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Delete a customer's card
+     * @param    customerId    Required parameter: Customer Id
+     * @param    cardId    Required parameter: Card Id
+     * @return    Returns the GetCardResponse response from the API call 
+     */
+    public GetCardResponse deleteCard(
+                final String customerId,
+                final String cardId
+    ) throws Throwable {
+        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
+        deleteCardAsync(customerId, cardId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Delete a customer's card
+     * @param    customerId    Required parameter: Customer Id
+     * @param    cardId    Required parameter: Card Id
+     * @return    Returns the void response from the API call 
+     */
+    public void deleteCardAsync(
+                final String customerId,
+                final String cardId,
+                final APICallBack<GetCardResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/cards/{card_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5365420167368433075L;
+            {
+                    put( "customer_id", customerId );
+                    put( "card_id", cardId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4818638091518392557L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetCardResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Creates a new address for a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    request    Required parameter: Request for creating an address
+     * @return    Returns the GetAddressResponse response from the API call 
+     */
+    public GetAddressResponse createAddress(
+                final String customerId,
+                final CreateAddressRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetAddressResponse> callback = new APICallBackCatcher<GetAddressResponse>();
+        createAddressAsync(customerId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Creates a new address for a customer
+     * @param    customerId    Required parameter: Customer Id
+     * @param    request    Required parameter: Request for creating an address
+     * @return    Returns the void response from the API call 
+     */
+    public void createAddressAsync(
+                final String customerId,
+                final CreateAddressRequest request,
+                final APICallBack<GetAddressResponse> callBack
+    ) throws JsonProcessingException {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
@@ -2202,32 +2103,25 @@ public class CustomersController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5011918197348564883L;
+            private static final long serialVersionUID = 5445861403780603552L;
             {
                     put( "customer_id", customerId );
-            }});
-
-        //process query parameters
-        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5000342592245515956L;
-            {
-                    put( "page", page );
-                    put( "size", size );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5443250525344218861L;
+            private static final long serialVersionUID = 5293467096926303555L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
             }
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -2255,8 +2149,8 @@ public class CustomersController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListAddressesResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListAddressesResponse>(){});
+                            GetAddressResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetAddressResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -2290,64 +2184,53 @@ public class CustomersController extends BaseController {
     }
 
     /**
-     * Get all cards from a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
-     * @return    Returns the ListCardsResponse response from the API call 
+     * Get a customer's card
+     * @param    customerId    Required parameter: Customer id
+     * @param    cardId    Required parameter: Card id
+     * @return    Returns the GetCardResponse response from the API call 
      */
-    public ListCardsResponse getCards(
+    public GetCardResponse getCard(
                 final String customerId,
-                final Integer page,
-                final Integer size
+                final String cardId
     ) throws Throwable {
-        APICallBackCatcher<ListCardsResponse> callback = new APICallBackCatcher<ListCardsResponse>();
-        getCardsAsync(customerId, page, size, callback);
+        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
+        getCardAsync(customerId, cardId, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Get all cards from a customer
-     * @param    customerId    Required parameter: Customer Id
-     * @param    page    Optional parameter: Page number
-     * @param    size    Optional parameter: Page size
+     * Get a customer's card
+     * @param    customerId    Required parameter: Customer id
+     * @param    cardId    Required parameter: Card id
      * @return    Returns the void response from the API call 
      */
-    public void getCardsAsync(
+    public void getCardAsync(
                 final String customerId,
-                final Integer page,
-                final Integer size,
-                final APICallBack<ListCardsResponse> callBack
+                final String cardId,
+                final APICallBack<GetCardResponse> callBack
     ) {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/customers/{customer_id}/cards");
+        _queryBuilder.append("/customers/{customer_id}/cards/{card_id}");
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4915205552209569836L;
+            private static final long serialVersionUID = 4618008377882478034L;
             {
                     put( "customer_id", customerId );
-            }});
-
-        //process query parameters
-        APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4724465042694555120L;
-            {
-                    put( "page", page );
-                    put( "size", size );
+                    put( "card_id", cardId );
             }});
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5234533116330319806L;
+            private static final long serialVersionUID = 5257181700646974054L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -2383,8 +2266,125 @@ public class CustomersController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            ListCardsResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<ListCardsResponse>(){});
+                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetCardResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Creates a new card for a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    request    Required parameter: Request for creating a card
+     * @return    Returns the GetCardResponse response from the API call 
+     */
+    public GetCardResponse createCard(
+                final String customerId,
+                final CreateCardRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetCardResponse> callback = new APICallBackCatcher<GetCardResponse>();
+        createCardAsync(customerId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Creates a new card for a customer
+     * @param    customerId    Required parameter: Customer id
+     * @param    request    Required parameter: Request for creating a card
+     * @return    Returns the void response from the API call 
+     */
+    public void createCardAsync(
+                final String customerId,
+                final CreateCardRequest request,
+                final APICallBack<GetCardResponse> callBack
+    ) throws JsonProcessingException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/customers/{customer_id}/cards");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5151356802004937262L;
+            {
+                    put( "customer_id", customerId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5589650538481633639L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetCardResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetCardResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

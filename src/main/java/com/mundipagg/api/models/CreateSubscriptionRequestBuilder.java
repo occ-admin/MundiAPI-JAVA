@@ -218,6 +218,14 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest.setCardToken(cardToken);
         return this;
     }
+
+    /**
+     * Gateway Affiliation code
+     */
+    public CreateSubscriptionRequestBuilder gatewayAffiliationId(String gatewayAffiliationId) {
+        createSubscriptionRequest.setGatewayAffiliationId(gatewayAffiliationId);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

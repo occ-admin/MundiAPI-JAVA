@@ -59,6 +59,14 @@ public class GetSubscriptionItemResponseBuilder {
         return this;
     }
 
+    /**
+     * Item name
+     */
+    public GetSubscriptionItemResponseBuilder name(String name) {
+        getSubscriptionItemResponse.setName(name);
+        return this;
+    }
+
     public GetSubscriptionItemResponseBuilder quantity(Integer quantity) {
         getSubscriptionItemResponse.setQuantity(quantity);
         return this;

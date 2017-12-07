@@ -11,10 +11,11 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateAddressRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5180164382371399116L;
+    private static final long serialVersionUID = 5273164437267714473L;
     private String number;
     private String complement;
     private LinkedHashMap<String, String> metadata;
+    private String line2;
     /** GETTER
      * Number
      */
@@ -61,6 +62,22 @@ public class UpdateAddressRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Line 2 for address
+     */
+    @JsonGetter("line_2")
+    public String getLine2 ( ) { 
+        return this.line2;
+    }
+    
+    /** SETTER
+     * Line 2 for address
+     */
+    @JsonSetter("line_2")
+    public void setLine2 (String value) { 
+        this.line2 = value;
     }
  
 }

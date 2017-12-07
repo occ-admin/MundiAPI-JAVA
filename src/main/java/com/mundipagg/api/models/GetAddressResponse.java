@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetAddressResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5331164230022380384L;
+    private static final long serialVersionUID = 5503327131268931882L;
     private String id;
     private String street;
     private String number;
@@ -30,6 +30,8 @@ public class GetAddressResponse
     private DateTime updatedAt;
     private GetCustomerResponse customer;
     private LinkedHashMap<String, String> metadata;
+    private String line1;
+    private String line2;
     private DateTime deletedAt;
     /** GETTER
      * TODO: Write general description for this method
@@ -257,6 +259,38 @@ public class GetAddressResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Line 1 for address
+     */
+    @JsonGetter("line_1")
+    public String getLine1 ( ) { 
+        return this.line1;
+    }
+    
+    /** SETTER
+     * Line 1 for address
+     */
+    @JsonSetter("line_1")
+    public void setLine1 (String value) { 
+        this.line1 = value;
+    }
+ 
+    /** GETTER
+     * Line 2 for address
+     */
+    @JsonGetter("line_2")
+    public String getLine2 ( ) { 
+        return this.line2;
+    }
+    
+    /** SETTER
+     * Line 2 for address
+     */
+    @JsonSetter("line_2")
+    public void setLine2 (String value) { 
+        this.line2 = value;
     }
  
     /** GETTER

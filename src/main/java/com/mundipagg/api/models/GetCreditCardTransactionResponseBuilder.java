@@ -92,6 +92,14 @@ public class GetCreditCardTransactionResponseBuilder
     }
 
     /**
+     * Acquirer Return Code
+     */
+    public GetCreditCardTransactionResponseBuilder acquirerReturnCode(String acquirerReturnCode) {
+        getCreditCardTransactionResponse.setAcquirerReturnCode(acquirerReturnCode);
+        return this;
+    }
+
+    /**
      * Number of installments
      */
     public GetCreditCardTransactionResponseBuilder installments(Integer installments) {
