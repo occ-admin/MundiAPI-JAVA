@@ -42,6 +42,11 @@ public class GetInvoiceItemResponseBuilder {
         getInvoiceItemResponse.setQuantity(quantity);
         return this;
     }
+
+    public GetInvoiceItemResponseBuilder name(String name) {
+        getInvoiceItemResponse.setName(name);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

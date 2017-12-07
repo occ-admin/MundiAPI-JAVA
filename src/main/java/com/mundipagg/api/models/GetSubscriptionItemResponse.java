@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetSubscriptionItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4908154537722219114L;
+    private static final long serialVersionUID = 5148419408172444917L;
     private String id;
     private String description;
     private String status;
@@ -24,6 +24,7 @@ public class GetSubscriptionItemResponse
     private GetPricingSchemeResponse pricingScheme;
     private List<GetDiscountResponse> discounts;
     private GetSubscriptionResponse subscription;
+    private String name;
     private Integer quantity;
     private Integer cycles;
     private DateTime deletedAt;
@@ -157,6 +158,22 @@ public class GetSubscriptionItemResponse
     @JsonSetter("subscription")
     public void setSubscription (GetSubscriptionResponse value) { 
         this.subscription = value;
+    }
+ 
+    /** GETTER
+     * Item name
+     */
+    @JsonGetter("name")
+    public String getName ( ) { 
+        return this.name;
+    }
+    
+    /** SETTER
+     * Item name
+     */
+    @JsonSetter("name")
+    public void setName (String value) { 
+        this.name = value;
     }
  
     /** GETTER

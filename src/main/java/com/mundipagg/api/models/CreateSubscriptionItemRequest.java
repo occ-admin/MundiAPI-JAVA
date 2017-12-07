@@ -11,12 +11,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSubscriptionItemRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5053306762363136064L;
+    private static final long serialVersionUID = 5189690576483866674L;
     private String description;
     private CreatePricingSchemeRequest pricingScheme;
     private String id;
     private String planItemId;
     private List<CreateDiscountRequest> discounts;
+    private String name;
     private Integer cycles;
     private Integer quantity;
     private Integer minimumPrice;
@@ -98,6 +99,22 @@ public class CreateSubscriptionItemRequest
     @JsonSetter("discounts")
     public void setDiscounts (List<CreateDiscountRequest> value) { 
         this.discounts = value;
+    }
+ 
+    /** GETTER
+     * Item name
+     */
+    @JsonGetter("name")
+    public String getName ( ) { 
+        return this.name;
+    }
+    
+    /** SETTER
+     * Item name
+     */
+    @JsonSetter("name")
+    public void setName (String value) { 
+        this.name = value;
     }
  
     /** GETTER

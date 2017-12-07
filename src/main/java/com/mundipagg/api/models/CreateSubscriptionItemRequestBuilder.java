@@ -59,6 +59,14 @@ public class CreateSubscriptionItemRequestBuilder {
     }
 
     /**
+     * Item name
+     */
+    public CreateSubscriptionItemRequestBuilder name(String name) {
+        createSubscriptionItemRequest.setName(name);
+        return this;
+    }
+
+    /**
      * Number of cycles which the item will be charged
      */
     public CreateSubscriptionItemRequestBuilder cycles(Integer cycles) {

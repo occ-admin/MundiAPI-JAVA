@@ -49,8 +49,8 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
-    public GetSubscriptionResponseBuilder currentPeriod(GetPeriodResponse currentPeriod) {
-        getSubscriptionResponse.setCurrentPeriod(currentPeriod);
+    public GetSubscriptionResponseBuilder currentCycle(GetPeriodResponse currentCycle) {
+        getSubscriptionResponse.setCurrentCycle(currentCycle);
         return this;
     }
 
@@ -111,6 +111,14 @@ public class GetSubscriptionResponseBuilder {
 
     public GetSubscriptionResponseBuilder setup(GetSetupResponse setup) {
         getSubscriptionResponse.setSetup(setup);
+        return this;
+    }
+
+    /**
+     * Affiliation Code
+     */
+    public GetSubscriptionResponseBuilder gatewayAffiliationId(String gatewayAffiliationId) {
+        getSubscriptionResponse.setGatewayAffiliationId(gatewayAffiliationId);
         return this;
     }
 

@@ -23,7 +23,7 @@ import org.joda.time.DateTime;
           defaultImpl = GetBankTransferTransactionResponse.class)
 public class GetBankTransferTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5377281644838287718L;
+    private static final long serialVersionUID = 4696670509600178924L;
     private String url;
     private String bankTid;
     private String bank;

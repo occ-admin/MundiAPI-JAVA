@@ -41,6 +41,14 @@ public class UpdateAddressRequestBuilder {
         updateAddressRequest.setMetadata(metadata);
         return this;
     }
+
+    /**
+     * Line 2 for address
+     */
+    public UpdateAddressRequestBuilder line2(String line2) {
+        updateAddressRequest.setLine2(line2);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

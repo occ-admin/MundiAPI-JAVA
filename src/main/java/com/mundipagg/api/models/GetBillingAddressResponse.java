@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetBillingAddressResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4677976528460000042L;
+    private static final long serialVersionUID = 5277829178211027494L;
     private String street;
     private String number;
     private String zipCode;
@@ -20,6 +20,8 @@ public class GetBillingAddressResponse
     private String state;
     private String country;
     private String complement;
+    private String line1;
+    private String line2;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -146,6 +148,38 @@ public class GetBillingAddressResponse
     @JsonSetter("complement")
     public void setComplement (String value) { 
         this.complement = value;
+    }
+ 
+    /** GETTER
+     * Line 1 for address
+     */
+    @JsonGetter("line_1")
+    public String getLine1 ( ) { 
+        return this.line1;
+    }
+    
+    /** SETTER
+     * Line 1 for address
+     */
+    @JsonSetter("line_1")
+    public void setLine1 (String value) { 
+        this.line1 = value;
+    }
+ 
+    /** GETTER
+     * Line 2 for address
+     */
+    @JsonGetter("line_2")
+    public String getLine2 ( ) { 
+        return this.line2;
+    }
+    
+    /** SETTER
+     * Line 2 for address
+     */
+    @JsonSetter("line_2")
+    public void setLine2 (String value) { 
+        this.line2 = value;
     }
  
 }

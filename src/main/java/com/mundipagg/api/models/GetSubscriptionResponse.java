@@ -15,14 +15,14 @@ import org.joda.time.DateTime;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5082178054575290049L;
+    private static final long serialVersionUID = 4666649232797727794L;
     private String id;
     private String code;
     private DateTime startAt;
     private String interval;
     private int intervalCount;
     private String billingType;
-    private GetPeriodResponse currentPeriod;
+    private GetPeriodResponse currentCycle;
     private String paymentMethod;
     private String currency;
     private int installments;
@@ -35,6 +35,7 @@ public class GetSubscriptionResponse
     private String statementDescriptor;
     private LinkedHashMap<String, String> metadata;
     private GetSetupResponse setup;
+    private String gatewayAffiliationId;
     private DateTime nextBillingAt;
     private Integer billingDay;
     private Integer minimumPrice;
@@ -141,17 +142,17 @@ public class GetSubscriptionResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("current_period")
-    public GetPeriodResponse getCurrentPeriod ( ) { 
-        return this.currentPeriod;
+    @JsonGetter("current_cycle")
+    public GetPeriodResponse getCurrentCycle ( ) { 
+        return this.currentCycle;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("current_period")
-    public void setCurrentPeriod (GetPeriodResponse value) { 
-        this.currentPeriod = value;
+    @JsonSetter("current_cycle")
+    public void setCurrentCycle (GetPeriodResponse value) { 
+        this.currentCycle = value;
     }
  
     /** GETTER
@@ -348,6 +349,22 @@ public class GetSubscriptionResponse
     @JsonSetter("setup")
     public void setSetup (GetSetupResponse value) { 
         this.setup = value;
+    }
+ 
+    /** GETTER
+     * Affiliation Code
+     */
+    @JsonGetter("gateway_affiliation_id")
+    public String getGatewayAffiliationId ( ) { 
+        return this.gatewayAffiliationId;
+    }
+    
+    /** SETTER
+     * Affiliation Code
+     */
+    @JsonSetter("gateway_affiliation_id")
+    public void setGatewayAffiliationId (String value) { 
+        this.gatewayAffiliationId = value;
     }
  
     /** GETTER

@@ -94,6 +94,11 @@ public class GetInvoiceResponseBuilder {
         return this;
     }
 
+    public GetInvoiceResponseBuilder metadata(LinkedHashMap<String, String> metadata) {
+        getInvoiceResponse.setMetadata(metadata);
+        return this;
+    }
+
     public GetInvoiceResponseBuilder dueAt(DateTime dueAt) {
         getInvoiceResponse.setDueAt(dueAt);
         return this;
