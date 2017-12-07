@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateInvoiceStatusRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5378210611254772246L;
+    private static final long serialVersionUID = 4813128332404114901L;
     private String status;
     /** GETTER
      * Status
