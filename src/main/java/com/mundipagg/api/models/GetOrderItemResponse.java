@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetOrderItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5543992568689496943L;
+    private static final long serialVersionUID = 4718752309747378956L;
     private int amount;
     private String description;
     private int quantity;
