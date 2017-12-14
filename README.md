@@ -700,8 +700,8 @@ void getSubscriptionsAsync(
 #### Example Usage
 
 ```java
-Integer page = 116;
-Integer size = 116;
+Integer page = 169;
+Integer size = 169;
 String code = "code";
 String billingType = "billing_type";
 String customerId = "customer_id";
@@ -875,8 +875,8 @@ void getUsagesAsync(
 ```java
 String subscriptionId = "subscription_id";
 String itemId = "item_id";
-Integer page = 116;
-Integer size = 116;
+Integer page = 169;
+Integer size = 169;
 // Invoking the API call with sample inputs
 subscriptions.getUsagesAsync(subscriptionId, itemId, page, size, new APICallBack<ListUsagesResponse>() {
     public void onSuccess(HttpContext context, ListUsagesResponse response) {
@@ -1089,8 +1089,8 @@ void getOrdersAsync(
 #### Example Usage
 
 ```java
-Integer page = 116;
-Integer size = 116;
+Integer page = 169;
+Integer size = 169;
 String code = "code";
 String status = "status";
 DateTime createdSince = new Date();
@@ -1434,8 +1434,8 @@ void getPlansAsync(
 #### Example Usage
 
 ```java
-Integer page = 116;
-Integer size = 116;
+Integer page = 169;
+Integer size = 169;
 String name = "name";
 String status = "status";
 String billingType = "billing_type";
@@ -1773,8 +1773,8 @@ void getInvoicesAsync(
 #### Example Usage
 
 ```java
-Integer page = 116;
-Integer size = 116;
+Integer page = 6;
+Integer size = 6;
 String code = "code";
 String customerId = "customer_id";
 String subscriptionId = "subscription_id";
@@ -2040,8 +2040,8 @@ void getAccessTokensAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 116;
-Integer size = 116;
+Integer page = 6;
+Integer size = 6;
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, page, size, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
@@ -2081,8 +2081,8 @@ void getAddressesAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 116;
-Integer size = 116;
+Integer page = 6;
+Integer size = 6;
 // Invoking the API call with sample inputs
 customers.getAddressesAsync(customerId, page, size, new APICallBack<ListAddressesResponse>() {
     public void onSuccess(HttpContext context, ListAddressesResponse response) {
@@ -2122,8 +2122,8 @@ void getCardsAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 116;
-Integer size = 116;
+Integer page = 6;
+Integer size = 6;
 // Invoking the API call with sample inputs
 customers.getCardsAsync(customerId, page, size, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
@@ -2899,8 +2899,8 @@ void getChargesAsync(
 #### Example Usage
 
 ```java
-Integer page = 207;
-Integer size = 207;
+Integer page = 6;
+Integer size = 6;
 String code = "code";
 String status = "status";
 String paymentMethod = "payment_method";
@@ -3047,6 +3047,48 @@ try {
 ```
 
 
+### <a name="update_charge_due_date_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.ChargesController.updateChargeDueDateAsync") updateChargeDueDateAsync
+
+> Updates the due date from a charge
+
+
+```java
+void updateChargeDueDateAsync(
+        final String chargeId,
+        final UpdateChargeDueDateRequest request,
+        final APICallBack<GetChargeResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| chargeId |  ``` Required ```  | Charge Id |
+| request |  ``` Required ```  | Request for updating the due date |
+
+
+#### Example Usage
+
+```java
+try {
+    String chargeId = "charge_id";
+    UpdateChargeDueDateRequest request = new UpdateChargeDueDateRequest();
+    // Invoking the API call with sample inputs
+    charges.updateChargeDueDateAsync(chargeId, request, new APICallBack<GetChargeResponse>() {
+        public void onSuccess(HttpContext context, GetChargeResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="recipients_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.RecipientsController") RecipientsController
@@ -3171,8 +3213,8 @@ void getTransfersAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 207;
-Integer size = 207;
+Integer page = 6;
+Integer size = 6;
 String status = "status";
 DateTime createdSince = new Date();
 DateTime createdUntil = new Date();
@@ -3348,8 +3390,8 @@ void getAnticipationsAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 207;
-Integer size = 207;
+Integer page = 6;
+Integer size = 6;
 String status = "status";
 String timeframe = "timeframe";
 DateTime paymentDateSince = new Date();
@@ -3511,8 +3553,8 @@ void getRecipientsAsync(
 #### Example Usage
 
 ```java
-Integer page = 207;
-Integer size = 207;
+Integer page = 97;
+Integer size = 97;
 // Invoking the API call with sample inputs
 recipients.getRecipientsAsync(page, size, new APICallBack<ListRecipientResponse>() {
     public void onSuccess(HttpContext context, ListRecipientResponse response) {
