@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class UpdateSubscriptionBillingDateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5471101483673698535L;
+    private static final long serialVersionUID = 5700533879934406495L;
     private DateTime nextBillingAt;
     /** GETTER
      * The date when the next subscription billing must occur

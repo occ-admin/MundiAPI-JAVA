@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetAnticipationResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5159836880301960441L;
+    private static final long serialVersionUID = 5485488391876489416L;
     private String id;
     private int requestedAmount;
     private int approvedAmount;
