@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetRecipientResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5052998515770169740L;
+    private static final long serialVersionUID = 4911892597321932904L;
     private String id;
     private String name;
     private String email;

@@ -75,6 +75,22 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
+     * Customer Id
+     */
+    public CreatePaymentRequestBuilder customerId(String customerId) {
+        createPaymentRequest.setCustomerId(customerId);
+        return this;
+    }
+
+    /**
+     * Customer
+     */
+    public CreatePaymentRequestBuilder customer(CreateCustomerRequest customer) {
+        createPaymentRequest.setCustomer(customer);
+        return this;
+    }
+
+    /**
      * Settings for bank transfer payment
      */
     public CreatePaymentRequestBuilder bankTransfer(CreateBankTransferPaymentRequest bankTransfer) {
