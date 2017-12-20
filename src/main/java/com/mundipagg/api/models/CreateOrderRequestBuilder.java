@@ -74,6 +74,11 @@ public class CreateOrderRequestBuilder {
         return this;
     }
 
+    public CreateOrderRequestBuilder closed(boolean closed) {
+        createOrderRequest.setClosed(closed);
+        return this;
+    }
+
     /**
      * Defines whether the order will go through anti-fraud
      */

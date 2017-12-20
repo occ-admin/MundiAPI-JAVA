@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateSellerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5238419995067047605L;
+    private static final long serialVersionUID = 5508290603181955375L;
     private String name;
+    private LinkedHashMap<String, String> metadata;
     private String code;
     private String description;
     private String document;
-    private String address;
+    private CreateAddressRequest address;
     private String type;
-    private CreateCardRequest metadata;
     /** GETTER
      * Name
      */
@@ -33,6 +33,22 @@ public class CreateSellerRequest
     @JsonSetter("name")
     public void setName (String value) { 
         this.name = value;
+    }
+ 
+    /** GETTER
+     * Metadata
+     */
+    @JsonGetter("metadata")
+    public LinkedHashMap<String, String> getMetadata ( ) { 
+        return this.metadata;
+    }
+    
+    /** SETTER
+     * Metadata
+     */
+    @JsonSetter("metadata")
+    public void setMetadata (LinkedHashMap<String, String> value) { 
+        this.metadata = value;
     }
  
     /** GETTER
@@ -87,7 +103,7 @@ public class CreateSellerRequest
      * Address
      */
     @JsonGetter("address")
-    public String getAddress ( ) { 
+    public CreateAddressRequest getAddress ( ) { 
         return this.address;
     }
     
@@ -95,7 +111,7 @@ public class CreateSellerRequest
      * Address
      */
     @JsonSetter("address")
-    public void setAddress (String value) { 
+    public void setAddress (CreateAddressRequest value) { 
         this.address = value;
     }
  
@@ -113,22 +129,6 @@ public class CreateSellerRequest
     @JsonSetter("type")
     public void setType (String value) { 
         this.type = value;
-    }
- 
-    /** GETTER
-     * Metadata
-     */
-    @JsonGetter("metadata")
-    public CreateCardRequest getMetadata ( ) { 
-        return this.metadata;
-    }
-    
-    /** SETTER
-     * Metadata
-     */
-    @JsonSetter("metadata")
-    public void setMetadata (CreateCardRequest value) { 
-        this.metadata = value;
     }
  
 }

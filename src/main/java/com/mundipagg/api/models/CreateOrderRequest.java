@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4749073962830214125L;
+    private static final long serialVersionUID = 5157471480129571707L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -19,6 +19,7 @@ public class CreateOrderRequest
     private String customerId;
     private CreateShippingRequest shipping;
     private LinkedHashMap<String, String> metadata;
+    private boolean closed = true;
     private Boolean antifraudEnabled;
     private String ip;
     private String sessionId;
@@ -134,6 +135,22 @@ public class CreateOrderRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("closed")
+    public boolean getClosed ( ) { 
+        return this.closed;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("closed")
+    public void setClosed (boolean value) { 
+        this.closed = value;
     }
  
     /** GETTER

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4767271354134059584L;
+    private static final long serialVersionUID = 5557374275155650470L;
     private int installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -20,6 +20,8 @@ public class CreateCreditCardPaymentRequest
     private String cardId;
     private String cardToken;
     private boolean recurrence;
+    private boolean extendedLimitEnabled;
+    private String extendedLimitCode;
     private Boolean capture = true;
     /** GETTER
      * Number of installments
@@ -147,6 +149,38 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("recurrence")
     public void setRecurrence (boolean value) { 
         this.recurrence = value;
+    }
+ 
+    /** GETTER
+     * Indicates whether the extended label (private label) is enabled
+     */
+    @JsonGetter("extended_limit_enabled")
+    public boolean getExtendedLimitEnabled ( ) { 
+        return this.extendedLimitEnabled;
+    }
+    
+    /** SETTER
+     * Indicates whether the extended label (private label) is enabled
+     */
+    @JsonSetter("extended_limit_enabled")
+    public void setExtendedLimitEnabled (boolean value) { 
+        this.extendedLimitEnabled = value;
+    }
+ 
+    /** GETTER
+     * Extended Limit Code
+     */
+    @JsonGetter("extended_limit_code")
+    public String getExtendedLimitCode ( ) { 
+        return this.extendedLimitCode;
+    }
+    
+    /** SETTER
+     * Extended Limit Code
+     */
+    @JsonSetter("extended_limit_code")
+    public void setExtendedLimitCode (String value) { 
+        this.extendedLimitCode = value;
     }
  
     /** GETTER

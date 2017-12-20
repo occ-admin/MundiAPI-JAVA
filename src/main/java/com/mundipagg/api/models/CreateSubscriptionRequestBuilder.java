@@ -226,6 +226,14 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest.setGatewayAffiliationId(gatewayAffiliationId);
         return this;
     }
+
+    /**
+     * Quantity
+     */
+    public CreateSubscriptionRequestBuilder quantity(Integer quantity) {
+        createSubscriptionRequest.setQuantity(quantity);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

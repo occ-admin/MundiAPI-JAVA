@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCardRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4828467401901074197L;
+    private static final long serialVersionUID = 5123548412478884003L;
     private String number;
     private String holderName;
     private int expMonth;
@@ -24,6 +24,7 @@ public class CreateCardRequest
     private String type = "credit";
     private CreateCardOptionsRequest options;
     private String holderDocument;
+    private boolean privateLabel;
     /** GETTER
      * Credit card number
      */
@@ -214,6 +215,22 @@ public class CreateCardRequest
     @JsonSetter("holder_document")
     public void setHolderDocument (String value) { 
         this.holderDocument = value;
+    }
+ 
+    /** GETTER
+     * Indicates whether it is a private label card
+     */
+    @JsonGetter("private_label")
+    public boolean getPrivateLabel ( ) { 
+        return this.privateLabel;
+    }
+    
+    /** SETTER
+     * Indicates whether it is a private label card
+     */
+    @JsonSetter("private_label")
+    public void setPrivateLabel (boolean value) { 
+        this.privateLabel = value;
     }
  
 }

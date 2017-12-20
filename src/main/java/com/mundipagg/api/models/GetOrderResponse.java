@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5428859201270983961L;
+    private static final long serialVersionUID = 4795927582495876691L;
     private String id;
     private String code;
     private String currency;
@@ -28,6 +28,7 @@ public class GetOrderResponse
     private String invoiceUrl;
     private GetShippingResponse shipping;
     private LinkedHashMap<String, String> metadata;
+    private boolean closed;
     private List<GetCheckoutPaymentSettingsResponse> checkouts;
     private String ip;
     private String sessionId;
@@ -227,6 +228,22 @@ public class GetOrderResponse
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Indicates whether the order is closed
+     */
+    @JsonGetter("closed")
+    public boolean getClosed ( ) { 
+        return this.closed;
+    }
+    
+    /** SETTER
+     * Indicates whether the order is closed
+     */
+    @JsonSetter("closed")
+    public void setClosed (boolean value) { 
+        this.closed = value;
     }
  
     /** GETTER

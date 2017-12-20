@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5391836646268894461L;
+    private static final long serialVersionUID = 4803756582011114843L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -42,6 +42,7 @@ public class CreateSubscriptionRequest
     private Integer cycles;
     private String cardToken;
     private String gatewayAffiliationId;
+    private Integer quantity;
     /** GETTER
      * Customer
      */
@@ -458,6 +459,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("gateway_affiliation_id")
     public void setGatewayAffiliationId (String value) { 
         this.gatewayAffiliationId = value;
+    }
+ 
+    /** GETTER
+     * Quantity
+     */
+    @JsonGetter("quantity")
+    public Integer getQuantity ( ) { 
+        return this.quantity;
+    }
+    
+    /** SETTER
+     * Quantity
+     */
+    @JsonSetter("quantity")
+    public void setQuantity (Integer value) { 
+        this.quantity = value;
     }
  
 }

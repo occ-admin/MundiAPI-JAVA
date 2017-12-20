@@ -113,6 +113,7 @@ MundiAPIClient client = new MundiAPIClient(basicAuthUserName, basicAuthPassword)
 * [ChargesController](#charges_controller)
 * [RecipientsController](#recipients_controller)
 * [TokensController](#tokens_controller)
+* [SellersController](#sellers_controller)
 
 ## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SubscriptionsController") SubscriptionsController
 
@@ -700,8 +701,8 @@ void getSubscriptionsAsync(
 #### Example Usage
 
 ```java
-Integer page = 233;
-Integer size = 233;
+Integer page = 232;
+Integer size = 232;
 String code = "code";
 String billingType = "billing_type";
 String customerId = "customer_id";
@@ -875,8 +876,8 @@ void getUsagesAsync(
 ```java
 String subscriptionId = "subscription_id";
 String itemId = "item_id";
-Integer page = 233;
-Integer size = 233;
+Integer page = 232;
+Integer size = 232;
 // Invoking the API call with sample inputs
 subscriptions.getUsagesAsync(subscriptionId, itemId, page, size, new APICallBack<ListUsagesResponse>() {
     public void onSuccess(HttpContext context, ListUsagesResponse response) {
@@ -1089,8 +1090,8 @@ void getOrdersAsync(
 #### Example Usage
 
 ```java
-Integer page = 70;
-Integer size = 70;
+Integer page = 232;
+Integer size = 232;
 String code = "code";
 String status = "status";
 DateTime createdSince = new Date();
@@ -1137,6 +1138,246 @@ try {
     UpdateMetadataRequest request = new UpdateMetadataRequest();
     // Invoking the API call with sample inputs
     orders.updateOrderMetadataAsync(orderId, request, new APICallBack<GetOrderResponse>() {
+        public void onSuccess(HttpContext context, GetOrderResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="delete_all_order_items_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.deleteAllOrderItemsAsync") deleteAllOrderItemsAsync
+
+> TODO: Add a method description
+
+
+```java
+void deleteAllOrderItemsAsync(
+        final String orderId,
+        final APICallBack<GetOrderResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | Order Id |
+
+
+#### Example Usage
+
+```java
+String orderId = "orderId";
+// Invoking the API call with sample inputs
+orders.deleteAllOrderItemsAsync(orderId, new APICallBack<GetOrderResponse>() {
+    public void onSuccess(HttpContext context, GetOrderResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_order_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.updateOrderItemAsync") updateOrderItemAsync
+
+> TODO: Add a method description
+
+
+```java
+void updateOrderItemAsync(
+        final String orderId,
+        final String itemId,
+        final UpdateOrderItemRequest request,
+        final APICallBack<GetOrderItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | Order Id |
+| itemId |  ``` Required ```  | Item Id |
+| request |  ``` Required ```  | Item Model |
+
+
+#### Example Usage
+
+```java
+try {
+    String orderId = "orderId";
+    String itemId = "itemId";
+    UpdateOrderItemRequest request = new UpdateOrderItemRequest();
+    // Invoking the API call with sample inputs
+    orders.updateOrderItemAsync(orderId, itemId, request, new APICallBack<GetOrderItemResponse>() {
+        public void onSuccess(HttpContext context, GetOrderItemResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="delete_order_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.deleteOrderItemAsync") deleteOrderItemAsync
+
+> TODO: Add a method description
+
+
+```java
+void deleteOrderItemAsync(
+        final String orderId,
+        final String itemId,
+        final APICallBack<GetOrderItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | Order Id |
+| itemId |  ``` Required ```  | Item Id |
+
+
+#### Example Usage
+
+```java
+String orderId = "orderId";
+String itemId = "itemId";
+// Invoking the API call with sample inputs
+orders.deleteOrderItemAsync(orderId, itemId, new APICallBack<GetOrderItemResponse>() {
+    public void onSuccess(HttpContext context, GetOrderItemResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_order_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.createOrderItemAsync") createOrderItemAsync
+
+> TODO: Add a method description
+
+
+```java
+void createOrderItemAsync(
+        final String orderId,
+        final CreateOrderItemRequest request,
+        final APICallBack<GetOrderItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | Order Id |
+| request |  ``` Required ```  | Order Item Model |
+
+
+#### Example Usage
+
+```java
+try {
+    String orderId = "orderId";
+    CreateOrderItemRequest request = new CreateOrderItemRequest();
+    // Invoking the API call with sample inputs
+    orders.createOrderItemAsync(orderId, request, new APICallBack<GetOrderItemResponse>() {
+        public void onSuccess(HttpContext context, GetOrderItemResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_order_item_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.getOrderItemAsync") getOrderItemAsync
+
+> TODO: Add a method description
+
+
+```java
+void getOrderItemAsync(
+        final String orderId,
+        final String itemId,
+        final APICallBack<GetOrderItemResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | Order Id |
+| itemId |  ``` Required ```  | Item Id |
+
+
+#### Example Usage
+
+```java
+String orderId = "orderId";
+String itemId = "itemId";
+// Invoking the API call with sample inputs
+orders.getOrderItemAsync(orderId, itemId, new APICallBack<GetOrderItemResponse>() {
+    public void onSuccess(HttpContext context, GetOrderItemResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_order_status_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.OrdersController.updateOrderStatusAsync") updateOrderStatusAsync
+
+> TODO: Add a method description
+
+
+```java
+void updateOrderStatusAsync(
+        final String id,
+        final UpdateOrderStatusRequest request,
+        final APICallBack<GetOrderResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ``` Required ```  | Order Id |
+| request |  ``` Required ```  | Update Order Model |
+
+
+#### Example Usage
+
+```java
+try {
+    String id = "id";
+    UpdateOrderStatusRequest request = new UpdateOrderStatusRequest();
+    // Invoking the API call with sample inputs
+    orders.updateOrderStatusAsync(id, request, new APICallBack<GetOrderResponse>() {
         public void onSuccess(HttpContext context, GetOrderResponse response) {
             // TODO success callback handler
         }
@@ -1434,8 +1675,8 @@ void getPlansAsync(
 #### Example Usage
 
 ```java
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 String name = "name";
 String status = "status";
 String billingType = "billing_type";
@@ -1773,8 +2014,8 @@ void getInvoicesAsync(
 #### Example Usage
 
 ```java
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 String code = "code";
 String customerId = "customer_id";
 String subscriptionId = "subscription_id";
@@ -2040,8 +2281,8 @@ void getAccessTokensAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 // Invoking the API call with sample inputs
 customers.getAccessTokensAsync(customerId, page, size, new APICallBack<ListAccessTokensResponse>() {
     public void onSuccess(HttpContext context, ListAccessTokensResponse response) {
@@ -2081,8 +2322,8 @@ void getAddressesAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 // Invoking the API call with sample inputs
 customers.getAddressesAsync(customerId, page, size, new APICallBack<ListAddressesResponse>() {
     public void onSuccess(HttpContext context, ListAddressesResponse response) {
@@ -2122,8 +2363,8 @@ void getCardsAsync(
 
 ```java
 String customerId = "customer_id";
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 // Invoking the API call with sample inputs
 customers.getCardsAsync(customerId, page, size, new APICallBack<ListCardsResponse>() {
     public void onSuccess(HttpContext context, ListCardsResponse response) {
@@ -2899,8 +3140,8 @@ void getChargesAsync(
 #### Example Usage
 
 ```java
-Integer page = 70;
-Integer size = 70;
+Integer page = 69;
+Integer size = 69;
 String code = "code";
 String status = "status";
 String paymentMethod = "payment_method";
@@ -3213,8 +3454,8 @@ void getTransfersAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 161;
-Integer size = 161;
+Integer page = 27;
+Integer size = 27;
 String status = "status";
 DateTime createdSince = new Date();
 DateTime createdUntil = new Date();
@@ -3390,8 +3631,8 @@ void getAnticipationsAsync(
 
 ```java
 String recipientId = "recipient_id";
-Integer page = 161;
-Integer size = 161;
+Integer page = 27;
+Integer size = 27;
 String status = "status";
 String timeframe = "timeframe";
 DateTime paymentDateSince = new Date();
@@ -3553,8 +3794,8 @@ void getRecipientsAsync(
 #### Example Usage
 
 ```java
-Integer page = 161;
-Integer size = 161;
+Integer page = 27;
+Integer size = 27;
 // Invoking the API call with sample inputs
 recipients.getRecipientsAsync(page, size, new APICallBack<ListRecipientResponse>() {
     public void onSuccess(HttpContext context, ListRecipientResponse response) {
@@ -3767,6 +4008,270 @@ try {
     // Invoking the API call with sample inputs
     tokens.createTokenAsync(publicKey, request, new APICallBack<GetTokenResponse>() {
         public void onSuccess(HttpContext context, GetTokenResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="sellers_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.mundipagg.api.controllers.SellersController") SellersController
+
+### Get singleton instance
+
+The singleton instance of the ``` SellersController ``` class can be accessed from the API Client.
+
+```java
+SellersController sellers = client.getSellers();
+```
+
+### <a name="get_seller_by_id_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.getSellerByIdAsync") getSellerByIdAsync
+
+> TODO: Add a method description
+
+
+```java
+void getSellerByIdAsync(
+        final String id,
+        final APICallBack<GetSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ``` Required ```  | Seller Id |
+
+
+#### Example Usage
+
+```java
+String id = "id";
+// Invoking the API call with sample inputs
+sellers.getSellerByIdAsync(id, new APICallBack<GetSellerResponse>() {
+    public void onSuccess(HttpContext context, GetSellerResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="delete_seller_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.deleteSellerAsync") deleteSellerAsync
+
+> TODO: Add a method description
+
+
+```java
+void deleteSellerAsync(
+        final String sellerId,
+        final APICallBack<GetSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| sellerId |  ``` Required ```  | Seller Id |
+
+
+#### Example Usage
+
+```java
+String sellerId = "sellerId";
+// Invoking the API call with sample inputs
+sellers.deleteSellerAsync(sellerId, new APICallBack<GetSellerResponse>() {
+    public void onSuccess(HttpContext context, GetSellerResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="create_seller_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.createSellerAsync") createSellerAsync
+
+> TODO: Add a method description
+
+
+```java
+void createSellerAsync(
+        final CreateSellerRequest request,
+        final APICallBack<GetSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| request |  ``` Required ```  | Seller Model |
+
+
+#### Example Usage
+
+```java
+try {
+    CreateSellerRequest request = new CreateSellerRequest();
+    // Invoking the API call with sample inputs
+    sellers.createSellerAsync(request, new APICallBack<GetSellerResponse>() {
+        public void onSuccess(HttpContext context, GetSellerResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="get_sellers_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.getSellersAsync") getSellersAsync
+
+> TODO: Add a method description
+
+
+```java
+void getSellersAsync(
+        final Integer page,
+        final Integer size,
+        final String name,
+        final String document,
+        final String code,
+        final String status,
+        final String type,
+        final DateTime createdSince,
+        final DateTime createdUntil,
+        final APICallBack<ListSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| name |  ``` Optional ```  | TODO: Add a parameter description |
+| document |  ``` Optional ```  | TODO: Add a parameter description |
+| code |  ``` Optional ```  | TODO: Add a parameter description |
+| status |  ``` Optional ```  | TODO: Add a parameter description |
+| type |  ``` Optional ```  | TODO: Add a parameter description |
+| createdSince |  ``` Optional ```  | TODO: Add a parameter description |
+| createdUntil |  ``` Optional ```  | TODO: Add a parameter description |
+
+
+#### Example Usage
+
+```java
+Integer page = 27;
+Integer size = 27;
+String name = "name";
+String document = "document";
+String code = "code";
+String status = "status";
+String type = "type";
+DateTime createdSince = new Date();
+DateTime createdUntil = new Date();
+// Invoking the API call with sample inputs
+sellers.getSellersAsync(page, size, name, document, code, status, type, createdSince, createdUntil, new APICallBack<ListSellerResponse>() {
+    public void onSuccess(HttpContext context, ListSellerResponse response) {
+        // TODO success callback handler
+    }
+    public void onFailure(HttpContext context, Throwable error) {
+        // TODO failure callback handler
+    }
+});
+
+```
+
+
+### <a name="update_seller_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.updateSellerAsync") updateSellerAsync
+
+> TODO: Add a method description
+
+
+```java
+void updateSellerAsync(
+        final String id,
+        final UpdateSellerRequest request,
+        final APICallBack<GetSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| id |  ``` Required ```  | TODO: Add a parameter description |
+| request |  ``` Required ```  | Update Seller model |
+
+
+#### Example Usage
+
+```java
+try {
+    String id = "id";
+    UpdateSellerRequest request = new UpdateSellerRequest();
+    // Invoking the API call with sample inputs
+    sellers.updateSellerAsync(id, request, new APICallBack<GetSellerResponse>() {
+        public void onSuccess(HttpContext context, GetSellerResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+### <a name="update_seller_metadata_async"></a>![Method: ](https://apidocs.io/img/method.png "com.mundipagg.api.controllers.SellersController.updateSellerMetadataAsync") updateSellerMetadataAsync
+
+> TODO: Add a method description
+
+
+```java
+void updateSellerMetadataAsync(
+        final String sellerId,
+        final UpdateMetadataRequest request,
+        final APICallBack<GetSellerResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| sellerId |  ``` Required ```  | Seller Id |
+| request |  ``` Required ```  | Request for updating the charge metadata |
+
+
+#### Example Usage
+
+```java
+try {
+    String sellerId = "seller_id";
+    UpdateMetadataRequest request = new UpdateMetadataRequest();
+    // Invoking the API call with sample inputs
+    sellers.updateSellerMetadataAsync(sellerId, request, new APICallBack<GetSellerResponse>() {
+        public void onSuccess(HttpContext context, GetSellerResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {

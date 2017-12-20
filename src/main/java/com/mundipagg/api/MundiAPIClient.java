@@ -74,6 +74,14 @@ public class MundiAPIClient {
     }
 
     /**
+     * Singleton access to Sellers controller
+     * @return	Returns the SellersController instance 
+     */
+    public SellersController getSellers() {
+        return SellersController.getInstance();
+    }
+
+    /**
      * Get the shared http client currently being used for API calls
      * @return The http client instance currently being used
      */
