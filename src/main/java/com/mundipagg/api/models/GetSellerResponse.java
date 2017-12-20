@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSellerResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5230058494730672492L;
+    private static final long serialVersionUID = 4649523219378999959L;
     private String id;
     private String name;
     private String code;
@@ -21,7 +21,7 @@ public class GetSellerResponse
     private String createdAt;
     private String updatedAt;
     private GetAddressResponse address;
-    private Object metadata;
+    private LinkedHashMap<String, String> metadata;
     private String deletedAt;
     /** GETTER
      * Identification
@@ -171,7 +171,7 @@ public class GetSellerResponse
      * Metadata
      */
     @JsonGetter("Metadata")
-    public Object getMetadata ( ) { 
+    public LinkedHashMap<String, String> getMetadata ( ) { 
         return this.metadata;
     }
     
@@ -179,7 +179,7 @@ public class GetSellerResponse
      * Metadata
      */
     @JsonSetter("Metadata")
-    public void setMetadata (Object value) { 
+    public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
     }
  

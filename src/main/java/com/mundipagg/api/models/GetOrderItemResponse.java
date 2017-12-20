@@ -11,11 +11,29 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetOrderItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4718752309747378956L;
+    private static final long serialVersionUID = 5589134622596560098L;
+    private String id;
     private int amount;
     private String description;
     private int quantity;
+    private String category;
     private GetSellerResponse getSellerResponse;
+    /** GETTER
+     * Id
+     */
+    @JsonGetter("Id")
+    public String getId ( ) { 
+        return this.id;
+    }
+    
+    /** SETTER
+     * Id
+     */
+    @JsonSetter("Id")
+    public void setId (String value) { 
+        this.id = value;
+    }
+ 
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -62,6 +80,22 @@ public class GetOrderItemResponse
     @JsonSetter("quantity")
     public void setQuantity (int value) { 
         this.quantity = value;
+    }
+ 
+    /** GETTER
+     * Category
+     */
+    @JsonGetter("category")
+    public String getCategory ( ) { 
+        return this.category;
+    }
+    
+    /** SETTER
+     * Category
+     */
+    @JsonSetter("category")
+    public void setCategory (String value) { 
+        this.category = value;
     }
  
     /** GETTER

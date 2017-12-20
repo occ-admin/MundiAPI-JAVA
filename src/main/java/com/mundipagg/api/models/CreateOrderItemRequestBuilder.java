@@ -43,6 +43,14 @@ public class CreateOrderItemRequestBuilder {
     }
 
     /**
+     * Category
+     */
+    public CreateOrderItemRequestBuilder category(String category) {
+        createOrderItemRequest.setCategory(category);
+        return this;
+    }
+
+    /**
      * Item seller
      */
     public CreateOrderItemRequestBuilder seller(CreateSellerRequest seller) {

@@ -18,6 +18,14 @@ public class GetOrderItemResponseBuilder {
         getOrderItemResponse = new GetOrderItemResponse();
     }
 
+    /**
+     * Id
+     */
+    public GetOrderItemResponseBuilder id(String id) {
+        getOrderItemResponse.setId(id);
+        return this;
+    }
+
     public GetOrderItemResponseBuilder amount(int amount) {
         getOrderItemResponse.setAmount(amount);
         return this;
@@ -30,6 +38,14 @@ public class GetOrderItemResponseBuilder {
 
     public GetOrderItemResponseBuilder quantity(int quantity) {
         getOrderItemResponse.setQuantity(quantity);
+        return this;
+    }
+
+    /**
+     * Category
+     */
+    public GetOrderItemResponseBuilder category(String category) {
+        getOrderItemResponse.setCategory(category);
         return this;
     }
 

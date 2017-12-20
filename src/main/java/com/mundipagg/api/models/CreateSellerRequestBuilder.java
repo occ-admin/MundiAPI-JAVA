@@ -27,6 +27,14 @@ public class CreateSellerRequestBuilder {
     }
 
     /**
+     * Metadata
+     */
+    public CreateSellerRequestBuilder metadata(LinkedHashMap<String, String> metadata) {
+        createSellerRequest.setMetadata(metadata);
+        return this;
+    }
+
+    /**
      * Seller's code identification
      */
     public CreateSellerRequestBuilder code(String code) {
@@ -53,7 +61,7 @@ public class CreateSellerRequestBuilder {
     /**
      * Address
      */
-    public CreateSellerRequestBuilder address(String address) {
+    public CreateSellerRequestBuilder address(CreateAddressRequest address) {
         createSellerRequest.setAddress(address);
         return this;
     }
@@ -63,14 +71,6 @@ public class CreateSellerRequestBuilder {
      */
     public CreateSellerRequestBuilder type(String type) {
         createSellerRequest.setType(type);
-        return this;
-    }
-
-    /**
-     * Metadata
-     */
-    public CreateSellerRequestBuilder metadata(CreateCardRequest metadata) {
-        createSellerRequest.setMetadata(metadata);
         return this;
     }
     /**

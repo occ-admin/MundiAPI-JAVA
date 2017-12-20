@@ -80,6 +80,22 @@ public class CreateCreditCardPaymentRequestBuilder {
     }
 
     /**
+     * Indicates whether the extended label (private label) is enabled
+     */
+    public CreateCreditCardPaymentRequestBuilder extendedLimitEnabled(boolean extendedLimitEnabled) {
+        createCreditCardPaymentRequest.setExtendedLimitEnabled(extendedLimitEnabled);
+        return this;
+    }
+
+    /**
+     * Extended Limit Code
+     */
+    public CreateCreditCardPaymentRequestBuilder extendedLimitCode(String extendedLimitCode) {
+        createCreditCardPaymentRequest.setExtendedLimitCode(extendedLimitCode);
+        return this;
+    }
+
+    /**
      * Indicates if the operation should be only authorization or auth and capture.
      */
     public CreateCreditCardPaymentRequestBuilder capture(Boolean capture) {

@@ -113,6 +113,14 @@ public class CreateCardRequestBuilder {
         createCardRequest.setHolderDocument(holderDocument);
         return this;
     }
+
+    /**
+     * Indicates whether it is a private label card
+     */
+    public CreateCardRequestBuilder privateLabel(boolean privateLabel) {
+        createCardRequest.setPrivateLabel(privateLabel);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

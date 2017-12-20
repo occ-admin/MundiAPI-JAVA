@@ -84,7 +84,7 @@ public class GetSellerResponseBuilder {
     /**
      * Metadata
      */
-    public GetSellerResponseBuilder metadata(Object metadata) {
+    public GetSellerResponseBuilder metadata(LinkedHashMap<String, String> metadata) {
         getSellerResponse.setMetadata(metadata);
         return this;
     }
