@@ -60,10 +60,23 @@ public class GetUsageResponseBuilder {
     }
 
     /**
+     * Status
+     */
+    public GetUsageResponseBuilder status(String status) {
+        getUsageResponse.setStatus(status);
+        return this;
+    }
+
+    /**
      * Subscription item
      */
     public GetUsageResponseBuilder subscriptionItem(GetSubscriptionItemResponse subscriptionItem) {
         getUsageResponse.setSubscriptionItem(subscriptionItem);
+        return this;
+    }
+
+    public GetUsageResponseBuilder deletedAt(DateTime deletedAt) {
+        getUsageResponse.setDeletedAt(deletedAt);
         return this;
     }
     /**

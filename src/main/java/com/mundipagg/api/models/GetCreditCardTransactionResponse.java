@@ -11,15 +11,19 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
-          include = JsonTypeInfo.As.PROPERTY,
+          include = JsonTypeInfo.As.EXISTING_PROPERTY,
           property = "transaction_type",
-          defaultImpl = GetCreditCardTransactionResponse.class)
+          defaultImpl = GetCreditCardTransactionResponse.class,
+          visible = true)
+@JsonInclude(Include.ALWAYS)
 public class GetCreditCardTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4695436277071763431L;
+    private static final long serialVersionUID = 5475963850249086524L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;

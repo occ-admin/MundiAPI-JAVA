@@ -15,13 +15,15 @@ import org.joda.time.DateTime;
 
 public class GetUsageResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4615089773537860416L;
+    private static final long serialVersionUID = 5076795568535699239L;
     private String id;
     private int quantity;
     private String description;
     private DateTime usedAt;
     private DateTime createdAt;
+    private String status;
     private GetSubscriptionItemResponse subscriptionItem;
+    private DateTime deletedAt;
     /** GETTER
      * Id
      */
@@ -107,6 +109,22 @@ public class GetUsageResponse
     }
  
     /** GETTER
+     * Status
+     */
+    @JsonGetter("status")
+    public String getStatus ( ) { 
+        return this.status;
+    }
+    
+    /** SETTER
+     * Status
+     */
+    @JsonSetter("status")
+    public void setStatus (String value) { 
+        this.status = value;
+    }
+ 
+    /** GETTER
      * Subscription item
      */
     @JsonGetter("subscription_item")
@@ -120,6 +138,24 @@ public class GetUsageResponse
     @JsonSetter("subscription_item")
     public void setSubscriptionItem (GetSubscriptionItemResponse value) { 
         this.subscriptionItem = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("deleted_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDeletedAt ( ) { 
+        return this.deletedAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("deleted_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDeletedAt (DateTime value) { 
+        this.deletedAt = value;
     }
  
 }

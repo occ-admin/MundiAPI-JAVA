@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
@@ -18,9 +20,10 @@ import org.joda.time.DateTime;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
-          include = JsonTypeInfo.As.PROPERTY,
+          include = JsonTypeInfo.As.EXISTING_PROPERTY,
           property = "transaction_type",
-          defaultImpl = GetTransactionResponse.class)
+          defaultImpl = GetTransactionResponse.class,
+          visible = true)
 @JsonSubTypes({
     @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
@@ -28,9 +31,10 @@ import org.joda.time.DateTime;
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
     @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay")
 })
+@JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4699239933617027617L;
+    private static final long serialVersionUID = 5316199532201241868L;
     private String gatewayId;
     private int amount;
     private String status;
