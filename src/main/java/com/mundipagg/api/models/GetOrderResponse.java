@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4795927582495876691L;
+    private static final long serialVersionUID = 4858108348251624718L;
     private String id;
     private String code;
     private String currency;

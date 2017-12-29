@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
@@ -18,12 +20,14 @@ import org.joda.time.DateTime;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
-          include = JsonTypeInfo.As.PROPERTY,
+          include = JsonTypeInfo.As.EXISTING_PROPERTY,
           property = "transaction_type",
-          defaultImpl = GetSafetyPayTransactionResponse.class)
+          defaultImpl = GetSafetyPayTransactionResponse.class,
+          visible = true)
+@JsonInclude(Include.ALWAYS)
 public class GetSafetyPayTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4770532206989825262L;
+    private static final long serialVersionUID = 4647681749701147426L;
     private String url;
     private String bankTid;
     private DateTime paidAt;

@@ -11,15 +11,19 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
-          include = JsonTypeInfo.As.PROPERTY,
+          include = JsonTypeInfo.As.EXISTING_PROPERTY,
           property = "transaction_type",
-          defaultImpl = GetBoletoTransactionResponse.class)
+          defaultImpl = GetBoletoTransactionResponse.class,
+          visible = true)
+@JsonInclude(Include.ALWAYS)
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4854621179869354798L;
+    private static final long serialVersionUID = 5140173358821020023L;
     private String url;
     private String barCode;
     private String nossoNumero;

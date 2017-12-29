@@ -1,4 +1,3 @@
-
 /*
  * MundiAPILib
  *
@@ -30,7 +29,7 @@ public class DateTimeHelper {
      */
 	private static final DateTimeFormatter RFC1123_DATE_TIME_FORMATTER = 
 		    DateTimeFormat.forPattern("EEE, dd MMM yyyy HH:mm:ss z")
-		    .withZoneUTC();
+		    .withZone(DateTimeZone.forID("GMT"));
 	
 	/**
      * Parse a Unix Timestamp to a DateTime object
