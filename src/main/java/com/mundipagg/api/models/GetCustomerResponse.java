@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetCustomerResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5762238588057855662L;
+    private static final long serialVersionUID = 4873282550442485211L;
     private String id;
     private String name;
     private String email;
@@ -28,6 +28,7 @@ public class GetCustomerResponse
     private GetAddressResponse address;
     private LinkedHashMap<String, String> metadata;
     private GetPhonesResponse phones;
+    private String code;
     private Long fbId;
     /** GETTER
      * TODO: Write general description for this method
@@ -223,6 +224,22 @@ public class GetCustomerResponse
     @JsonSetter("phones")
     public void setPhones (GetPhonesResponse value) { 
         this.phones = value;
+    }
+ 
+    /** GETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonGetter("code")
+    public String getCode ( ) { 
+        return this.code;
+    }
+    
+    /** SETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonSetter("code")
+    public void setCode (String value) { 
+        this.code = value;
     }
  
     /** GETTER

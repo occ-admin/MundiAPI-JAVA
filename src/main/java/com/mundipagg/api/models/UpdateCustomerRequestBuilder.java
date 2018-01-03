@@ -66,6 +66,14 @@ public class UpdateCustomerRequestBuilder {
         return this;
     }
 
+    /**
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    public UpdateCustomerRequestBuilder code(String code) {
+        updateCustomerRequest.setCode(code);
+        return this;
+    }
+
     public UpdateCustomerRequestBuilder phones(CreatePhonesRequest phones) {
         updateCustomerRequest.setPhones(phones);
         return this;

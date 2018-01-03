@@ -34,7 +34,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5316199532201241868L;
+    private static final long serialVersionUID = 5177218084242936068L;
     private String gatewayId;
     private int amount;
     private String status;
@@ -44,6 +44,7 @@ public class GetTransactionResponse
     private int attemptCount;
     private int maxAttempts;
     private List<GetSplitResponse> splits;
+    private String id;
     private DateTime nextAttempt;
     private String transactionType;
     /** GETTER
@@ -192,6 +193,22 @@ public class GetTransactionResponse
     @JsonSetter("splits")
     public void setSplits (List<GetSplitResponse> value) { 
         this.splits = value;
+    }
+ 
+    /** GETTER
+     * Código da transação
+     */
+    @JsonGetter("id")
+    public String getId ( ) { 
+        return this.id;
+    }
+    
+    /** SETTER
+     * Código da transação
+     */
+    @JsonSetter("id")
+    public void setId (String value) { 
+        this.id = value;
     }
  
     /** GETTER
