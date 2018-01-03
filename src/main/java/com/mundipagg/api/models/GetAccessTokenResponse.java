@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetAccessTokenResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5501960186721726347L;
+    private static final long serialVersionUID = 5281155766245202736L;
     private String id;
     private String code;
     private String status;
