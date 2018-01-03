@@ -92,6 +92,14 @@ public class GetTransactionResponseBuilder {
     }
 
     /**
+     * Código da transação
+     */
+    public GetTransactionResponseBuilder id(String id) {
+        getTransactionResponse.setId(id);
+        return this;
+    }
+
+    /**
      * Date and time of the next attempt
      */
     public GetTransactionResponseBuilder nextAttempt(DateTime nextAttempt) {

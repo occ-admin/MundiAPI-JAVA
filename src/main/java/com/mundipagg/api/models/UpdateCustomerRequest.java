@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateCustomerRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5294993837183582278L;
+    private static final long serialVersionUID = 4977969149427569933L;
     private String name;
     private String email;
     private String document;
     private String type;
     private CreateAddressRequest address;
     private LinkedHashMap<String, String> metadata;
+    private String code;
     private CreatePhonesRequest phones;
     /** GETTER
      * Name
@@ -113,6 +114,22 @@ public class UpdateCustomerRequest
     @JsonSetter("metadata")
     public void setMetadata (LinkedHashMap<String, String> value) { 
         this.metadata = value;
+    }
+ 
+    /** GETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonGetter("code")
+    public String getCode ( ) { 
+        return this.code;
+    }
+    
+    /** SETTER
+     * Código de referência do cliente no sistema da loja. Max: 52 caracteres
+     */
+    @JsonSetter("code")
+    public void setCode (String value) { 
+        this.code = value;
     }
  
     /** GETTER
