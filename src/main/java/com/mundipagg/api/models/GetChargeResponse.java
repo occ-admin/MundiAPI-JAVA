@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetChargeResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5506509105222813047L;
+    private static final long serialVersionUID = 5580913366527251055L;
     private String id;
     private String code;
     private String gatewayId;

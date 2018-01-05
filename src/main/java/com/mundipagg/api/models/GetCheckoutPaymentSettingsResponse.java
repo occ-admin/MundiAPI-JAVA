@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetCheckoutPaymentSettingsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4839484461377063074L;
+    private static final long serialVersionUID = 5324309478083132528L;
     private String successUrl;
     private String paymentUrl;
     private List<String> acceptedPaymentMethods;
