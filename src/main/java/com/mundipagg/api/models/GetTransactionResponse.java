@@ -25,16 +25,16 @@ import org.joda.time.DateTime;
           defaultImpl = GetTransactionResponse.class,
           visible = true)
 @JsonSubTypes({
-    @Type(value = GetBoletoTransactionResponse.class, name = "boleto"),
     @Type(value = GetCreditCardTransactionResponse.class, name = "credit_card"),
     @Type(value = GetVoucherTransactionResponse.class, name = "voucher"),
     @Type(value = GetBankTransferTransactionResponse.class, name = "bank_transfer"),
-    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay")
+    @Type(value = GetSafetyPayTransactionResponse.class, name = "safetypay"),
+    @Type(value = GetBoletoTransactionResponse.class, name = "boleto")
 })
 @JsonInclude(Include.ALWAYS)
 public class GetTransactionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5367128171045682292L;
+    private static final long serialVersionUID = 5171282130976963608L;
     private String gatewayId;
     private int amount;
     private String status;

@@ -13,6 +13,10 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.mundipagg.api.DateTimeHelper;
+import org.joda.time.DateTime;
 
 @JsonTypeInfo(
           use = JsonTypeInfo.Id.NAME,
@@ -23,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5506761280911495878L;
+    private static final long serialVersionUID = 5143314678230579454L;
     private String url;
     private String barCode;
     private String nossoNumero;
@@ -31,6 +35,14 @@ public class GetBoletoTransactionResponse
     private String documentNumber;
     private String instructions;
     private GetBillingAddressResponse billingAddress;
+    private String qrCode;
+    private String line;
+    private String pdfPassword;
+    private String pdf;
+    private String paidAmount;
+    private String type;
+    private DateTime dueAt;
+    private DateTime paidAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -141,6 +153,138 @@ public class GetBoletoTransactionResponse
     @JsonSetter("billing_address")
     public void setBillingAddress (GetBillingAddressResponse value) { 
         this.billingAddress = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("qr_code")
+    public String getQrCode ( ) { 
+        return this.qrCode;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("qr_code")
+    public void setQrCode (String value) { 
+        this.qrCode = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("line")
+    public String getLine ( ) { 
+        return this.line;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("line")
+    public void setLine (String value) { 
+        this.line = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("pdf_password")
+    public String getPdfPassword ( ) { 
+        return this.pdfPassword;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("pdf_password")
+    public void setPdfPassword (String value) { 
+        this.pdfPassword = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("pdf")
+    public String getPdf ( ) { 
+        return this.pdf;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("pdf")
+    public void setPdf (String value) { 
+        this.pdf = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("paid_amount")
+    public String getPaidAmount ( ) { 
+        return this.paidAmount;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("paid_amount")
+    public void setPaidAmount (String value) { 
+        this.paidAmount = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("type")
+    public String getType ( ) { 
+        return this.type;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("type")
+    public void setType (String value) { 
+        this.type = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("due_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("due_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
+        this.dueAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("paid_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getPaidAt ( ) { 
+        return this.paidAt;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("paid_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setPaidAt (DateTime value) { 
+        this.paidAt = value;
     }
  
 }
