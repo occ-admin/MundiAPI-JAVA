@@ -6,6 +6,7 @@
 package com.mundipagg.api.models;
 
 import java.util.*;
+import org.joda.time.DateTime;
 
 public class GetBoletoTransactionResponseBuilder 
         extends GetTransactionResponseBuilder {
@@ -51,6 +52,46 @@ public class GetBoletoTransactionResponseBuilder
 
     public GetBoletoTransactionResponseBuilder billingAddress(GetBillingAddressResponse billingAddress) {
         getBoletoTransactionResponse.setBillingAddress(billingAddress);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder qrCode(String qrCode) {
+        getBoletoTransactionResponse.setQrCode(qrCode);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder line(String line) {
+        getBoletoTransactionResponse.setLine(line);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder pdfPassword(String pdfPassword) {
+        getBoletoTransactionResponse.setPdfPassword(pdfPassword);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder pdf(String pdf) {
+        getBoletoTransactionResponse.setPdf(pdf);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder paidAmount(String paidAmount) {
+        getBoletoTransactionResponse.setPaidAmount(paidAmount);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder type(String type) {
+        getBoletoTransactionResponse.setType(type);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder dueAt(DateTime dueAt) {
+        getBoletoTransactionResponse.setDueAt(dueAt);
+        return this;
+    }
+
+    public GetBoletoTransactionResponseBuilder paidAt(DateTime paidAt) {
+        getBoletoTransactionResponse.setPaidAt(paidAt);
         return this;
     }
     /**
