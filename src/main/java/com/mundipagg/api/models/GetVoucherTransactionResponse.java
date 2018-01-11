@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.ALWAYS)
 public class GetVoucherTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 5563355919804131881L;
+    private static final long serialVersionUID = 5438444005617365375L;
     private String statementDescriptor;
     private String acquirerName;
     private String acquirerAffiliationCode;
