@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateOrderStatusRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4782963480273138316L;
+    private static final long serialVersionUID = 5642419639482913702L;
     private String status;
     /** GETTER
      * Order status

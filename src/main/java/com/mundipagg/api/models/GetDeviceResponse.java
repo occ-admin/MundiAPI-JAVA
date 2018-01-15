@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetDeviceResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4947381271562946574L;
+    private static final long serialVersionUID = 5507417078643310401L;
     private String platform;
     /** GETTER
      * Device's platform name
