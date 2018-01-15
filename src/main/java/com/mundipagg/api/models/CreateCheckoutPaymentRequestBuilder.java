@@ -65,6 +65,14 @@ public class CreateCheckoutPaymentRequestBuilder {
         createCheckoutPaymentRequest.setBoleto(boleto);
         return this;
     }
+
+    /**
+     * Torna o objeto editável
+     */
+    public CreateCheckoutPaymentRequestBuilder customerEditable(Boolean customerEditable) {
+        createCheckoutPaymentRequest.setCustomerEditable(customerEditable);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

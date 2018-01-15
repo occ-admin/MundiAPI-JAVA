@@ -11,13 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCheckoutPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5209107133840631454L;
+    private static final long serialVersionUID = 4886411913062963303L;
     private List<String> acceptedPaymentMethods;
     private String successUrl;
     private String defaultPaymentMethod;
     private String gatewayAffiliationId;
     private CreateCheckoutCardPaymentRequest creditCard;
     private CreateCheckoutBoletoPaymentRequest boleto;
+    private Boolean customerEditable;
     /** GETTER
      * Accepted Payment Methods
      */
@@ -112,6 +113,22 @@ public class CreateCheckoutPaymentRequest
     @JsonSetter("boleto")
     public void setBoleto (CreateCheckoutBoletoPaymentRequest value) { 
         this.boleto = value;
+    }
+ 
+    /** GETTER
+     * Torna o objeto editável
+     */
+    @JsonGetter("customer_editable")
+    public Boolean getCustomerEditable ( ) { 
+        return this.customerEditable;
+    }
+    
+    /** SETTER
+     * Torna o objeto editável
+     */
+    @JsonSetter("customer_editable")
+    public void setCustomerEditable (Boolean value) { 
+        this.customerEditable = value;
     }
  
 }
