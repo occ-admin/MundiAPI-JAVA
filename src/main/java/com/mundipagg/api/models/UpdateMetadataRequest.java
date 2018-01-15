@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateMetadataRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5105309567551655425L;
+    private static final long serialVersionUID = 5529581865956740762L;
     private LinkedHashMap<String, String> metadata;
     /** GETTER
      * Metadata

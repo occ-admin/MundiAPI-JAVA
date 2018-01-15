@@ -90,7 +90,7 @@ public class GetOrderResponseBuilder {
     /**
      * Checkout Payment Settings Response
      */
-    public GetOrderResponseBuilder checkouts(List<GetCheckoutPaymentSettingsResponse> checkouts) {
+    public GetOrderResponseBuilder checkouts(List<GetCheckoutPaymentResponse> checkouts) {
         getOrderResponse.setCheckouts(checkouts);
         return this;
     }

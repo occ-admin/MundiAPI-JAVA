@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateAnticipationRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5064276748893462795L;
+    private static final long serialVersionUID = 4884838149376322809L;
     private int amount;
     private String timeframe;
     private DateTime paymentDate;

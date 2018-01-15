@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetOrderResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5746241027792153297L;
+    private static final long serialVersionUID = 5039579073268998770L;
     private String id;
     private String code;
     private String currency;
@@ -29,7 +29,7 @@ public class GetOrderResponse
     private GetShippingResponse shipping;
     private LinkedHashMap<String, String> metadata;
     private boolean closed;
-    private List<GetCheckoutPaymentSettingsResponse> checkouts;
+    private List<GetCheckoutPaymentResponse> checkouts;
     private String ip;
     private String sessionId;
     private GetLocationResponse location;
@@ -250,7 +250,7 @@ public class GetOrderResponse
      * Checkout Payment Settings Response
      */
     @JsonGetter("checkouts")
-    public List<GetCheckoutPaymentSettingsResponse> getCheckouts ( ) { 
+    public List<GetCheckoutPaymentResponse> getCheckouts ( ) { 
         return this.checkouts;
     }
     
@@ -258,7 +258,7 @@ public class GetOrderResponse
      * Checkout Payment Settings Response
      */
     @JsonSetter("checkouts")
-    public void setCheckouts (List<GetCheckoutPaymentSettingsResponse> value) { 
+    public void setCheckouts (List<GetCheckoutPaymentResponse> value) { 
         this.checkouts = value;
     }
  
