@@ -15,13 +15,14 @@ import org.joda.time.DateTime;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4702123513464480169L;
+    private static final long serialVersionUID = 4918317477941487674L;
     private int retries;
     private String bank;
     private String instructions;
     private DateTime dueAt;
     private CreateAddressRequest billingAddress;
     private String billingAddressId;
+    private String nossoNumero;
     /** GETTER
      * Number of retries
      */
@@ -118,6 +119,22 @@ public class CreateBoletoPaymentRequest
     @JsonSetter("billing_address_id")
     public void setBillingAddressId (String value) { 
         this.billingAddressId = value;
+    }
+ 
+    /** GETTER
+     * Número de identificação do cliente com o banco
+     */
+    @JsonGetter("nosso_numero")
+    public String getNossoNumero ( ) { 
+        return this.nossoNumero;
+    }
+    
+    /** SETTER
+     * Número de identificação do cliente com o banco
+     */
+    @JsonSetter("nosso_numero")
+    public void setNossoNumero (String value) { 
+        this.nossoNumero = value;
     }
  
 }

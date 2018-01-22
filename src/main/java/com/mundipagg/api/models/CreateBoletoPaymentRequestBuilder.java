@@ -66,6 +66,14 @@ public class CreateBoletoPaymentRequestBuilder {
         createBoletoPaymentRequest.setBillingAddressId(billingAddressId);
         return this;
     }
+
+    /**
+     * Número de identificação do cliente com o banco
+     */
+    public CreateBoletoPaymentRequestBuilder nossoNumero(String nossoNumero) {
+        createBoletoPaymentRequest.setNossoNumero(nossoNumero);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

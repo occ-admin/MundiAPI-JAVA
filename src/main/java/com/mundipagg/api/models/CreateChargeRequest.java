@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateChargeRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4668166072408149743L;
+    private static final long serialVersionUID = 5654817931872680274L;
     private String code;
     private int amount;
     private String customerId;

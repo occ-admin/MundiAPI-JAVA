@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetTransferResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4692579702161963496L;
+    private static final long serialVersionUID = 5488195749463475046L;
     private String id;
     private int amount;
     private String status;
