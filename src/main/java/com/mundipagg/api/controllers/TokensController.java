@@ -77,7 +77,7 @@ public class TokensController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4800129626578676461L;
+            private static final long serialVersionUID = 4740224181090223041L;
             {
                     put( "id", id );
                     put( "public_key", publicKey );
@@ -87,7 +87,7 @@ public class TokensController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5326654017421594479L;
+            private static final long serialVersionUID = 5145239648922948971L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -193,7 +193,7 @@ public class TokensController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5669769823850880347L;
+            private static final long serialVersionUID = 4662242660970163805L;
             {
                     put( "public_key", publicKey );
             }});
@@ -202,7 +202,7 @@ public class TokensController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4986403090691862993L;
+            private static final long serialVersionUID = 5272303044997576775L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );

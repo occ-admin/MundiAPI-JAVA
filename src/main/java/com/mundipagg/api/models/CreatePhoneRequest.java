@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreatePhoneRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5034719365817689971L;
+    private static final long serialVersionUID = 4923488932496849033L;
     private String countryCode;
     private String number;
     private String areaCode;
