@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateCheckoutBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4670505726008166908L;
+    private static final long serialVersionUID = 4682468091263491601L;
     private String bank;
     private String instructions;
     private DateTime dueAt;
