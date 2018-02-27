@@ -35,6 +35,30 @@ public class CreateCheckoutPaymentRequestBuilder {
     }
 
     /**
+     * Pular tela de sucesso pós-pagamento?
+     */
+    public CreateCheckoutPaymentRequestBuilder skipCheckoutSuccessPage(boolean skipCheckoutSuccessPage) {
+        createCheckoutPaymentRequest.setSkipCheckoutSuccessPage(skipCheckoutSuccessPage);
+        return this;
+    }
+
+    /**
+     * Torna o objeto billing address editável
+     */
+    public CreateCheckoutPaymentRequestBuilder billingAddressEditable(boolean billingAddressEditable) {
+        createCheckoutPaymentRequest.setBillingAddressEditable(billingAddressEditable);
+        return this;
+    }
+
+    /**
+     * Endereço de cobrança
+     */
+    public CreateCheckoutPaymentRequestBuilder billingAddress(CreateAddressRequest billingAddress) {
+        createCheckoutPaymentRequest.setBillingAddress(billingAddress);
+        return this;
+    }
+
+    /**
      * Default payment method
      */
     public CreateCheckoutPaymentRequestBuilder defaultPaymentMethod(String defaultPaymentMethod) {
@@ -71,6 +95,14 @@ public class CreateCheckoutPaymentRequestBuilder {
      */
     public CreateCheckoutPaymentRequestBuilder customerEditable(Boolean customerEditable) {
         createCheckoutPaymentRequest.setCustomerEditable(customerEditable);
+        return this;
+    }
+
+    /**
+     * Tempo em minutos para a expiração
+     */
+    public CreateCheckoutPaymentRequestBuilder expiresIn(Integer expiresIn) {
+        createCheckoutPaymentRequest.setExpiresIn(expiresIn);
         return this;
     }
     /**
