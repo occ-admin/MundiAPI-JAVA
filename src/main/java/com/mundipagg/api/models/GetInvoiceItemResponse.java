@@ -11,11 +11,12 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetInvoiceItemResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5313057719147388696L;
+    private static final long serialVersionUID = 5661327800596072999L;
     private int amount;
     private String description;
     private GetPricingSchemeResponse pricingScheme;
     private GetPriceBracketResponse priceBracket;
+    private String subscriptionItemId;
     private Integer quantity;
     private String name;
     /** GETTER
@@ -80,6 +81,22 @@ public class GetInvoiceItemResponse
     @JsonSetter("price_bracket")
     public void setPriceBracket (GetPriceBracketResponse value) { 
         this.priceBracket = value;
+    }
+ 
+    /** GETTER
+     * Subscription Item Id
+     */
+    @JsonGetter("subscription_item_id")
+    public String getSubscriptionItemId ( ) { 
+        return this.subscriptionItemId;
+    }
+    
+    /** SETTER
+     * Subscription Item Id
+     */
+    @JsonSetter("subscription_item_id")
+    public void setSubscriptionItemId (String value) { 
+        this.subscriptionItemId = value;
     }
  
     /** GETTER

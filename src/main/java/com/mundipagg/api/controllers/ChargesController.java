@@ -42,336 +42,6 @@ public class ChargesController extends BaseController {
     }
 
     /**
-     * Get a charge from its id
-     * @param    chargeId    Required parameter: Charge id
-     * @return    Returns the GetChargeResponse response from the API call 
-     */
-    public GetChargeResponse getCharge(
-                final String chargeId
-    ) throws Throwable {
-        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        getChargeAsync(chargeId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Get a charge from its id
-     * @param    chargeId    Required parameter: Charge id
-     * @return    Returns the void response from the API call 
-     */
-    public void getChargeAsync(
-                final String chargeId,
-                final APICallBack<GetChargeResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/charges/{charge_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5278391462368032302L;
-            {
-                    put( "charge_id", chargeId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5287062246695407791L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetChargeResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Retries a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @return    Returns the GetChargeResponse response from the API call 
-     */
-    public GetChargeResponse retryCharge(
-                final String chargeId
-    ) throws Throwable {
-        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        retryChargeAsync(chargeId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Retries a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @return    Returns the void response from the API call 
-     */
-    public void retryChargeAsync(
-                final String chargeId,
-                final APICallBack<GetChargeResponse> callBack
-    ) {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/charges/{charge_id}/retry");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5434375369220304051L;
-            {
-                    put( "charge_id", chargeId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5343723400990208311L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().post(_queryUrl, _headers, null,
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetChargeResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Creates a new charge
-     * @param    request    Required parameter: Request for creating a charge
-     * @return    Returns the GetChargeResponse response from the API call 
-     */
-    public GetChargeResponse createCharge(
-                final CreateChargeRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        createChargeAsync(request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Creates a new charge
-     * @param    request    Required parameter: Request for creating a charge
-     * @return    Returns the void response from the API call 
-     */
-    public void createChargeAsync(
-                final CreateChargeRequest request,
-                final APICallBack<GetChargeResponse> callBack
-    ) throws JsonProcessingException {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/Charges");
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5035002657854355778L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetChargeResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Updates the card from a charge
      * @param    chargeId    Required parameter: Charge id
      * @param    request    Required parameter: Request for updating a charge's card
@@ -408,7 +78,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5164235362606824684L;
+            private static final long serialVersionUID = 4777087504357455491L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -417,7 +87,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5558237751127180591L;
+            private static final long serialVersionUID = 5698502342260534770L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -525,7 +195,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5024640469082267934L;
+            private static final long serialVersionUID = 4667370452284207525L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -534,7 +204,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4623879597622994675L;
+            private static final long serialVersionUID = 5101423423331873241L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -606,31 +276,27 @@ public class ChargesController extends BaseController {
     }
 
     /**
-     * Cancel a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @param    request    Optional parameter: Request for cancelling a charge
+     * Creates a new charge
+     * @param    request    Required parameter: Request for creating a charge
      * @return    Returns the GetChargeResponse response from the API call 
      */
-    public GetChargeResponse cancelCharge(
-                final String chargeId,
-                final CreateCancelChargeRequest request
+    public GetChargeResponse createCharge(
+                final CreateChargeRequest request
     ) throws Throwable {
         APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        cancelChargeAsync(chargeId, request, callback);
+        createChargeAsync(request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Cancel a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @param    request    Optional parameter: Request for cancelling a charge
+     * Creates a new charge
+     * @param    request    Required parameter: Request for creating a charge
      * @return    Returns the void response from the API call 
      */
-    public void cancelChargeAsync(
-                final String chargeId,
-                final CreateCancelChargeRequest request,
+    public void createChargeAsync(
+                final CreateChargeRequest request,
                 final APICallBack<GetChargeResponse> callBack
     ) throws JsonProcessingException {
         //the base uri for api requests
@@ -638,137 +304,13 @@ public class ChargesController extends BaseController {
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/charges/{charge_id}");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5394669426451646936L;
-            {
-                    put( "charge_id", chargeId );
-            }});
+        _queryBuilder.append("/Charges");
         //validate and preprocess url
         String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5303833150667002862L;
-            {
-                    put( "user-agent", "MundiSDK" );
-                    put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
-            }
-        };
-
-        //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().deleteBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-        //invoke the callback before request if its not null
-        if (getHttpCallBack() != null)
-        {
-            getHttpCallBack().OnBeforeRequest(_request);
-        }
-
-        //invoke request and get response
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //make the API call
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetChargeResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Captures a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @param    request    Optional parameter: Request for capturing a charge
-     * @return    Returns the GetChargeResponse response from the API call 
-     */
-    public GetChargeResponse captureCharge(
-                final String chargeId,
-                final CreateCaptureChargeRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        captureChargeAsync(chargeId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Captures a charge
-     * @param    chargeId    Required parameter: Charge id
-     * @param    request    Optional parameter: Request for capturing a charge
-     * @return    Returns the void response from the API call 
-     */
-    public void captureChargeAsync(
-                final String chargeId,
-                final CreateCaptureChargeRequest request,
-                final APICallBack<GetChargeResponse> callBack
-    ) throws JsonProcessingException {
-        //the base uri for api requests
-        String _baseUri = Configuration.baseUri;
-        
-        //prepare query string for API call
-        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/charges/{charge_id}/capture");
-
-        //process template parameters
-        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4921673108728403971L;
-            {
-                    put( "charge_id", chargeId );
-            }});
-        //validate and preprocess url
-        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-        //load all headers for the outgoing API request
-        Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4752467070862378682L;
+            private static final long serialVersionUID = 5419329891553636839L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -840,43 +382,39 @@ public class ChargesController extends BaseController {
     }
 
     /**
-     * Updates the metadata from a charge
-     * @param    chargeId    Required parameter: The charge id
-     * @param    request    Required parameter: Request for updating the charge metadata
+     * Get a charge from its id
+     * @param    chargeId    Required parameter: Charge id
      * @return    Returns the GetChargeResponse response from the API call 
      */
-    public GetChargeResponse updateChargeMetadata(
-                final String chargeId,
-                final UpdateMetadataRequest request
+    public GetChargeResponse getCharge(
+                final String chargeId
     ) throws Throwable {
         APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
-        updateChargeMetadataAsync(chargeId, request, callback);
+        getChargeAsync(chargeId, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Updates the metadata from a charge
-     * @param    chargeId    Required parameter: The charge id
-     * @param    request    Required parameter: Request for updating the charge metadata
+     * Get a charge from its id
+     * @param    chargeId    Required parameter: Charge id
      * @return    Returns the void response from the API call 
      */
-    public void updateChargeMetadataAsync(
+    public void getChargeAsync(
                 final String chargeId,
-                final UpdateMetadataRequest request,
                 final APICallBack<GetChargeResponse> callBack
-    ) throws JsonProcessingException {
+    ) {
         //the base uri for api requests
         String _baseUri = Configuration.baseUri;
         
         //prepare query string for API call
         StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-        _queryBuilder.append("/Charges/{charge_id}/metadata");
+        _queryBuilder.append("/charges/{charge_id}");
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5235438176458893546L;
+            private static final long serialVersionUID = 5405530784327636356L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -885,16 +423,127 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5595546572330069463L;
+            private static final long serialVersionUID = 4894921302888602142L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
-                    put( "content-type", "application/json" );
             }
         };
 
         //prepare and invoke the API call request to fetch the response
-        final HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+        final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetChargeResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Retries a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @return    Returns the GetChargeResponse response from the API call 
+     */
+    public GetChargeResponse retryCharge(
+                final String chargeId
+    ) throws Throwable {
+        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
+        retryChargeAsync(chargeId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Retries a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @return    Returns the void response from the API call 
+     */
+    public void retryChargeAsync(
+                final String chargeId,
+                final APICallBack<GetChargeResponse> callBack
+    ) {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/charges/{charge_id}/retry");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4998354086086593580L;
+            {
+                    put( "charge_id", chargeId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5754052717022518913L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().post(_queryUrl, _headers, null,
                                         Configuration.basicAuthUserName, Configuration.basicAuthPassword);
 
         //invoke the callback before request if its not null
@@ -1021,7 +670,7 @@ public class ChargesController extends BaseController {
 
         //process query parameters
         APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4842853477558392694L;
+            private static final long serialVersionUID = 4789578660241866895L;
             {
                     put( "page", page );
                     put( "size", size );
@@ -1038,7 +687,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 5578113612021139336L;
+            private static final long serialVersionUID = 5082926292250266167L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );
@@ -1109,6 +758,357 @@ public class ChargesController extends BaseController {
     }
 
     /**
+     * Updates the metadata from a charge
+     * @param    chargeId    Required parameter: The charge id
+     * @param    request    Required parameter: Request for updating the charge metadata
+     * @return    Returns the GetChargeResponse response from the API call 
+     */
+    public GetChargeResponse updateChargeMetadata(
+                final String chargeId,
+                final UpdateMetadataRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
+        updateChargeMetadataAsync(chargeId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Updates the metadata from a charge
+     * @param    chargeId    Required parameter: The charge id
+     * @param    request    Required parameter: Request for updating the charge metadata
+     * @return    Returns the void response from the API call 
+     */
+    public void updateChargeMetadataAsync(
+                final String chargeId,
+                final UpdateMetadataRequest request,
+                final APICallBack<GetChargeResponse> callBack
+    ) throws JsonProcessingException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/Charges/{charge_id}/metadata");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5453167101134296597L;
+            {
+                    put( "charge_id", chargeId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4839151112809351330L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetChargeResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Cancel a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @param    request    Optional parameter: Request for cancelling a charge
+     * @return    Returns the GetChargeResponse response from the API call 
+     */
+    public GetChargeResponse cancelCharge(
+                final String chargeId,
+                final CreateCancelChargeRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
+        cancelChargeAsync(chargeId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Cancel a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @param    request    Optional parameter: Request for cancelling a charge
+     * @return    Returns the void response from the API call 
+     */
+    public void cancelChargeAsync(
+                final String chargeId,
+                final CreateCancelChargeRequest request,
+                final APICallBack<GetChargeResponse> callBack
+    ) throws JsonProcessingException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/charges/{charge_id}");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 5424631230420005141L;
+            {
+                    put( "charge_id", chargeId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 5396320515382515898L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().deleteBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetChargeResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Captures a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @param    request    Optional parameter: Request for capturing a charge
+     * @return    Returns the GetChargeResponse response from the API call 
+     */
+    public GetChargeResponse captureCharge(
+                final String chargeId,
+                final CreateCaptureChargeRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetChargeResponse> callback = new APICallBackCatcher<GetChargeResponse>();
+        captureChargeAsync(chargeId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Captures a charge
+     * @param    chargeId    Required parameter: Charge id
+     * @param    request    Optional parameter: Request for capturing a charge
+     * @return    Returns the void response from the API call 
+     */
+    public void captureChargeAsync(
+                final String chargeId,
+                final CreateCaptureChargeRequest request,
+                final APICallBack<GetChargeResponse> callBack
+    ) throws JsonProcessingException {
+        //the base uri for api requests
+        String _baseUri = Configuration.baseUri;
+        
+        //prepare query string for API call
+        StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+        _queryBuilder.append("/charges/{charge_id}/capture");
+
+        //process template parameters
+        APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+            private static final long serialVersionUID = 4879440760590633736L;
+            {
+                    put( "charge_id", chargeId );
+            }});
+        //validate and preprocess url
+        String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+        //load all headers for the outgoing API request
+        Map<String, String> _headers = new HashMap<String, String>() {
+            private static final long serialVersionUID = 4881211370805136485L;
+            {
+                    put( "user-agent", "MundiSDK" );
+                    put( "accept", "application/json" );
+                    put( "content-type", "application/json" );
+            }
+        };
+
+        //prepare and invoke the API call request to fetch the response
+        final HttpRequest _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
+                                        Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+        //invoke the callback before request if its not null
+        if (getHttpCallBack() != null)
+        {
+            getHttpCallBack().OnBeforeRequest(_request);
+        }
+
+        //invoke request and get response
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //make the API call
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetChargeResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetChargeResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
      * Updates the due date from a charge
      * @param    chargeId    Required parameter: Charge Id
      * @param    request    Required parameter: Request for updating the due date
@@ -1145,7 +1145,7 @@ public class ChargesController extends BaseController {
 
         //process template parameters
         APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-            private static final long serialVersionUID = 4727816099466377599L;
+            private static final long serialVersionUID = 5466755197563867923L;
             {
                     put( "charge_id", chargeId );
             }});
@@ -1154,7 +1154,7 @@ public class ChargesController extends BaseController {
 
         //load all headers for the outgoing API request
         Map<String, String> _headers = new HashMap<String, String>() {
-            private static final long serialVersionUID = 4914643604360543157L;
+            private static final long serialVersionUID = 5425506147175124232L;
             {
                     put( "user-agent", "MundiSDK" );
                     put( "accept", "application/json" );

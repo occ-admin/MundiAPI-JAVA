@@ -38,6 +38,14 @@ public class GetInvoiceItemResponseBuilder {
         return this;
     }
 
+    /**
+     * Subscription Item Id
+     */
+    public GetInvoiceItemResponseBuilder subscriptionItemId(String subscriptionItemId) {
+        getInvoiceItemResponse.setSubscriptionItemId(subscriptionItemId);
+        return this;
+    }
+
     public GetInvoiceItemResponseBuilder quantity(Integer quantity) {
         getInvoiceItemResponse.setQuantity(quantity);
         return this;
