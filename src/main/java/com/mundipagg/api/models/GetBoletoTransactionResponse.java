@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
 @JsonInclude(Include.ALWAYS)
 public class GetBoletoTransactionResponse 
         extends GetTransactionResponse {
-    private static final long serialVersionUID = 4873286920152277370L;
+    private static final long serialVersionUID = 5404135983922796666L;
     private String url;
     private String barCode;
     private String nossoNumero;
