@@ -9,29 +9,29 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class ListTransferResponse 
+public class ListDiscountsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5145358087764736437L;
-    private List<GetTransferResponse> data;
+    private static final long serialVersionUID = 5670191923080897855L;
+    private List<GetDiscountResponse> data;
     private PagingResponse paging;
     /** GETTER
-     * Transfers
+     * The Discounts response
      */
     @JsonGetter("data")
-    public List<GetTransferResponse> getData ( ) { 
+    public List<GetDiscountResponse> getData ( ) { 
         return this.data;
     }
     
     /** SETTER
-     * Transfers
+     * The Discounts response
      */
     @JsonSetter("data")
-    public void setData (List<GetTransferResponse> value) { 
+    public void setData (List<GetDiscountResponse> value) { 
         this.data = value;
     }
  
     /** GETTER
-     * Paging
+     * Paging object
      */
     @JsonGetter("paging")
     public PagingResponse getPaging ( ) { 
@@ -39,7 +39,7 @@ public class ListTransferResponse
     }
     
     /** SETTER
-     * Paging
+     * Paging object
      */
     @JsonSetter("paging")
     public void setPaging (PagingResponse value) { 

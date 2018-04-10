@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateCreditCardPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5541028266785343296L;
+    private static final long serialVersionUID = 5274454142222727457L;
     private int installments = 1;
     private String statementDescriptor;
     private CreateCardRequest card;
@@ -23,6 +23,7 @@ public class CreateCreditCardPaymentRequest
     private boolean extendedLimitEnabled;
     private String extendedLimitCode;
     private Boolean capture = true;
+    private Long merchantCategoryCode;
     /** GETTER
      * Number of installments
      */
@@ -197,6 +198,22 @@ public class CreateCreditCardPaymentRequest
     @JsonSetter("capture")
     public void setCapture (Boolean value) { 
         this.capture = value;
+    }
+ 
+    /** GETTER
+     * Customer business segment code
+     */
+    @JsonGetter("merchant_category_code")
+    public Long getMerchantCategoryCode ( ) { 
+        return this.merchantCategoryCode;
+    }
+    
+    /** SETTER
+     * Customer business segment code
+     */
+    @JsonSetter("merchant_category_code")
+    public void setMerchantCategoryCode (Long value) { 
+        this.merchantCategoryCode = value;
     }
  
 }
