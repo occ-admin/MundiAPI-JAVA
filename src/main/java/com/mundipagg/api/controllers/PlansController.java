@@ -42,128 +42,6 @@ public class PlansController extends BaseController {
     }
 
     /**
-     * Adds a new item to a plan
-     * @param    planId    Required parameter: Plan id
-     * @param    request    Required parameter: Request for creating a plan item
-     * @return    Returns the GetPlanItemResponse response from the API call 
-     */
-    public GetPlanItemResponse createPlanItem(
-                final String planId,
-                final CreatePlanItemRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
-        createPlanItemAsync(planId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Adds a new item to a plan
-     * @param    planId    Required parameter: Plan id
-     * @param    request    Required parameter: Request for creating a plan item
-     * @return    Returns the void response from the API call 
-     */
-    public void createPlanItemAsync(
-                final String planId,
-                final CreatePlanItemRequest request,
-                final APICallBack<GetPlanItemResponse> callBack
-    ) {
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
-
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/plans/{plan_id}/items");
-
-                //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5283532721217299329L;
-                    {
-                        put( "plan_id", planId );
-                    }});
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4895913576225770620L;
-                    {
-                        put( "user-agent", "MundiSDK" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
-                try {
-                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
-                    return;
-                }
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
-
-                //invoke request and get response
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetPlanItemResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
      * Updates a plan item
      * @param    planId    Required parameter: Plan id
      * @param    planItemId    Required parameter: Plan item id
@@ -206,7 +84,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4819988914726751506L;
+                    private static final long serialVersionUID = 5301908967878113027L;
                     {
                         put( "plan_id", planId );
                         put( "plan_item_id", planItemId );
@@ -216,7 +94,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5350263169584822134L;
+                    private static final long serialVersionUID = 5391598959580975767L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -325,7 +203,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4751173708830220109L;
+                    private static final long serialVersionUID = 5179004579731248973L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -334,7 +212,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5559432857354371577L;
+                    private static final long serialVersionUID = 5056804129817574541L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -402,28 +280,32 @@ public class PlansController extends BaseController {
     }
 
     /**
-     * Deletes a plan
+     * Adds a new item to a plan
      * @param    planId    Required parameter: Plan id
-     * @return    Returns the GetPlanResponse response from the API call 
+     * @param    request    Required parameter: Request for creating a plan item
+     * @return    Returns the GetPlanItemResponse response from the API call 
      */
-    public GetPlanResponse deletePlan(
-                final String planId
+    public GetPlanItemResponse createPlanItem(
+                final String planId,
+                final CreatePlanItemRequest request
     ) throws Throwable {
-        APICallBackCatcher<GetPlanResponse> callback = new APICallBackCatcher<GetPlanResponse>();
-        deletePlanAsync(planId, callback);
+        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
+        createPlanItemAsync(planId, request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * Deletes a plan
+     * Adds a new item to a plan
      * @param    planId    Required parameter: Plan id
+     * @param    request    Required parameter: Request for creating a plan item
      * @return    Returns the void response from the API call 
      */
-    public void deletePlanAsync(
+    public void createPlanItemAsync(
                 final String planId,
-                final APICallBack<GetPlanResponse> callBack
+                final CreatePlanItemRequest request,
+                final APICallBack<GetPlanItemResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
@@ -432,11 +314,11 @@ public class PlansController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/plans/{plan_id}");
+                _queryBuilder.append("/plans/{plan_id}/items");
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5741652202875759206L;
+                    private static final long serialVersionUID = 5723849045669089879L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -445,17 +327,24 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4620126260455995001L;
+                    private static final long serialVersionUID = 5125276582250812854L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
+                        put( "content-type", "application/json" );
                     }
                 };
 
                 //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                final HttpRequest _request;
+                try {
+                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
                                                 Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
+                } catch (JsonProcessingException jsonProcessingException) {
+                    //let the caller know of the error
+                    callBack.onFailure(null, jsonProcessingException);
+                    return;
+                }
                 //invoke the callback before request if its not null
                 if (getHttpCallBack() != null)
                 {
@@ -478,8 +367,8 @@ public class PlansController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetPlanResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetPlanResponse>(){});
+                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetPlanItemResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -551,7 +440,7 @@ public class PlansController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5033834834243904188L;
+                    private static final long serialVersionUID = 5055720405885712953L;
                     {
                         put( "plan_id", planId );
                     }});
@@ -560,7 +449,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4920181442077360335L;
+                    private static final long serialVersionUID = 5088179226486430744L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -671,7 +560,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5244149522210338066L;
+                    private static final long serialVersionUID = 5292690855103979530L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -683,6 +572,471 @@ public class PlansController extends BaseController {
                 final HttpRequest _request;
                 try {
                     _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(body),
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+                } catch (JsonProcessingException jsonProcessingException) {
+                    //let the caller know of the error
+                    callBack.onFailure(null, jsonProcessingException);
+                    return;
+                }
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetPlanResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetPlanResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Deletes a plan
+     * @param    planId    Required parameter: Plan id
+     * @return    Returns the GetPlanResponse response from the API call 
+     */
+    public GetPlanResponse deletePlan(
+                final String planId
+    ) throws Throwable {
+        APICallBackCatcher<GetPlanResponse> callback = new APICallBackCatcher<GetPlanResponse>();
+        deletePlanAsync(planId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Deletes a plan
+     * @param    planId    Required parameter: Plan id
+     * @return    Returns the void response from the API call 
+     */
+    public void deletePlanAsync(
+                final String planId,
+                final APICallBack<GetPlanResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/plans/{plan_id}");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = 5744671318179631029L;
+                    {
+                        put( "plan_id", planId );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = 5166854004606141124L;
+                    {
+                        put( "user-agent", "MundiSDK" );
+                        put( "accept", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetPlanResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetPlanResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Gets a plan item
+     * @param    planId    Required parameter: Plan id
+     * @param    planItemId    Required parameter: Plan item id
+     * @return    Returns the GetPlanItemResponse response from the API call 
+     */
+    public GetPlanItemResponse getPlanItem(
+                final String planId,
+                final String planItemId
+    ) throws Throwable {
+        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
+        getPlanItemAsync(planId, planItemId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Gets a plan item
+     * @param    planId    Required parameter: Plan id
+     * @param    planItemId    Required parameter: Plan item id
+     * @return    Returns the void response from the API call 
+     */
+    public void getPlanItemAsync(
+                final String planId,
+                final String planItemId,
+                final APICallBack<GetPlanItemResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/plans/{plan_id}/items/{plan_item_id}");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = 4890053406417674634L;
+                    {
+                        put( "plan_id", planId );
+                        put( "plan_item_id", planItemId );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = 5078660015270151624L;
+                    {
+                        put( "user-agent", "MundiSDK" );
+                        put( "accept", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetPlanItemResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Removes an item from a plan
+     * @param    planId    Required parameter: Plan id
+     * @param    planItemId    Required parameter: Plan item id
+     * @return    Returns the GetPlanItemResponse response from the API call 
+     */
+    public GetPlanItemResponse deletePlanItem(
+                final String planId,
+                final String planItemId
+    ) throws Throwable {
+        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
+        deletePlanItemAsync(planId, planItemId, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Removes an item from a plan
+     * @param    planId    Required parameter: Plan id
+     * @param    planItemId    Required parameter: Plan item id
+     * @return    Returns the void response from the API call 
+     */
+    public void deletePlanItemAsync(
+                final String planId,
+                final String planItemId,
+                final APICallBack<GetPlanItemResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/plans/{plan_id}/items/{plan_item_id}");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = 5108530766925485077L;
+                    {
+                        put( "plan_id", planId );
+                        put( "plan_item_id", planItemId );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = 5504358578073096098L;
+                    {
+                        put( "user-agent", "MundiSDK" );
+                        put( "accept", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
+                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
+
+                //invoke the callback before request if its not null
+                if (getHttpCallBack() != null)
+                {
+                    getHttpCallBack().OnBeforeRequest(_request);
+                }
+
+                //invoke request and get response
+                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
+                    public void onSuccess(HttpContext _context, HttpResponse _response) {
+                        try {
+
+                            //invoke the callback after response if its not null
+                            if (getHttpCallBack() != null)	
+                            {
+                                getHttpCallBack().OnAfterResponse(_context);
+                            }
+
+                            //handle errors defined at the API level
+                            validateResponse(_response, _context);
+
+                            //extract result from the http response
+                            String _responseBody = ((HttpStringResponse)_response).getBody();
+                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<GetPlanItemResponse>(){});
+
+                            //let the caller know of the success
+                            callBack.onSuccess(_context, _result);
+                        } catch (APIException error) {
+                            //let the caller know of the error
+                            callBack.onFailure(_context, error);
+                        } catch (IOException ioException) {
+                            //let the caller know of the caught IO Exception
+                            callBack.onFailure(_context, ioException);
+                        } catch (Exception exception) {
+                            //let the caller know of the caught Exception
+                            callBack.onFailure(_context, exception);
+                        }
+                    }
+                    public void onFailure(HttpContext _context, Throwable _error) {
+                        //invoke the callback after response if its not null
+                        if (getHttpCallBack() != null)
+                        {
+                            getHttpCallBack().OnAfterResponse(_context);
+                        }
+
+                        //let the caller know of the failure
+                        callBack.onFailure(_context, _error);
+                    }
+                });
+            }
+        };
+
+        //execute async using thread pool
+        APIHelper.getScheduler().execute(_responseTask);
+    }
+
+    /**
+     * Updates the metadata from a plan
+     * @param    planId    Required parameter: The plan id
+     * @param    request    Required parameter: Request for updating the plan metadata
+     * @return    Returns the GetPlanResponse response from the API call 
+     */
+    public GetPlanResponse updatePlanMetadata(
+                final String planId,
+                final UpdateMetadataRequest request
+    ) throws Throwable {
+        APICallBackCatcher<GetPlanResponse> callback = new APICallBackCatcher<GetPlanResponse>();
+        updatePlanMetadataAsync(planId, request, callback);
+        if(!callback.isSuccess())
+            throw callback.getError();
+        return callback.getResult();
+    }
+
+    /**
+     * Updates the metadata from a plan
+     * @param    planId    Required parameter: The plan id
+     * @param    request    Required parameter: Request for updating the plan metadata
+     * @return    Returns the void response from the API call 
+     */
+    public void updatePlanMetadataAsync(
+                final String planId,
+                final UpdateMetadataRequest request,
+                final APICallBack<GetPlanResponse> callBack
+    ) {
+        Runnable _responseTask = new Runnable() {
+            public void run() {
+                //the base uri for api requests
+                String _baseUri = Configuration.baseUri;
+
+                //prepare query string for API call
+                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+                _queryBuilder.append("/Plans/{plan_id}/metadata");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = 4850810319602909762L;
+                    {
+                        put( "plan_id", planId );
+                    }});
+                //validate and preprocess url
+                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
+
+                //load all headers for the outgoing API request
+                Map<String, String> _headers = new HashMap<String, String>() {
+                    private static final long serialVersionUID = 4830231232662460512L;
+                    {
+                        put( "user-agent", "MundiSDK" );
+                        put( "accept", "application/json" );
+                        put( "content-type", "application/json" );
+                    }
+                };
+
+                //prepare and invoke the API call request to fetch the response
+                final HttpRequest _request;
+                try {
+                    _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
                                                 Configuration.basicAuthUserName, Configuration.basicAuthPassword);
                 } catch (JsonProcessingException jsonProcessingException) {
                     //let the caller know of the error
@@ -804,7 +1158,7 @@ public class PlansController extends BaseController {
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5158768638805149340L;
+                    private static final long serialVersionUID = 5594686855409120142L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -819,7 +1173,7 @@ public class PlansController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5756923040182593202L;
+                    private static final long serialVersionUID = 5385867299514286651L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -854,360 +1208,6 @@ public class PlansController extends BaseController {
                             String _responseBody = ((HttpStringResponse)_response).getBody();
                             ListPlansResponse _result = APIHelper.deserialize(_responseBody,
                                                         new TypeReference<ListPlansResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Updates the metadata from a plan
-     * @param    planId    Required parameter: The plan id
-     * @param    request    Required parameter: Request for updating the plan metadata
-     * @return    Returns the GetPlanResponse response from the API call 
-     */
-    public GetPlanResponse updatePlanMetadata(
-                final String planId,
-                final UpdateMetadataRequest request
-    ) throws Throwable {
-        APICallBackCatcher<GetPlanResponse> callback = new APICallBackCatcher<GetPlanResponse>();
-        updatePlanMetadataAsync(planId, request, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Updates the metadata from a plan
-     * @param    planId    Required parameter: The plan id
-     * @param    request    Required parameter: Request for updating the plan metadata
-     * @return    Returns the void response from the API call 
-     */
-    public void updatePlanMetadataAsync(
-                final String planId,
-                final UpdateMetadataRequest request,
-                final APICallBack<GetPlanResponse> callBack
-    ) {
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
-
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/Plans/{plan_id}/metadata");
-
-                //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5441767701735839717L;
-                    {
-                        put( "plan_id", planId );
-                    }});
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4665953114687554556L;
-                    {
-                        put( "user-agent", "MundiSDK" );
-                        put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
-                    }
-                };
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
-                try {
-                    _request = getClientInstance().patchBody(_queryUrl, _headers, APIHelper.serialize(request),
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
-                    return;
-                }
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
-
-                //invoke request and get response
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetPlanResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetPlanResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Gets a plan item
-     * @param    planId    Required parameter: Plan id
-     * @param    planItemId    Required parameter: Plan item id
-     * @return    Returns the GetPlanItemResponse response from the API call 
-     */
-    public GetPlanItemResponse getPlanItem(
-                final String planId,
-                final String planItemId
-    ) throws Throwable {
-        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
-        getPlanItemAsync(planId, planItemId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Gets a plan item
-     * @param    planId    Required parameter: Plan id
-     * @param    planItemId    Required parameter: Plan item id
-     * @return    Returns the void response from the API call 
-     */
-    public void getPlanItemAsync(
-                final String planId,
-                final String planItemId,
-                final APICallBack<GetPlanItemResponse> callBack
-    ) {
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
-
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/plans/{plan_id}/items/{plan_item_id}");
-
-                //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4922349883173725099L;
-                    {
-                        put( "plan_id", planId );
-                        put( "plan_item_id", planItemId );
-                    }});
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4894604850882933907L;
-                    {
-                        put( "user-agent", "MundiSDK" );
-                        put( "accept", "application/json" );
-                    }
-                };
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
-
-                //invoke request and get response
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetPlanItemResponse>(){});
-
-                            //let the caller know of the success
-                            callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
-                        } catch (Exception exception) {
-                            //let the caller know of the caught Exception
-                            callBack.onFailure(_context, exception);
-                        }
-                    }
-                    public void onFailure(HttpContext _context, Throwable _error) {
-                        //invoke the callback after response if its not null
-                        if (getHttpCallBack() != null)
-                        {
-                            getHttpCallBack().OnAfterResponse(_context);
-                        }
-
-                        //let the caller know of the failure
-                        callBack.onFailure(_context, _error);
-                    }
-                });
-            }
-        };
-
-        //execute async using thread pool
-        APIHelper.getScheduler().execute(_responseTask);
-    }
-
-    /**
-     * Removes an item from a plan
-     * @param    planId    Required parameter: Plan id
-     * @param    planItemId    Required parameter: Plan item id
-     * @return    Returns the GetPlanItemResponse response from the API call 
-     */
-    public GetPlanItemResponse deletePlanItem(
-                final String planId,
-                final String planItemId
-    ) throws Throwable {
-        APICallBackCatcher<GetPlanItemResponse> callback = new APICallBackCatcher<GetPlanItemResponse>();
-        deletePlanItemAsync(planId, planItemId, callback);
-        if(!callback.isSuccess())
-            throw callback.getError();
-        return callback.getResult();
-    }
-
-    /**
-     * Removes an item from a plan
-     * @param    planId    Required parameter: Plan id
-     * @param    planItemId    Required parameter: Plan item id
-     * @return    Returns the void response from the API call 
-     */
-    public void deletePlanItemAsync(
-                final String planId,
-                final String planItemId,
-                final APICallBack<GetPlanItemResponse> callBack
-    ) {
-        Runnable _responseTask = new Runnable() {
-            public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
-
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/plans/{plan_id}/items/{plan_item_id}");
-
-                //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5676298294908753467L;
-                    {
-                        put( "plan_id", planId );
-                        put( "plan_item_id", planItemId );
-                    }});
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5469038951911427173L;
-                    {
-                        put( "user-agent", "MundiSDK" );
-                        put( "accept", "application/json" );
-                    }
-                };
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().delete(_queryUrl, _headers, null,
-                                                Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
-
-                //invoke request and get response
-                getClientInstance().executeAsStringAsync(_request, new APICallBack<HttpResponse>() {
-                    public void onSuccess(HttpContext _context, HttpResponse _response) {
-                        try {
-
-                            //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
-                                getHttpCallBack().OnAfterResponse(_context);
-                            }
-
-                            //handle errors defined at the API level
-                            validateResponse(_response, _context);
-
-                            //extract result from the http response
-                            String _responseBody = ((HttpStringResponse)_response).getBody();
-                            GetPlanItemResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<GetPlanItemResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

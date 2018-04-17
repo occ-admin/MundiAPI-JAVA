@@ -15,13 +15,13 @@ import org.joda.time.DateTime;
 
 public class CreateBoletoPaymentRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4863980962404468983L;
+    private static final long serialVersionUID = 5193338504684561041L;
     private int retries;
     private String bank;
     private String instructions;
-    private DateTime dueAt;
     private CreateAddressRequest billingAddress;
     private String billingAddressId;
+    private DateTime dueAt;
     private String nossoNumero;
     /** GETTER
      * Number of retries
@@ -72,24 +72,6 @@ public class CreateBoletoPaymentRequest
     }
  
     /** GETTER
-     * Boleto due date
-     */
-    @JsonGetter("due_at")
-    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
-    public DateTime getDueAt ( ) { 
-        return this.dueAt;
-    }
-    
-    /** SETTER
-     * Boleto due date
-     */
-    @JsonSetter("due_at")
-    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
-    public void setDueAt (DateTime value) { 
-        this.dueAt = value;
-    }
- 
-    /** GETTER
      * Card's billing address
      */
     @JsonGetter("billing_address")
@@ -119,6 +101,24 @@ public class CreateBoletoPaymentRequest
     @JsonSetter("billing_address_id")
     public void setBillingAddressId (String value) { 
         this.billingAddressId = value;
+    }
+ 
+    /** GETTER
+     * Boleto due date
+     */
+    @JsonGetter("due_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getDueAt ( ) { 
+        return this.dueAt;
+    }
+    
+    /** SETTER
+     * Boleto due date
+     */
+    @JsonSetter("due_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setDueAt (DateTime value) { 
+        this.dueAt = value;
     }
  
     /** GETTER

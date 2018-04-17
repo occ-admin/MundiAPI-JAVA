@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5392546986797687577L;
+    private static final long serialVersionUID = 5599804872930072918L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -43,6 +43,7 @@ public class CreateSubscriptionRequest
     private String cardToken;
     private String gatewayAffiliationId;
     private Integer quantity;
+    private Integer boletoDueDays;
     /** GETTER
      * Customer
      */
@@ -475,6 +476,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("quantity")
     public void setQuantity (Integer value) { 
         this.quantity = value;
+    }
+ 
+    /** GETTER
+     * Days until boleto expires
+     */
+    @JsonGetter("boleto_due_days")
+    public Integer getBoletoDueDays ( ) { 
+        return this.boletoDueDays;
+    }
+    
+    /** SETTER
+     * Days until boleto expires
+     */
+    @JsonSetter("boleto_due_days")
+    public void setBoletoDueDays (Integer value) { 
+        this.boletoDueDays = value;
     }
  
 }

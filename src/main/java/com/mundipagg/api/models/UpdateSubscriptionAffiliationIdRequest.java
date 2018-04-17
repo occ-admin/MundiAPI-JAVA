@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class UpdateSubscriptionAffiliationIdRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5039913369804996013L;
+    private static final long serialVersionUID = 5611183551191816986L;
     private String gatewayAffiliationId;
     /** GETTER
      * TODO: Write general description for this method

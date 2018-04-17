@@ -43,14 +43,14 @@ public class SellersController extends BaseController {
 
     /**
      * TODO: type endpoint description here
-     * @param    id    Required parameter: Seller Id
+     * @param    request    Required parameter: Seller Model
      * @return    Returns the GetSellerResponse response from the API call 
      */
-    public GetSellerResponse getSellerById(
-                final String id
+    public GetSellerResponse createSeller(
+                final CreateSellerRequest request
     ) throws Throwable {
         APICallBackCatcher<GetSellerResponse> callback = new APICallBackCatcher<GetSellerResponse>();
-        getSellerByIdAsync(id, callback);
+        createSellerAsync(request, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
@@ -58,11 +58,11 @@ public class SellersController extends BaseController {
 
     /**
      * TODO: type endpoint description here
-     * @param    id    Required parameter: Seller Id
+     * @param    request    Required parameter: Seller Model
      * @return    Returns the void response from the API call 
      */
-    public void getSellerByIdAsync(
-                final String id,
+    public void createSellerAsync(
+                final CreateSellerRequest request,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -72,30 +72,30 @@ public class SellersController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/sellers/{id}");
-
-                //process template parameters
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4889523663026294687L;
-                    {
-                        put( "id", id );
-                    }});
+                _queryBuilder.append("/sellers/");
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4921429814951317384L;
+                    private static final long serialVersionUID = 5308970153185463226L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
+                        put( "content-type", "application/json" );
                     }
                 };
 
                 //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
+                final HttpRequest _request;
+                try {
+                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
                                                 Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-
+                } catch (JsonProcessingException jsonProcessingException) {
+                    //let the caller know of the error
+                    callBack.onFailure(null, jsonProcessingException);
+                    return;
+                }
                 //invoke the callback before request if its not null
                 if (getHttpCallBack() != null)
                 {
@@ -187,7 +187,7 @@ public class SellersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4876100479894801760L;
+                    private static final long serialVersionUID = 4970492250334367681L;
                     {
                         put( "sellerId", sellerId );
                     }});
@@ -196,7 +196,7 @@ public class SellersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5713710111460030172L;
+                    private static final long serialVersionUID = 5155129308528065858L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -265,14 +265,14 @@ public class SellersController extends BaseController {
 
     /**
      * TODO: type endpoint description here
-     * @param    request    Required parameter: Seller Model
+     * @param    id    Required parameter: Seller Id
      * @return    Returns the GetSellerResponse response from the API call 
      */
-    public GetSellerResponse createSeller(
-                final CreateSellerRequest request
+    public GetSellerResponse getSellerById(
+                final String id
     ) throws Throwable {
         APICallBackCatcher<GetSellerResponse> callback = new APICallBackCatcher<GetSellerResponse>();
-        createSellerAsync(request, callback);
+        getSellerByIdAsync(id, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
@@ -280,11 +280,11 @@ public class SellersController extends BaseController {
 
     /**
      * TODO: type endpoint description here
-     * @param    request    Required parameter: Seller Model
+     * @param    id    Required parameter: Seller Id
      * @return    Returns the void response from the API call 
      */
-    public void createSellerAsync(
-                final CreateSellerRequest request,
+    public void getSellerByIdAsync(
+                final String id,
                 final APICallBack<GetSellerResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
@@ -294,30 +294,30 @@ public class SellersController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/sellers/");
+                _queryBuilder.append("/sellers/{id}");
+
+                //process template parameters
+                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
+                    private static final long serialVersionUID = 5003147074366923867L;
+                    {
+                        put( "id", id );
+                    }});
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5180915175902995890L;
+                    private static final long serialVersionUID = 5645987251994364658L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
-                        put( "content-type", "application/json" );
                     }
                 };
 
                 //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request;
-                try {
-                    _request = getClientInstance().postBody(_queryUrl, _headers, APIHelper.serialize(request),
+                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null,
                                                 Configuration.basicAuthUserName, Configuration.basicAuthPassword);
-                } catch (JsonProcessingException jsonProcessingException) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, jsonProcessingException);
-                    return;
-                }
+
                 //invoke the callback before request if its not null
                 if (getHttpCallBack() != null)
                 {
@@ -441,7 +441,7 @@ public class SellersController extends BaseController {
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5751895985444156494L;
+                    private static final long serialVersionUID = 5433002879435551556L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -458,7 +458,7 @@ public class SellersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5382791996704446108L;
+                    private static final long serialVersionUID = 4767427812948838563L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -564,7 +564,7 @@ public class SellersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5339213267833104073L;
+                    private static final long serialVersionUID = 4811197208381794781L;
                     {
                         put( "id", id );
                     }});
@@ -573,7 +573,7 @@ public class SellersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4941172375864985726L;
+                    private static final long serialVersionUID = 4640989044373943877L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -686,7 +686,7 @@ public class SellersController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5111242045651702879L;
+                    private static final long serialVersionUID = 4687717259992354037L;
                     {
                         put( "seller_id", sellerId );
                     }});
@@ -695,7 +695,7 @@ public class SellersController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4662494040356357173L;
+                    private static final long serialVersionUID = 5025390759317255240L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
