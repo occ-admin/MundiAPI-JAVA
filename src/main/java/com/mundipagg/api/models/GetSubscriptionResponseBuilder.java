@@ -149,6 +149,14 @@ public class GetSubscriptionResponseBuilder {
         getSubscriptionResponse.setDiscounts(discounts);
         return this;
     }
+
+    /**
+     * Days until boleto expires
+     */
+    public GetSubscriptionResponseBuilder boletoDueDays(Integer boletoDueDays) {
+        getSubscriptionResponse.setBoletoDueDays(boletoDueDays);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

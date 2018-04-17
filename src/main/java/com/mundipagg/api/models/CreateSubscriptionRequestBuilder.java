@@ -234,6 +234,14 @@ public class CreateSubscriptionRequestBuilder {
         createSubscriptionRequest.setQuantity(quantity);
         return this;
     }
+
+    /**
+     * Days until boleto expires
+     */
+    public CreateSubscriptionRequestBuilder boletoDueDays(Integer boletoDueDays) {
+        createSubscriptionRequest.setBoletoDueDays(boletoDueDays);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

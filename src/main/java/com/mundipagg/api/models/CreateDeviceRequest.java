@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateDeviceRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5362370125872068075L;
+    private static final long serialVersionUID = 5173798176078345099L;
     private String platform;
     /** GETTER
      * Device's platform

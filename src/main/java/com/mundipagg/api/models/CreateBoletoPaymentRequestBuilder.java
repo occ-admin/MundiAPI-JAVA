@@ -44,14 +44,6 @@ public class CreateBoletoPaymentRequestBuilder {
     }
 
     /**
-     * Boleto due date
-     */
-    public CreateBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
-        createBoletoPaymentRequest.setDueAt(dueAt);
-        return this;
-    }
-
-    /**
      * Card's billing address
      */
     public CreateBoletoPaymentRequestBuilder billingAddress(CreateAddressRequest billingAddress) {
@@ -64,6 +56,14 @@ public class CreateBoletoPaymentRequestBuilder {
      */
     public CreateBoletoPaymentRequestBuilder billingAddressId(String billingAddressId) {
         createBoletoPaymentRequest.setBillingAddressId(billingAddressId);
+        return this;
+    }
+
+    /**
+     * Boleto due date
+     */
+    public CreateBoletoPaymentRequestBuilder dueAt(DateTime dueAt) {
+        createBoletoPaymentRequest.setDueAt(dueAt);
         return this;
     }
 

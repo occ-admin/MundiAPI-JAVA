@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetDiscountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5450259960263983624L;
+    private static final long serialVersionUID = 5687856600045531156L;
     private String id;
     private double value;
     private String discountType;
