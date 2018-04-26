@@ -49,6 +49,22 @@ public class GetSubscriptionUsagesDetailsResponseBuilder {
         getSubscriptionUsagesDetailsResponse.setUsages(usages);
         return this;
     }
+
+    /**
+     * Total discounted value
+     */
+    public GetSubscriptionUsagesDetailsResponseBuilder totalDiscount(Integer totalDiscount) {
+        getSubscriptionUsagesDetailsResponse.setTotalDiscount(totalDiscount);
+        return this;
+    }
+
+    /**
+     * Total inremented value
+     */
+    public GetSubscriptionUsagesDetailsResponseBuilder totalIncrement(Integer totalIncrement) {
+        getSubscriptionUsagesDetailsResponse.setTotalIncrement(totalIncrement);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

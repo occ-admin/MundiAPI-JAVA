@@ -49,6 +49,14 @@ public class CreateDiscountRequestBuilder {
         createDiscountRequest.setCycles(cycles);
         return this;
     }
+
+    /**
+     * Description
+     */
+    public CreateDiscountRequestBuilder description(String description) {
+        createDiscountRequest.setDescription(description);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

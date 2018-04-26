@@ -11,11 +11,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class GetSubscriptionUsagesDetailsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4727986241180278312L;
+    private static final long serialVersionUID = 5433336738165994598L;
     private String subscriptionId;
     private int totalAmount;
     private GetPeriodResponse period;
     private List<GetUsageResponse> usages;
+    private Integer totalDiscount;
+    private Integer totalIncrement;
     /** GETTER
      * Subscription Identifier
      */
@@ -78,6 +80,38 @@ public class GetSubscriptionUsagesDetailsResponse
     @JsonSetter("Usages")
     public void setUsages (List<GetUsageResponse> value) { 
         this.usages = value;
+    }
+ 
+    /** GETTER
+     * Total discounted value
+     */
+    @JsonGetter("total_discount")
+    public Integer getTotalDiscount ( ) { 
+        return this.totalDiscount;
+    }
+    
+    /** SETTER
+     * Total discounted value
+     */
+    @JsonSetter("total_discount")
+    public void setTotalDiscount (Integer value) { 
+        this.totalDiscount = value;
+    }
+ 
+    /** GETTER
+     * Total inremented value
+     */
+    @JsonGetter("total_increment")
+    public Integer getTotalIncrement ( ) { 
+        return this.totalIncrement;
+    }
+    
+    /** SETTER
+     * Total inremented value
+     */
+    @JsonSetter("total_increment")
+    public void setTotalIncrement (Integer value) { 
+        this.totalIncrement = value;
     }
  
 }

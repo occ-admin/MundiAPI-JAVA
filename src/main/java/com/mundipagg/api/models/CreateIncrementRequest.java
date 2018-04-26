@@ -9,16 +9,16 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CreateDiscountRequest 
+public class CreateIncrementRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5250479941069447077L;
+    private static final long serialVersionUID = 4669846759075839167L;
     private double value;
-    private String discountType;
+    private String incrementType;
     private String itemId;
     private Integer cycles;
     private String description;
     /** GETTER
-     * The discount value
+     * The increment value
      */
     @JsonGetter("value")
     public double getValue ( ) { 
@@ -26,7 +26,7 @@ public class CreateDiscountRequest
     }
     
     /** SETTER
-     * The discount value
+     * The increment value
      */
     @JsonSetter("value")
     public void setValue (double value) { 
@@ -34,23 +34,23 @@ public class CreateDiscountRequest
     }
  
     /** GETTER
-     * Discount type. Can be either flat or percentage.
+     * Increment type. Can be either flat or percentage.
      */
-    @JsonGetter("discount_type")
-    public String getDiscountType ( ) { 
-        return this.discountType;
+    @JsonGetter("increment_type")
+    public String getIncrementType ( ) { 
+        return this.incrementType;
     }
     
     /** SETTER
-     * Discount type. Can be either flat or percentage.
+     * Increment type. Can be either flat or percentage.
      */
-    @JsonSetter("discount_type")
-    public void setDiscountType (String value) { 
-        this.discountType = value;
+    @JsonSetter("increment_type")
+    public void setIncrementType (String value) { 
+        this.incrementType = value;
     }
  
     /** GETTER
-     * The item where the discount will be applied
+     * The item where the increment will be applied
      */
     @JsonGetter("item_id")
     public String getItemId ( ) { 
@@ -58,7 +58,7 @@ public class CreateDiscountRequest
     }
     
     /** SETTER
-     * The item where the discount will be applied
+     * The item where the increment will be applied
      */
     @JsonSetter("item_id")
     public void setItemId (String value) { 
@@ -66,7 +66,7 @@ public class CreateDiscountRequest
     }
  
     /** GETTER
-     * Number of cycles that the discount will be applied
+     * Number of cycles that the increment will be applied
      */
     @JsonGetter("cycles")
     public Integer getCycles ( ) { 
@@ -74,7 +74,7 @@ public class CreateDiscountRequest
     }
     
     /** SETTER
-     * Number of cycles that the discount will be applied
+     * Number of cycles that the increment will be applied
      */
     @JsonSetter("cycles")
     public void setCycles (Integer value) { 

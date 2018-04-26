@@ -122,6 +122,14 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
+    /**
+     * Subscription increments
+     */
+    public GetSubscriptionResponseBuilder increments(List<GetIncrementResponse> increments) {
+        getSubscriptionResponse.setIncrements(increments);
+        return this;
+    }
+
     public GetSubscriptionResponseBuilder nextBillingAt(DateTime nextBillingAt) {
         getSubscriptionResponse.setNextBillingAt(nextBillingAt);
         return this;

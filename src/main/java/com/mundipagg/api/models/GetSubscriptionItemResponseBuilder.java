@@ -54,6 +54,11 @@ public class GetSubscriptionItemResponseBuilder {
         return this;
     }
 
+    public GetSubscriptionItemResponseBuilder increments(List<GetIncrementResponse> increments) {
+        getSubscriptionItemResponse.setIncrements(increments);
+        return this;
+    }
+
     public GetSubscriptionItemResponseBuilder subscription(GetSubscriptionResponse subscription) {
         getSubscriptionItemResponse.setSubscription(subscription);
         return this;

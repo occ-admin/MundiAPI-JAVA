@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateSubscriptionRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5599804872930072918L;
+    private static final long serialVersionUID = 5586613814030152969L;
     private CreateCustomerRequest customer;
     private CreateCardRequest card;
     private String code;
@@ -32,6 +32,7 @@ public class CreateSubscriptionRequest
     private List<CreateDiscountRequest> discounts;
     private LinkedHashMap<String, String> metadata;
     private CreateSetupRequest setup;
+    private List<CreateIncrementRequest> increments;
     private String planId;
     private String customerId;
     private String cardId;
@@ -298,6 +299,22 @@ public class CreateSubscriptionRequest
     @JsonSetter("setup")
     public void setSetup (CreateSetupRequest value) { 
         this.setup = value;
+    }
+ 
+    /** GETTER
+     * Increments
+     */
+    @JsonGetter("increments")
+    public List<CreateIncrementRequest> getIncrements ( ) { 
+        return this.increments;
+    }
+    
+    /** SETTER
+     * Increments
+     */
+    @JsonSetter("increments")
+    public void setIncrements (List<CreateIncrementRequest> value) { 
+        this.increments = value;
     }
  
     /** GETTER

@@ -148,6 +148,14 @@ public class CreateSubscriptionRequestBuilder {
     }
 
     /**
+     * Increments
+     */
+    public CreateSubscriptionRequestBuilder increments(List<CreateIncrementRequest> increments) {
+        createSubscriptionRequest.setIncrements(increments);
+        return this;
+    }
+
+    /**
      * Plan id
      */
     public CreateSubscriptionRequestBuilder planId(String planId) {
