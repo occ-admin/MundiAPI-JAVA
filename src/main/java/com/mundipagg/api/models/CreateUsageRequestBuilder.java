@@ -33,6 +33,14 @@ public class CreateUsageRequestBuilder {
         createUsageRequest.setUsedAt(usedAt);
         return this;
     }
+
+    /**
+     * Identification code in the client system
+     */
+    public CreateUsageRequestBuilder code(String code) {
+        createUsageRequest.setCode(code);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

@@ -13,12 +13,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mundipagg.api.DateTimeHelper;
 import org.joda.time.DateTime;
 
-public class GetDiscountResponse 
+public class GetIncrementResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4763455779379381487L;
+    private static final long serialVersionUID = 5482341272031393770L;
     private String id;
     private double value;
-    private String discountType;
+    private String incrementType;
     private String status;
     private DateTime createdAt;
     private GetSubscriptionResponse subscription;
@@ -60,17 +60,17 @@ public class GetDiscountResponse
     /** GETTER
      * TODO: Write general description for this method
      */
-    @JsonGetter("discount_type")
-    public String getDiscountType ( ) { 
-        return this.discountType;
+    @JsonGetter("increment_type")
+    public String getIncrementType ( ) { 
+        return this.incrementType;
     }
     
     /** SETTER
      * TODO: Write general description for this method
      */
-    @JsonSetter("discount_type")
-    public void setDiscountType (String value) { 
-        this.discountType = value;
+    @JsonSetter("increment_type")
+    public void setIncrementType (String value) { 
+        this.incrementType = value;
     }
  
     /** GETTER

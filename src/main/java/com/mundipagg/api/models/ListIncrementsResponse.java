@@ -9,24 +9,24 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class ListPlansResponse 
+public class ListIncrementsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5474693373539311175L;
-    private List<GetPlanResponse> data;
+    private static final long serialVersionUID = 5195665977086204233L;
+    private List<GetIncrementResponse> data;
     private PagingResponse paging;
     /** GETTER
-     * The plan objects
+     * The Increments response
      */
     @JsonGetter("data")
-    public List<GetPlanResponse> getData ( ) { 
+    public List<GetIncrementResponse> getData ( ) { 
         return this.data;
     }
     
     /** SETTER
-     * The plan objects
+     * The Increments response
      */
     @JsonSetter("data")
-    public void setData (List<GetPlanResponse> value) { 
+    public void setData (List<GetIncrementResponse> value) { 
         this.data = value;
     }
  

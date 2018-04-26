@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4883121961487366050L;
+    private static final long serialVersionUID = 5322138311913580509L;
     private String id;
     private String code;
     private DateTime startAt;
@@ -36,6 +36,7 @@ public class GetSubscriptionResponse
     private LinkedHashMap<String, String> metadata;
     private GetSetupResponse setup;
     private String gatewayAffiliationId;
+    private List<GetIncrementResponse> increments;
     private DateTime nextBillingAt;
     private Integer billingDay;
     private Integer minimumPrice;
@@ -366,6 +367,22 @@ public class GetSubscriptionResponse
     @JsonSetter("gateway_affiliation_id")
     public void setGatewayAffiliationId (String value) { 
         this.gatewayAffiliationId = value;
+    }
+ 
+    /** GETTER
+     * Subscription increments
+     */
+    @JsonGetter("increments")
+    public List<GetIncrementResponse> getIncrements ( ) { 
+        return this.increments;
+    }
+    
+    /** SETTER
+     * Subscription increments
+     */
+    @JsonSetter("increments")
+    public void setIncrements (List<GetIncrementResponse> value) { 
+        this.increments = value;
     }
  
     /** GETTER
