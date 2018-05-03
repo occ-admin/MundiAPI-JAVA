@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetPeriodResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5121959817968420701L;
+    private static final long serialVersionUID = 4757877727373567389L;
     private DateTime startAt;
     private DateTime endAt;
     private String id;

@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class CreateUsageRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4933374174214724379L;
+    private static final long serialVersionUID = 5586321516524084068L;
     private int quantity;
     private String description;
     private DateTime usedAt;

@@ -118,6 +118,14 @@ public class CreateOrderRequestBuilder {
         createOrderRequest.setDevice(device);
         return this;
     }
+
+    /**
+     * Currency
+     */
+    public CreateOrderRequestBuilder currency(String currency) {
+        createOrderRequest.setCurrency(currency);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

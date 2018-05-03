@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateAccessTokenRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5545321865857154768L;
+    private static final long serialVersionUID = 4902593197838515136L;
     private Integer expiresIn;
     /** GETTER
      * Minutes to expire the token
