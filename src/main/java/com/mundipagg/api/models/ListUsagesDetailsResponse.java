@@ -9,29 +9,29 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class ListSubscriptionsResponse 
+public class ListUsagesDetailsResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5719799746804077811L;
-    private List<GetSubscriptionResponse> data;
+    private static final long serialVersionUID = 5079324242734865122L;
+    private List<GetUsageResponse> data;
     private PagingResponse paging;
     /** GETTER
-     * The subscription objects
+     * The usage objects
      */
     @JsonGetter("data")
-    public List<GetSubscriptionResponse> getData ( ) { 
+    public List<GetUsageResponse> getData ( ) { 
         return this.data;
     }
     
     /** SETTER
-     * The subscription objects
+     * The usage objects
      */
     @JsonSetter("data")
-    public void setData (List<GetSubscriptionResponse> value) { 
+    public void setData (List<GetUsageResponse> value) { 
         this.data = value;
     }
  
     /** GETTER
-     * Paging object
+     * paging object
      */
     @JsonGetter("paging")
     public PagingResponse getPaging ( ) { 
@@ -39,7 +39,7 @@ public class ListSubscriptionsResponse
     }
     
     /** SETTER
-     * Paging object
+     * paging object
      */
     @JsonSetter("paging")
     public void setPaging (PagingResponse value) { 

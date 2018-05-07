@@ -76,7 +76,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5619849944726038050L;
+                    private static final long serialVersionUID = 5678698467482888387L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -85,7 +85,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5604962688122940629L;
+                    private static final long serialVersionUID = 4696376614847840743L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -187,7 +187,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4807549315416040423L;
+                    private static final long serialVersionUID = 4916585976397335261L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -196,7 +196,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4770179223256377373L;
+                    private static final long serialVersionUID = 5213002285265443140L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -300,7 +300,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4941717604338306832L;
+                    private static final long serialVersionUID = 4689243691131865086L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -413,7 +413,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5590273110457159400L;
+                    private static final long serialVersionUID = 4655782044275555285L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -422,7 +422,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4696080119559515503L;
+                    private static final long serialVersionUID = 5272548162905522244L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -535,7 +535,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4900081376971933814L;
+                    private static final long serialVersionUID = 4625116071819440310L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -544,7 +544,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5245148789313309127L;
+                    private static final long serialVersionUID = 4639427211683210717L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -657,7 +657,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5309534833291023670L;
+                    private static final long serialVersionUID = 5221752336259257758L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -666,7 +666,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5035575430099790737L;
+                    private static final long serialVersionUID = 5236885109283617993L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -779,7 +779,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4879626327176728271L;
+                    private static final long serialVersionUID = 5237854740691642221L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -788,7 +788,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4937802008250379295L;
+                    private static final long serialVersionUID = 5592422512724914200L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -901,7 +901,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5623768943478124706L;
+                    private static final long serialVersionUID = 5316818998275592842L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -910,7 +910,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5323147513986668172L;
+                    private static final long serialVersionUID = 4678541010485080416L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1051,7 +1051,7 @@ public class ChargesController extends BaseController {
 
                 //process query parameters
                 APIHelper.appendUrlWithQueryParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 4815401527593847807L;
+                    private static final long serialVersionUID = 5605378914855730815L;
                     {
                         put( "page", page );
                         put( "size", size );
@@ -1068,7 +1068,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4995188071258170184L;
+                    private static final long serialVersionUID = 4789142798966888837L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
@@ -1174,7 +1174,7 @@ public class ChargesController extends BaseController {
 
                 //process template parameters
                 APIHelper.appendUrlWithTemplateParameters(_queryBuilder, new HashMap<String, Object>() {
-                    private static final long serialVersionUID = 5316104274922247376L;
+                    private static final long serialVersionUID = 5375197392799307131L;
                     {
                         put( "charge_id", chargeId );
                     }});
@@ -1183,7 +1183,7 @@ public class ChargesController extends BaseController {
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5164538267615231286L;
+                    private static final long serialVersionUID = 4757498250881096571L;
                     {
                         put( "user-agent", "MundiSDK" );
                         put( "accept", "application/json" );
