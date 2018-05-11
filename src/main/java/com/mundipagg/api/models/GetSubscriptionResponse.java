@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetSubscriptionResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4764878576736993140L;
+    private static final long serialVersionUID = 5145845564934231064L;
     private String id;
     private String code;
     private DateTime startAt;
@@ -36,11 +36,13 @@ public class GetSubscriptionResponse
     private LinkedHashMap<String, String> metadata;
     private GetSetupResponse setup;
     private String gatewayAffiliationId;
+    private List<GetIncrementResponse> increments;
     private DateTime nextBillingAt;
     private Integer billingDay;
     private Integer minimumPrice;
     private DateTime canceledAt;
     private List<GetDiscountResponse> discounts;
+    private Integer boletoDueDays;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -368,6 +370,22 @@ public class GetSubscriptionResponse
     }
  
     /** GETTER
+     * Subscription increments
+     */
+    @JsonGetter("increments")
+    public List<GetIncrementResponse> getIncrements ( ) { 
+        return this.increments;
+    }
+    
+    /** SETTER
+     * Subscription increments
+     */
+    @JsonSetter("increments")
+    public void setIncrements (List<GetIncrementResponse> value) { 
+        this.increments = value;
+    }
+ 
+    /** GETTER
      * TODO: Write general description for this method
      */
     @JsonGetter("next_billing_at")
@@ -449,6 +467,22 @@ public class GetSubscriptionResponse
     @JsonSetter("discounts")
     public void setDiscounts (List<GetDiscountResponse> value) { 
         this.discounts = value;
+    }
+ 
+    /** GETTER
+     * Days until boleto expires
+     */
+    @JsonGetter("boleto_due_days")
+    public Integer getBoletoDueDays ( ) { 
+        return this.boletoDueDays;
+    }
+    
+    /** SETTER
+     * Days until boleto expires
+     */
+    @JsonSetter("boleto_due_days")
+    public void setBoletoDueDays (Integer value) { 
+        this.boletoDueDays = value;
     }
  
 }

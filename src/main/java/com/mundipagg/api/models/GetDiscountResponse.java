@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetDiscountResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5538315853707896868L;
+    private static final long serialVersionUID = 5676098040436831523L;
     private String id;
     private double value;
     private String discountType;
@@ -24,6 +24,7 @@ public class GetDiscountResponse
     private GetSubscriptionResponse subscription;
     private Integer cycles;
     private DateTime deletedAt;
+    private String description;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -154,6 +155,22 @@ public class GetDiscountResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setDeletedAt (DateTime value) { 
         this.deletedAt = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("description")
+    public String getDescription ( ) { 
+        return this.description;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("description")
+    public void setDescription (String value) { 
+        this.description = value;
     }
  
 }

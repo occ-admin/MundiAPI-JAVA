@@ -137,6 +137,38 @@ public class GetCheckoutPaymentResponseBuilder {
     }
 
     /**
+     * Indica se o billing address poderá ser editado
+     */
+    public GetCheckoutPaymentResponseBuilder billingAddressEditable(boolean billingAddressEditable) {
+        getCheckoutPaymentResponse.setBillingAddressEditable(billingAddressEditable);
+        return this;
+    }
+
+    /**
+     * Configurações  de entrega
+     */
+    public GetCheckoutPaymentResponseBuilder shipping(GetShippingResponse shipping) {
+        getCheckoutPaymentResponse.setShipping(shipping);
+        return this;
+    }
+
+    /**
+     * Indica se possui entrega
+     */
+    public GetCheckoutPaymentResponseBuilder shippable(boolean shippable) {
+        getCheckoutPaymentResponse.setShippable(shippable);
+        return this;
+    }
+
+    /**
+     * Moeda
+     */
+    public GetCheckoutPaymentResponseBuilder currency(String currency) {
+        getCheckoutPaymentResponse.setCurrency(currency);
+        return this;
+    }
+
+    /**
      * Valor em centavos
      */
     public GetCheckoutPaymentResponseBuilder amount(Integer amount) {
@@ -149,6 +181,22 @@ public class GetCheckoutPaymentResponseBuilder {
      */
     public GetCheckoutPaymentResponseBuilder canceledAt(DateTime canceledAt) {
         getCheckoutPaymentResponse.setCanceledAt(canceledAt);
+        return this;
+    }
+
+    /**
+     * Data de fechamento
+     */
+    public GetCheckoutPaymentResponseBuilder closedAt(DateTime closedAt) {
+        getCheckoutPaymentResponse.setClosedAt(closedAt);
+        return this;
+    }
+
+    /**
+     * Data de expiração
+     */
+    public GetCheckoutPaymentResponseBuilder expiresAt(DateTime expiresAt) {
+        getCheckoutPaymentResponse.setExpiresAt(expiresAt);
         return this;
     }
     /**

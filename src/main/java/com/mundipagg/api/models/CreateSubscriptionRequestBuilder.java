@@ -148,6 +148,14 @@ public class CreateSubscriptionRequestBuilder {
     }
 
     /**
+     * Increments
+     */
+    public CreateSubscriptionRequestBuilder increments(List<CreateIncrementRequest> increments) {
+        createSubscriptionRequest.setIncrements(increments);
+        return this;
+    }
+
+    /**
      * Plan id
      */
     public CreateSubscriptionRequestBuilder planId(String planId) {
@@ -232,6 +240,14 @@ public class CreateSubscriptionRequestBuilder {
      */
     public CreateSubscriptionRequestBuilder quantity(Integer quantity) {
         createSubscriptionRequest.setQuantity(quantity);
+        return this;
+    }
+
+    /**
+     * Days until boleto expires
+     */
+    public CreateSubscriptionRequestBuilder boletoDueDays(Integer boletoDueDays) {
+        createSubscriptionRequest.setBoletoDueDays(boletoDueDays);
         return this;
     }
     /**

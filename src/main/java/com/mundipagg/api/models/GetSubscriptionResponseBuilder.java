@@ -122,6 +122,14 @@ public class GetSubscriptionResponseBuilder {
         return this;
     }
 
+    /**
+     * Subscription increments
+     */
+    public GetSubscriptionResponseBuilder increments(List<GetIncrementResponse> increments) {
+        getSubscriptionResponse.setIncrements(increments);
+        return this;
+    }
+
     public GetSubscriptionResponseBuilder nextBillingAt(DateTime nextBillingAt) {
         getSubscriptionResponse.setNextBillingAt(nextBillingAt);
         return this;
@@ -147,6 +155,14 @@ public class GetSubscriptionResponseBuilder {
      */
     public GetSubscriptionResponseBuilder discounts(List<GetDiscountResponse> discounts) {
         getSubscriptionResponse.setDiscounts(discounts);
+        return this;
+    }
+
+    /**
+     * Days until boleto expires
+     */
+    public GetSubscriptionResponseBuilder boletoDueDays(Integer boletoDueDays) {
+        getSubscriptionResponse.setBoletoDueDays(boletoDueDays);
         return this;
     }
     /**

@@ -118,6 +118,22 @@ public class GetInvoiceResponseBuilder {
         getInvoiceResponse.setSeenAt(seenAt);
         return this;
     }
+
+    /**
+     * Total discounted value
+     */
+    public GetInvoiceResponseBuilder totalDiscount(Integer totalDiscount) {
+        getInvoiceResponse.setTotalDiscount(totalDiscount);
+        return this;
+    }
+
+    /**
+     * Total discounted value
+     */
+    public GetInvoiceResponseBuilder totalIncrement(Integer totalIncrement) {
+        getInvoiceResponse.setTotalIncrement(totalIncrement);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

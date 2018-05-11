@@ -79,6 +79,14 @@ public class GetUsageResponseBuilder {
         getUsageResponse.setDeletedAt(deletedAt);
         return this;
     }
+
+    /**
+     * Identification code in the client system
+     */
+    public GetUsageResponseBuilder code(String code) {
+        getUsageResponse.setCode(code);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

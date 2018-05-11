@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateOrderRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4883460838431904752L;
+    private static final long serialVersionUID = 5695753714239091143L;
     private List<CreateOrderItemRequest> items;
     private CreateCustomerRequest customer;
     private List<CreatePaymentRequest> payments;
@@ -25,6 +25,7 @@ public class CreateOrderRequest
     private String sessionId;
     private CreateLocationRequest location;
     private CreateDeviceRequest device;
+    private String currency;
     /** GETTER
      * Items
      */
@@ -231,6 +232,22 @@ public class CreateOrderRequest
     @JsonSetter("device")
     public void setDevice (CreateDeviceRequest value) { 
         this.device = value;
+    }
+ 
+    /** GETTER
+     * Currency
+     */
+    @JsonGetter("currency")
+    public String getCurrency ( ) { 
+        return this.currency;
+    }
+    
+    /** SETTER
+     * Currency
+     */
+    @JsonSetter("currency")
+    public void setCurrency (String value) { 
+        this.currency = value;
     }
  
 }

@@ -11,11 +11,12 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CreateDiscountRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5622057336154868441L;
+    private static final long serialVersionUID = 5604979383115436430L;
     private double value;
     private String discountType;
     private String itemId;
     private Integer cycles;
+    private String description;
     /** GETTER
      * The discount value
      */
@@ -78,6 +79,22 @@ public class CreateDiscountRequest
     @JsonSetter("cycles")
     public void setCycles (Integer value) { 
         this.cycles = value;
+    }
+ 
+    /** GETTER
+     * Description
+     */
+    @JsonGetter("description")
+    public String getDescription ( ) { 
+        return this.description;
+    }
+    
+    /** SETTER
+     * Description
+     */
+    @JsonSetter("description")
+    public void setDescription (String value) { 
+        this.description = value;
     }
  
 }

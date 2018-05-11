@@ -95,6 +95,14 @@ public class GetCardResponseBuilder {
         return this;
     }
 
+    /**
+     * First six digits
+     */
+    public GetCardResponseBuilder firstSixDigits(String firstSixDigits) {
+        getCardResponse.setFirstSixDigits(firstSixDigits);
+        return this;
+    }
+
     public GetCardResponseBuilder deletedAt(DateTime deletedAt) {
         getCardResponse.setDeletedAt(deletedAt);
         return this;

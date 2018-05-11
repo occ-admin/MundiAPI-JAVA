@@ -58,6 +58,11 @@ public class GetDiscountResponseBuilder {
         getDiscountResponse.setDeletedAt(deletedAt);
         return this;
     }
+
+    public GetDiscountResponseBuilder description(String description) {
+        getDiscountResponse.setDescription(description);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

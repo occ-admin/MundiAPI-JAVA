@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 
 public class GetCheckoutPaymentResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4858854391397549720L;
+    private static final long serialVersionUID = 5663755504936028024L;
     private String id;
     private String defaultPaymentMethod;
     private String successUrl;
@@ -31,8 +31,14 @@ public class GetCheckoutPaymentResponse
     private GetAddressResponse billingaddress;
     private GetCheckoutCardPaymentResponse creditCard;
     private GetCheckoutBoletoPaymentResponse boleto;
+    private boolean billingAddressEditable;
+    private GetShippingResponse shipping;
+    private boolean shippable;
+    private String currency;
     private Integer amount;
     private DateTime canceledAt;
+    private DateTime closedAt;
+    private DateTime expiresAt;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -278,6 +284,70 @@ public class GetCheckoutPaymentResponse
     }
  
     /** GETTER
+     * Indica se o billing address poderá ser editado
+     */
+    @JsonGetter("billing_address_editable")
+    public boolean getBillingAddressEditable ( ) { 
+        return this.billingAddressEditable;
+    }
+    
+    /** SETTER
+     * Indica se o billing address poderá ser editado
+     */
+    @JsonSetter("billing_address_editable")
+    public void setBillingAddressEditable (boolean value) { 
+        this.billingAddressEditable = value;
+    }
+ 
+    /** GETTER
+     * Configurações  de entrega
+     */
+    @JsonGetter("shipping")
+    public GetShippingResponse getShipping ( ) { 
+        return this.shipping;
+    }
+    
+    /** SETTER
+     * Configurações  de entrega
+     */
+    @JsonSetter("shipping")
+    public void setShipping (GetShippingResponse value) { 
+        this.shipping = value;
+    }
+ 
+    /** GETTER
+     * Indica se possui entrega
+     */
+    @JsonGetter("shippable")
+    public boolean getShippable ( ) { 
+        return this.shippable;
+    }
+    
+    /** SETTER
+     * Indica se possui entrega
+     */
+    @JsonSetter("shippable")
+    public void setShippable (boolean value) { 
+        this.shippable = value;
+    }
+ 
+    /** GETTER
+     * Moeda
+     */
+    @JsonGetter("currency")
+    public String getCurrency ( ) { 
+        return this.currency;
+    }
+    
+    /** SETTER
+     * Moeda
+     */
+    @JsonSetter("currency")
+    public void setCurrency (String value) { 
+        this.currency = value;
+    }
+ 
+    /** GETTER
      * Valor em centavos
      */
     @JsonGetter("amount")
@@ -309,6 +379,42 @@ public class GetCheckoutPaymentResponse
     @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
     public void setCanceledAt (DateTime value) { 
         this.canceledAt = value;
+    }
+ 
+    /** GETTER
+     * Data de fechamento
+     */
+    @JsonGetter("closed_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getClosedAt ( ) { 
+        return this.closedAt;
+    }
+    
+    /** SETTER
+     * Data de fechamento
+     */
+    @JsonSetter("closed_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setClosedAt (DateTime value) { 
+        this.closedAt = value;
+    }
+ 
+    /** GETTER
+     * Data de expiração
+     */
+    @JsonGetter("expires_at")
+    @JsonSerialize(using=DateTimeHelper.Rfc8601DateTimeSerializer.class)
+    public DateTime getExpiresAt ( ) { 
+        return this.expiresAt;
+    }
+    
+    /** SETTER
+     * Data de expiração
+     */
+    @JsonSetter("expires_at")
+    @JsonDeserialize(using=DateTimeHelper.Rfc8601DateTimeDeserializer.class)
+    public void setExpiresAt (DateTime value) { 
+        this.expiresAt = value;
     }
  
 }

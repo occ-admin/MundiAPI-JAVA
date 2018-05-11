@@ -102,6 +102,14 @@ public class CreateCreditCardPaymentRequestBuilder {
         createCreditCardPaymentRequest.setCapture(capture);
         return this;
     }
+
+    /**
+     * Customer business segment code
+     */
+    public CreateCreditCardPaymentRequestBuilder merchantCategoryCode(Long merchantCategoryCode) {
+        createCreditCardPaymentRequest.setMerchantCategoryCode(merchantCategoryCode);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */
